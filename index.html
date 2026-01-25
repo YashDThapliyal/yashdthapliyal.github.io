@@ -58,6 +58,7 @@
             display: flex;
             gap: 48px;
             font-size: 12px;
+            align-items: center;
         }
 
         nav a {
@@ -375,6 +376,12 @@
             background: none;
             cursor: pointer;
             font-size: inherit;
+            text-align: left;
+            width: 100%;
+        }
+
+        .contact-item > div {
+            text-align: left;
         }
 
         .contact-item:hover {
@@ -438,6 +445,150 @@
         .copy-feedback.show {
             opacity: 1;
         }
+
+        .dark-mode-toggle {
+            background: none;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            width: 48px;
+            height: 24px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+            margin-left: 24px;
+        }
+
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: black;
+            top: 2px;
+            left: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .dark-mode-toggle.active::before {
+            transform: translateX(24px);
+            background: white;
+        }
+
+        body.dark-mode {
+            background: #0a0a0a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(10, 10, 10, 0.98);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-mode nav a {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .scroll-progress {
+            background: white;
+        }
+
+        body.dark-mode .subtitle {
+            color: rgba(224, 224, 224, 0.7);
+        }
+
+        body.dark-mode .tagline {
+            color: rgba(224, 224, 224, 0.6);
+        }
+
+        body.dark-mode section {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-mode .timeline::before {
+            background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+        }
+
+        body.dark-mode .timeline-dot {
+            background: #0a0a0a;
+            border-color: white;
+        }
+
+        body.dark-mode .timeline-dot::after {
+            background: white;
+        }
+
+        body.dark-mode .timeline-year {
+            color: rgba(224, 224, 224, 0.4);
+        }
+
+        body.dark-mode .timeline-role {
+            color: rgba(224, 224, 224, 0.7);
+        }
+
+        body.dark-mode .timeline-meta {
+            color: rgba(224, 224, 224, 0.4);
+        }
+
+        body.dark-mode .timeline-description {
+            color: rgba(224, 224, 224, 0.65);
+        }
+
+        body.dark-mode .timeline-item:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.dark-mode .project-card {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark-mode .project-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        body.dark-mode .project-description {
+            color: rgba(224, 224, 224, 0.65);
+        }
+
+        body.dark-mode .project-tag {
+            background: rgba(255, 255, 255, 0.06);
+            color: rgba(224, 224, 224, 0.6);
+        }
+
+        body.dark-mode .contact-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        body.dark-mode .contact-label {
+            color: rgba(224, 224, 224, 0.4);
+        }
+
+        body.dark-mode .arrow-icon {
+            color: rgba(224, 224, 224, 0.3);
+        }
+
+        body.dark-mode .contact-item:hover .arrow-icon {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .project-arrow {
+            color: rgba(224, 224, 224, 0.4);
+        }
+
+        body.dark-mode .project-card:hover .project-arrow {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(224, 224, 224, 0.4);
+        }
+
+        body.dark-mode .dark-mode-toggle {
+            border-color: rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -450,6 +601,7 @@
                 <a href="#journey">Journey</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
+                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"></button>
             </div>
         </div>
     </nav>
@@ -673,6 +825,26 @@
     <div class="copy-feedback" id="copyFeedback">Email copied!</div>
 
     <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            darkModeToggle.classList.add('active');
+        }
+
+        darkModeToggle.addEventListener('click', function() {
+            body.classList.toggle('dark-mode');
+            darkModeToggle.classList.toggle('active');
+            
+            // Save theme preference
+            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
         // Typewriter effect
         const typewriter = document.getElementById('typewriter');
         const fullText = 'Building agentic AI systems, large language models, and innovative solutions that push the boundaries of what\'s possible.';
