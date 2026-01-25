@@ -4,18 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yash Thapliyal - AI/ML Researcher &amp; Software Engineer</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="AI/ML Researcher and Software Engineer specializing in agentic AI systems, large language models, and multimodal machine learning. Experience at Berkeley AI Research, Amazon, and C.Light Technologies.">
+    <meta name="keywords" content="Yash Thapliyal, AI Researcher, Machine Learning, Software Engineer, Berkeley, BAIR, LLM, Agentic AI, Computer Vision, NLP">
+    <meta name="author" content="Yash Thapliyal">
+    <link rel="canonical" href="https://yashthapliyal.com/">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yashthapliyal.com/">
+    <meta property="og:title" content="Yash Thapliyal - AI/ML Researcher &amp; Software Engineer">
+    <meta property="og:description" content="AI/ML Researcher and Software Engineer specializing in agentic AI systems, large language models, and multimodal machine learning.">
+    <meta property="og:image" content="https://yashthapliyal.com/profile.JPG">
+    <meta property="og:image:alt" content="Yash Thapliyal">
+    <meta property="og:site_name" content="Yash Thapliyal">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@yashdthapliyal">
+    <meta name="twitter:creator" content="@yashdthapliyal">
+    <meta name="twitter:title" content="Yash Thapliyal - AI/ML Researcher &amp; Software Engineer">
+    <meta name="twitter:description" content="AI/ML Researcher and Software Engineer specializing in agentic AI systems, large language models, and multimodal machine learning.">
+    <meta name="twitter:image" content="https://yashthapliyal.com/profile.JPG">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Yash Thapliyal",
+      "url": "https://yashthapliyal.com",
+      "image": "https://yashthapliyal.com/profile.JPG",
+      "jobTitle": "AI/ML Researcher & Software Engineer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Berkeley Artificial Intelligence Research"
+      },
+      "alumniOf": "University of California, Berkeley",
+      "sameAs": [
+        "https://linkedin.com/in/yashdthapliyal",
+        "https://github.com/YashDThapliyal",
+        "https://twitter.com/yashdthapliyal"
+      ],
+      "email": "yash.thapliyal@berkeley.edu"
+    }
+    </script>
+
     <style>
+        :root {
+            /* Color Variables */
+            --color-bg: white;
+            --color-text: black;
+            --color-text-secondary: rgba(0, 0, 0, 0.8);
+            --color-text-tertiary: rgba(0, 0, 0, 0.65);
+            --color-text-muted: rgba(0, 0, 0, 0.5);
+            --color-border: rgba(0, 0, 0, 0.08);
+            --color-border-hover: rgba(0, 0, 0, 0.2);
+            --color-hover-bg: rgba(0, 0, 0, 0.02);
+            --color-hover-bg-alt: rgba(0, 0, 0, 0.03);
+
+            /* Spacing Variables */
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 80px;
+            --spacing-3xl: 128px;
+
+            /* Transition Variables */
+            --transition-fast: 0.3s ease;
+            --transition-slow: 0.7s ease;
+        }
+
+        body.dark-mode {
+            --color-bg: #0a0a0a;
+            --color-text: #e0e0e0;
+            --color-text-secondary: rgba(224, 224, 224, 0.8);
+            --color-text-tertiary: rgba(224, 224, 224, 0.65);
+            --color-text-muted: rgba(224, 224, 224, 0.5);
+            --color-border: rgba(255, 255, 255, 0.08);
+            --color-border-hover: rgba(255, 255, 255, 0.2);
+            --color-hover-bg: rgba(255, 255, 255, 0.02);
+            --color-hover-bg-alt: rgba(255, 255, 255, 0.03);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Accessibility: Focus Styles */
+        *:focus-visible {
+            outline: 2px solid var(--color-text);
+            outline-offset: 2px;
+        }
+
+        /* Accessibility: Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background: white;
-            color: black;
+            background: var(--color-bg);
+            color: var(--color-text);
             line-height: 1.6;
+        }
+
+        /* Accessibility: Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--color-text);
+            color: var(--color-bg);
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 100;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            top: 0;
         }
 
         .scroll-progress {
@@ -23,9 +140,9 @@
             top: 0;
             left: 0;
             height: 6px;
-            background: black;
+            background: var(--color-text);
             z-index: 1000;
-            transition: width 0.3s ease;
+            transition: width var(--transition-fast);
         }
 
         nav {
@@ -34,15 +151,19 @@
             width: 100%;
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(4px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid var(--color-border);
             z-index: 40;
             padding-top: 4px;
+        }
+
+        body.dark-mode nav {
+            background: rgba(10, 10, 10, 0.98);
         }
 
         nav .nav-container {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 20px 32px;
+            padding: 20px var(--spacing-lg);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -56,18 +177,24 @@
 
         nav .nav-links {
             display: flex;
-            gap: 48px;
+            gap: var(--spacing-xl);
             font-size: 12px;
             align-items: center;
         }
 
+        @media (max-width: 768px) {
+            nav .nav-links {
+                gap: var(--spacing-md);
+            }
+        }
+
         nav a {
             text-decoration: none;
-            color: black;
+            color: var(--color-text);
             text-transform: uppercase;
             letter-spacing: 0.8px;
             font-weight: 500;
-            transition: opacity 0.3s;
+            transition: opacity var(--transition-fast);
         }
 
         nav a:hover {
@@ -75,10 +202,7 @@
         }
 
         .hero {
-            padding-top: 128px;
-            padding-bottom: 128px;
-            padding-left: 32px;
-            padding-right: 32px;
+            padding: var(--spacing-3xl) var(--spacing-lg);
             max-width: 1440px;
             margin: 0 auto;
         }
@@ -86,21 +210,25 @@
         .hero-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: var(--spacing-xl);
             align-items: center;
         }
 
         @media (max-width: 768px) {
+            .hero {
+                padding: var(--spacing-2xl) var(--spacing-lg);
+            }
+
             .hero-grid {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: var(--spacing-lg);
             }
         }
 
         h1 {
             font-size: 96px;
             font-weight: 700;
-            margin-bottom: 24px;
+            margin-bottom: var(--spacing-md);
             line-height: 1.1;
             letter-spacing: -1px;
         }
@@ -111,19 +239,25 @@
             }
         }
 
+        @media (min-width: 769px) and (max-width: 1024px) {
+            h1 {
+                font-size: 72px;
+            }
+        }
+
         .subtitle {
             font-size: 20px;
-            color: rgba(0, 0, 0, 0.7);
-            margin-bottom: 32px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-lg);
             font-weight: 500;
         }
 
         .tagline {
             font-size: 18px;
-            color: rgba(0, 0, 0, 0.6);
+            color: var(--color-text-tertiary);
             max-width: 656px;
             line-height: 1.7;
-            min-height: 48px;
+            min-height: var(--spacing-xl);
         }
 
         .cursor {
@@ -145,9 +279,13 @@
             width: 400px;
             height: 400px;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: var(--spacing-xs);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border: 2px solid rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--color-border);
+        }
+
+        body.dark-mode .headshot-image {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         .headshot-image img {
@@ -165,16 +303,29 @@
             }
         }
 
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .headshot-image {
+                width: 340px;
+                height: 340px;
+            }
+        }
+
         section {
-            padding: 128px 32px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding: var(--spacing-3xl) var(--spacing-lg);
+            border-top: 1px solid var(--color-border);
         }
 
         section h2 {
             font-size: 36px;
             font-weight: 700;
-            margin-bottom: 80px;
+            margin-bottom: var(--spacing-2xl);
             letter-spacing: -0.5px;
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            section h2 {
+                font-size: 32px;
+            }
         }
 
         .section-container {
@@ -189,18 +340,19 @@
         .timeline::before {
             content: '';
             position: absolute;
-            left: 24px;
+            left: var(--spacing-md);
             top: 0;
             bottom: 0;
             width: 1px;
-            background: linear-gradient(to bottom, black, rgba(0, 0, 0, 0));
+            background: linear-gradient(to bottom, var(--color-text), transparent);
         }
 
         .timeline-item {
-            margin-left: 80px;
-            margin-bottom: 48px;
+            margin-left: var(--spacing-2xl);
+            margin-bottom: var(--spacing-xl);
             opacity: 0;
-            transition: opacity 0.7s ease;
+            transition: opacity var(--transition-slow);
+            position: relative;
         }
 
         .timeline-item.in-view {
@@ -210,11 +362,11 @@
         .timeline-dot {
             position: absolute;
             left: -56px;
-            top: 8px;
-            width: 48px;
-            height: 48px;
-            background: white;
-            border: 2px solid black;
+            top: var(--spacing-xs);
+            width: var(--spacing-xl);
+            height: var(--spacing-xl);
+            background: var(--color-bg);
+            border: 2px solid var(--color-text);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -225,21 +377,21 @@
             content: '';
             width: 10px;
             height: 10px;
-            background: black;
+            background: var(--color-text);
             border-radius: 50%;
         }
 
         .timeline-item:hover {
-            background: rgba(0, 0, 0, 0.02);
+            background: var(--color-hover-bg);
             border-radius: 4px;
         }
 
         .timeline-year {
             font-size: 11px;
-            color: rgba(0, 0, 0, 0.4);
+            color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            margin-bottom: 8px;
+            margin-bottom: var(--spacing-xs);
             font-weight: 600;
         }
 
@@ -247,7 +399,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: var(--spacing-xs);
         }
 
         .timeline-company {
@@ -258,19 +410,19 @@
 
         .timeline-role {
             font-size: 18px;
-            color: rgba(0, 0, 0, 0.7);
+            color: var(--color-text-secondary);
             font-weight: 500;
         }
 
         .timeline-meta {
             text-align: right;
             font-size: 11px;
-            color: rgba(0, 0, 0, 0.4);
+            color: var(--color-text-muted);
         }
 
         .timeline-description {
             font-size: 16px;
-            color: rgba(0, 0, 0, 0.65);
+            color: var(--color-text-tertiary);
             line-height: 1.6;
             max-width: 896px;
             margin-top: 12px;
@@ -279,19 +431,24 @@
         .projects-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 32px;
+            gap: var(--spacing-lg);
+        }
+
+        @media (min-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .project-card {
-            padding: 24px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: var(--spacing-md);
+            border: 1px solid var(--color-border);
             border-radius: 4px;
-            transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
             display: block;
             opacity: 0;
-            transition: opacity 0.7s ease;
+            transition: all var(--transition-fast), opacity var(--transition-slow);
         }
 
         .project-card.in-view {
@@ -299,8 +456,8 @@
         }
 
         .project-card:hover {
-            border-color: rgba(0, 0, 0, 0.2);
-            background: rgba(0, 0, 0, 0.02);
+            border-color: var(--color-border-hover);
+            background: var(--color-hover-bg);
         }
 
         .project-header {
@@ -308,7 +465,7 @@
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 12px;
-            gap: 16px;
+            gap: var(--spacing-sm);
         }
 
         .project-card h3 {
@@ -324,27 +481,27 @@
         .project-arrow {
             width: 18px;
             height: 18px;
-            color: rgba(0, 0, 0, 0.4);
+            color: var(--color-text-muted);
             flex-shrink: 0;
             margin-top: 4px;
-            transition: color 0.3s;
+            transition: color var(--transition-fast);
         }
 
         .project-card:hover .project-arrow {
-            color: black;
+            color: var(--color-text);
         }
 
         .project-description {
             font-size: 14px;
-            color: rgba(0, 0, 0, 0.65);
+            color: var(--color-text-tertiary);
             line-height: 1.6;
             max-width: 896px;
-            margin-bottom: 16px;
+            margin-bottom: var(--spacing-sm);
         }
 
         .project-tags {
             display: flex;
-            gap: 8px;
+            gap: var(--spacing-xs);
             flex-wrap: wrap;
         }
 
@@ -352,30 +509,31 @@
             font-size: 11px;
             font-weight: 500;
             padding: 6px 10px;
-            background: rgba(0, 0, 0, 0.06);
-            color: rgba(0, 0, 0, 0.6);
+            background: rgba(128, 128, 128, 0.12);
+            color: var(--color-text-tertiary);
             border-radius: 9999px;
         }
 
         .contact-list {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: var(--spacing-sm);
         }
 
         .contact-item {
-            padding: 16px;
+            padding: var(--spacing-sm);
             border-radius: 4px;
             text-decoration: none;
             color: inherit;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s;
+            transition: background var(--transition-fast);
             border: none;
             background: none;
             cursor: pointer;
             font-size: inherit;
+            font-family: inherit;
             text-align: left;
             width: 100%;
         }
@@ -385,12 +543,12 @@
         }
 
         .contact-item:hover {
-            background: rgba(0, 0, 0, 0.03);
+            background: var(--color-hover-bg-alt);
         }
 
         .contact-label {
             font-size: 11px;
-            color: rgba(0, 0, 0, 0.4);
+            color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 0.8px;
             margin-bottom: 4px;
@@ -410,35 +568,35 @@
         .arrow-icon {
             width: 16px;
             height: 16px;
-            color: rgba(0, 0, 0, 0.3);
-            transition: color 0.3s;
+            color: var(--color-text-muted);
+            transition: color var(--transition-fast);
         }
 
         .contact-item:hover .arrow-icon {
-            color: black;
+            color: var(--color-text);
         }
 
         footer {
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            padding: 48px 32px;
+            border-top: 1px solid var(--color-border);
+            padding: var(--spacing-xl) var(--spacing-lg);
             text-align: center;
             font-size: 14px;
-            color: rgba(0, 0, 0, 0.4);
+            color: var(--color-text-muted);
             font-weight: 500;
         }
 
         .copy-feedback {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
-            background: black;
-            color: white;
-            padding: 8px 16px;
+            bottom: var(--spacing-md);
+            right: var(--spacing-md);
+            background: var(--color-text);
+            color: var(--color-bg);
+            padding: var(--spacing-xs) var(--spacing-sm);
             border-radius: 4px;
             font-size: 12px;
             z-index: 1000;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity var(--transition-fast);
             pointer-events: none;
         }
 
@@ -448,15 +606,15 @@
 
         .dark-mode-toggle {
             background: none;
-            border: 1px solid rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--color-border-hover);
             border-radius: 20px;
-            width: 48px;
-            height: 24px;
+            width: var(--spacing-xl);
+            height: var(--spacing-md);
             position: relative;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all var(--transition-fast);
             padding: 0;
-            margin-left: 24px;
+            margin-left: var(--spacing-md);
         }
 
         .dark-mode-toggle::before {
@@ -465,136 +623,26 @@
             width: 18px;
             height: 18px;
             border-radius: 50%;
-            background: black;
+            background: var(--color-text);
             top: 2px;
             left: 2px;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-fast);
         }
 
         .dark-mode-toggle.active::before {
-            transform: translateX(24px);
-            background: white;
+            transform: translateX(var(--spacing-md));
         }
 
-        body.dark-mode {
-            background: #0a0a0a;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode nav {
-            background: rgba(10, 10, 10, 0.98);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        body.dark-mode nav a {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .scroll-progress {
-            background: white;
-        }
-
-        body.dark-mode .subtitle {
-            color: rgba(224, 224, 224, 0.7);
-        }
-
-        body.dark-mode .tagline {
-            color: rgba(224, 224, 224, 0.6);
-        }
-
-        body.dark-mode section {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        body.dark-mode .timeline::before {
-            background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
-        }
-
-        body.dark-mode .timeline-dot {
-            background: #0a0a0a;
-            border-color: white;
-        }
-
-        body.dark-mode .timeline-dot::after {
-            background: white;
-        }
-
-        body.dark-mode .timeline-year {
-            color: rgba(224, 224, 224, 0.4);
-        }
-
-        body.dark-mode .timeline-role {
-            color: rgba(224, 224, 224, 0.7);
-        }
-
-        body.dark-mode .timeline-meta {
-            color: rgba(224, 224, 224, 0.4);
-        }
-
-        body.dark-mode .timeline-description {
-            color: rgba(224, 224, 224, 0.65);
-        }
-
-        body.dark-mode .timeline-item:hover {
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        body.dark-mode .project-card {
-            border-color: rgba(255, 255, 255, 0.08);
-        }
-
-        body.dark-mode .project-card:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            background: rgba(255, 255, 255, 0.02);
-        }
-
-        body.dark-mode .project-description {
-            color: rgba(224, 224, 224, 0.65);
-        }
-
-        body.dark-mode .project-tag {
-            background: rgba(255, 255, 255, 0.06);
-            color: rgba(224, 224, 224, 0.6);
-        }
-
-        body.dark-mode .contact-item:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        body.dark-mode .contact-label {
-            color: rgba(224, 224, 224, 0.4);
-        }
-
-        body.dark-mode .arrow-icon {
-            color: rgba(224, 224, 224, 0.3);
-        }
-
-        body.dark-mode .contact-item:hover .arrow-icon {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .project-arrow {
-            color: rgba(224, 224, 224, 0.4);
-        }
-
-        body.dark-mode .project-card:hover .project-arrow {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            color: rgba(224, 224, 224, 0.4);
-        }
-
-        body.dark-mode .dark-mode-toggle {
-            border-color: rgba(255, 255, 255, 0.2);
+        body.dark-mode .dark-mode-toggle::before {
+            background: var(--color-text);
         }
     </style>
 </head>
 <body>
-    <div class="scroll-progress" id="scrollProgress"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
 
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="logo">YT</div>
             <div class="nav-links">
@@ -606,24 +654,25 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="hero-grid">
-            <div>
-                <h1>Yash<br>Thapliyal</h1>
-                <p class="subtitle">AI/ML Researcher &amp; Software Engineer</p>
-                <p class="tagline"><span id="typewriter"></span><span class="cursor">|</span></p>
-            </div>
-            <div class="headshot">
-                <div class="headshot-image">
-                    <img src="./profile.JPG" alt="Yash Thapliyal">
+    <main id="main-content">
+        <section class="hero">
+            <div class="hero-grid">
+                <div>
+                    <h1>Yash<br>Thapliyal</h1>
+                    <p class="subtitle">AI/ML Researcher &amp; Software Engineer</p>
+                    <p class="tagline"><span id="typewriter"></span><span class="cursor" aria-hidden="true">|</span></p>
+                </div>
+                <div class="headshot">
+                    <div class="headshot-image">
+                        <img src="./profile.JPG" alt="Portrait of Yash Thapliyal" loading="lazy" width="400" height="400">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="journey">
-        <div class="section-container">
-            <h2>Professional Journey</h2>
+        <section id="journey" aria-labelledby="journey-heading">
+            <div class="section-container">
+                <h2 id="journey-heading">Professional Journey</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -692,14 +741,14 @@
         </div>
     </section>
 
-    <section id="projects">
-        <div class="section-container">
-            <h2>Featured Projects</h2>
+        <section id="projects" aria-labelledby="projects-heading">
+            <div class="section-container">
+                <h2 id="projects-heading">Featured Projects</h2>
             <div class="projects-grid">
-                <a href="https://github.com/YashDThapliyal/ResearchAgents" target="_blank" class="project-card">
+                <a href="https://github.com/YashDThapliyal/ResearchAgents" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <h3>Agentic Research Orchestrator</h3>
-                        <span class="project-arrow">↗</span>
+                        <span class="project-arrow" aria-hidden="true">↗</span>
                     </div>
                     <p class="project-description">Multi-agent AI system coordinating 4 specialized AI agents (ideation, code generation, execution, analysis) with 20+ ML models to automatically run experiments across classification, regression, and clustering tasks. Features closed-loop execution with automatic debugging, verification, and retry logic to reduce hallucinations and produce reproducible artifacts including code, logs, metrics, and comprehensive reports.</p>
                     <div class="project-tags">
@@ -709,10 +758,10 @@
                     </div>
                 </a>
 
-                <a href="https://github.com/YashDThapliyal/Autonomous-Driving-World-Model" target="_blank" class="project-card">
+                <a href="https://github.com/YashDThapliyal/Autonomous-Driving-World-Model" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <h3>Autonomous Driving World Model</h3>
-                        <span class="project-arrow">↗</span>
+                        <span class="project-arrow" aria-hidden="true">↗</span>
                     </div>
                     <p class="project-description">Interpretable video-based autopilot system analyzing raw dashcam footage to understand driving context and predict feasible next actions for ego vehicle. Built 7-stage pipeline spanning perception, temporal smoothing, behavioral segmentation, and planning. Reduced temporal jitter by 46.2%, segmented 200+ frames into 43 behavioral phases and 52 driving intents across 9 scenarios.</p>
                     <div class="project-tags">
@@ -722,10 +771,10 @@
                     </div>
                 </a>
 
-                <a href="https://github.com/YashDThapliyal/GITA-GPT" target="_blank" class="project-card">
+                <a href="https://github.com/YashDThapliyal/GITA-GPT" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <h3>GITA-GPT</h3>
-                        <span class="project-arrow">↗</span>
+                        <span class="project-arrow" aria-hidden="true">↗</span>
                     </div>
                     <p class="project-description">AI-powered question-answering system leveraging Retrieval-Augmented Generation (RAG) with Meta's LLAMA LLM via GROQ API for real-time inference on Bhagavad Gita teachings. Engineered end-to-end data pipeline to parse, chunk, and vectorize 700+ verses, storing embeddings in ChromaDB vector database for fast semantic search and retrieval.</p>
                     <div class="project-tags">
@@ -736,10 +785,10 @@
                     </div>
                 </a>
 
-                <a href="https://pypi.org/project/memochain/" target="_blank" class="project-card">
+                <a href="https://pypi.org/project/memochain/" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <h3>MemoChain</h3>
-                        <span class="project-arrow">↗</span>
+                        <span class="project-arrow" aria-hidden="true">↗</span>
                     </div>
                     <p class="project-description">Lightweight open-source Python library enabling developers to add persistent conversation memory to any LLM application in under 5 lines of code. Features configurable context windows, native OpenAI integration, custom session management, and zero external infrastructure dependencies. Published on PyPI with comprehensive documentation.</p>
                     <div class="project-tags">
@@ -749,10 +798,10 @@
                     </div>
                 </a>
 
-                <a href="https://github.com/yashthapliyal/Apanto" target="_blank" class="project-card">
+                <a href="https://github.com/yashthapliyal/Apanto" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <h3>Intelligent LLM Router</h3>
-                        <span class="project-arrow">↗</span>
+                        <span class="project-arrow" aria-hidden="true">↗</span>
                     </div>
                     <p class="project-description">Intelligent routing system dynamically evaluating and dispatching prompts across 20+ LLMs based on real-time latency, cost efficiency, and task-specific performance metrics. Custom scoring algorithms balance tradeoffs between speed, price, and accuracy. Extended with GPU-accelerated model hosting for dynamic Hugging Face model onboarding.</p>
                     <div class="project-tags">
@@ -762,10 +811,10 @@
                     </div>
                 </a>
 
-                <a href="https://www.youtube.com/watch?v=34ZKPqfge2M" target="_blank" class="project-card">
+                <a href="https://www.youtube.com/watch?v=34ZKPqfge2M" target="_blank" rel="noopener noreferrer" class="project-card">
                     <div class="project-header">
                         <h3>LlamaFrame</h3>
-                        <span class="project-arrow">↗</span>
+                        <span class="project-arrow" aria-hidden="true">↗</span>
                     </div>
                     <p class="project-description">Cutting-edge agentic, NLP-driven video editing system that interprets natural-language commands to autonomously query, reason over, and edit videos. Features include beat-synced editing powered by spectrogram analysis, intelligent object removal, scene filtering with temporal consistency, and multi-turn visual Q&amp;A using LLaMA-4.</p>
                     <div class="project-tags">
@@ -779,50 +828,51 @@
         </div>
     </section>
 
-    <section id="contact">
-        <div class="section-container">
-            <h2>Get In Touch</h2>
-            <div class="contact-list">
-                <button class="contact-item" onclick="copyEmail()">
-                    <div>
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">yash.thapliyal@berkeley.edu</span>
-                    </div>
-                    <span class="arrow-icon">📋</span>
-                </button>
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="section-container">
+                <h2 id="contact-heading">Get In Touch</h2>
+                <div class="contact-list">
+                    <button class="contact-item" id="emailCopyButton" aria-label="Copy email address to clipboard">
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">yash.thapliyal@berkeley.edu</span>
+                        </div>
+                        <span class="arrow-icon" aria-hidden="true">📋</span>
+                    </button>
 
-                <a href="https://linkedin.com/in/yashdthapliyal/" target="_blank" class="contact-item">
+                <a href="https://linkedin.com/in/yashdthapliyal/" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div>
                         <span class="contact-label">LinkedIn</span>
                         <span class="contact-value">linkedin.com/in/yashdthapliyal</span>
                     </div>
-                    <span class="arrow-icon">↗</span>
+                    <span class="arrow-icon" aria-hidden="true">↗</span>
                 </a>
 
-                <a href="https://github.com/YashDThapliyal" target="_blank" class="contact-item">
+                <a href="https://github.com/YashDThapliyal" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div>
                         <span class="contact-label">GitHub</span>
                         <span class="contact-value">github.com/YashDThapliyal</span>
                     </div>
-                    <span class="arrow-icon">↗</span>
+                    <span class="arrow-icon" aria-hidden="true">↗</span>
                 </a>
 
-                <a href="https://twitter.com/yashdthapliyal" target="_blank" class="contact-item">
+                <a href="https://twitter.com/yashdthapliyal" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div>
                         <span class="contact-label">X</span>
                         <span class="contact-value">@yashdthapliyal</span>
                     </div>
-                    <span class="arrow-icon">↗</span>
+                    <span class="arrow-icon" aria-hidden="true">↗</span>
                 </a>
             </div>
         </div>
-    </section>
+        </section>
+    </main>
 
-    <footer>
+    <footer role="contentinfo">
         &copy; 2025. Crafted with intention.
     </footer>
 
-    <div class="copy-feedback" id="copyFeedback">Email copied!</div>
+    <div class="copy-feedback" id="copyFeedback" role="status" aria-live="polite">Email copied!</div>
 
     <script>
         // Dark mode toggle
@@ -839,7 +889,7 @@
         darkModeToggle.addEventListener('click', function() {
             body.classList.toggle('dark-mode');
             darkModeToggle.classList.toggle('active');
-            
+
             // Save theme preference
             const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
             localStorage.setItem('theme', theme);
@@ -849,47 +899,106 @@
         const typewriter = document.getElementById('typewriter');
         const fullText = 'Building agentic AI systems, large language models, and innovative solutions that push the boundaries of what\'s possible.';
         let index = 0;
+        let typewriterTimeout;
 
         function type() {
             if (index < fullText.length) {
                 typewriter.textContent += fullText.charAt(index);
                 index++;
-                setTimeout(type, 25);
+                typewriterTimeout = setTimeout(type, 25);
             }
         }
 
-        type();
+        // Start typewriter effect only if user prefers motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion) {
+            typewriter.textContent = fullText;
+        } else {
+            type();
+        }
 
-        // Scroll progress
-        window.addEventListener('scroll', function() {
+        // Scroll progress with debouncing
+        let scrollTimeout;
+        function updateScrollProgress() {
             const scrollTop = window.scrollY;
             const docHeight = document.documentElement.scrollHeight - window.innerHeight;
             const scrolled = (scrollTop / docHeight) * 100;
-            document.getElementById('scrollProgress').style.width = scrolled + '%';
+            const progressBar = document.getElementById('scrollProgress');
+            progressBar.style.width = scrolled + '%';
+            progressBar.setAttribute('aria-valuenow', Math.round(scrolled));
+        }
+
+        window.addEventListener('scroll', function() {
+            if (scrollTimeout) {
+                window.cancelAnimationFrame(scrollTimeout);
+            }
+            scrollTimeout = window.requestAnimationFrame(updateScrollProgress);
         });
 
-        // Fade in on scroll
+        // Fade in on scroll with proper cleanup
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
 
+        const observedElements = document.querySelectorAll('.timeline-item, .project-card');
+        let visibleCount = 0;
+
         const observer = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
+                    visibleCount++;
+                    observer.unobserve(entry.target);
+
+                    // Disconnect observer when all elements are visible
+                    if (visibleCount === observedElements.length) {
+                        observer.disconnect();
+                    }
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.timeline-item, .project-card').forEach(function(el) {
+        observedElements.forEach(function(el) {
             observer.observe(el);
         });
 
-        // Copy email
-        function copyEmail() {
-            navigator.clipboard.writeText('yash.thapliyal@berkeley.edu');
+        // Copy email with error handling
+        const emailCopyButton = document.getElementById('emailCopyButton');
+        const emailAddress = 'yash.thapliyal@berkeley.edu';
+
+        emailCopyButton.addEventListener('click', function() {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(emailAddress)
+                    .then(function() {
+                        showCopyFeedback('Email copied!');
+                    })
+                    .catch(function(err) {
+                        console.error('Failed to copy email:', err);
+                        showCopyFeedback('Failed to copy email');
+                    });
+            } else {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = emailAddress;
+                textArea.style.position = 'fixed';
+                textArea.style.left = '-999999px';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showCopyFeedback('Email copied!');
+                } catch (err) {
+                    console.error('Failed to copy email:', err);
+                    showCopyFeedback('Failed to copy email');
+                }
+                document.body.removeChild(textArea);
+            }
+        });
+
+        function showCopyFeedback(message) {
             const feedback = document.getElementById('copyFeedback');
+            feedback.textContent = message;
             feedback.classList.add('show');
             setTimeout(function() {
                 feedback.classList.remove('show');
@@ -899,12 +1008,25 @@
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(function(link) {
             link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
             });
+        });
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (typewriterTimeout) {
+                clearTimeout(typewriterTimeout);
+            }
+            if (observer) {
+                observer.disconnect();
+            }
         });
     </script>
 </body>
