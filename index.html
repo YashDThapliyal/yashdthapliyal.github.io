@@ -1,1041 +1,733 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yash Thapliyal - AI/ML Researcher &amp; Software Engineer</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="AI/ML Researcher and Software Engineer specializing in agentic AI systems, large language models, and multimodal machine learning. Experience at Berkeley AI Research, Amazon, and C.Light Technologies.">
-    <meta name="keywords" content="Yash Thapliyal, AI Researcher, Machine Learning, Software Engineer, Berkeley, BAIR, LLM, Agentic AI, Computer Vision, NLP">
-    <meta name="author" content="Yash Thapliyal">
-    <link rel="canonical" href="https://yashthapliyal.com/">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yashthapliyal.com/">
-    <meta property="og:title" content="Yash Thapliyal - AI/ML Researcher &amp; Software Engineer">
-    <meta property="og:description" content="AI/ML Researcher and Software Engineer specializing in agentic AI systems, large language models, and multimodal machine learning.">
-    <meta property="og:image" content="https://yashthapliyal.com/profile.JPG">
-    <meta property="og:image:alt" content="Yash Thapliyal">
-    <meta property="og:site_name" content="Yash Thapliyal">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@yashdthapliyal">
-    <meta name="twitter:creator" content="@yashdthapliyal">
-    <meta name="twitter:title" content="Yash Thapliyal - AI/ML Researcher &amp; Software Engineer">
-    <meta name="twitter:description" content="AI/ML Researcher and Software Engineer specializing in agentic AI systems, large language models, and multimodal machine learning.">
-    <meta name="twitter:image" content="https://yashthapliyal.com/profile.JPG">
-
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Yash Thapliyal",
-      "url": "https://yashthapliyal.com",
-      "image": "https://yashthapliyal.com/profile.JPG",
-      "jobTitle": "AI/ML Researcher & Software Engineer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "Berkeley Artificial Intelligence Research"
-      },
-      "alumniOf": "University of California, Berkeley",
-      "sameAs": [
-        "https://linkedin.com/in/yashdthapliyal",
-        "https://github.com/YashDThapliyal",
-        "https://twitter.com/yashdthapliyal"
-      ],
-      "email": "yash.thapliyal@berkeley.edu"
-    }
-    </script>
-
-    <style>
-        :root {
-            /* Color Variables */
-            --color-bg: white;
-            --color-text: black;
-            --color-text-secondary: rgba(0, 0, 0, 0.8);
-            --color-text-tertiary: rgba(0, 0, 0, 0.65);
-            --color-text-muted: rgba(0, 0, 0, 0.5);
-            --color-border: rgba(0, 0, 0, 0.08);
-            --color-border-hover: rgba(0, 0, 0, 0.2);
-            --color-hover-bg: rgba(0, 0, 0, 0.02);
-            --color-hover-bg-alt: rgba(0, 0, 0, 0.03);
-
-            /* Spacing Variables */
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 32px;
-            --spacing-xl: 48px;
-            --spacing-2xl: 80px;
-            --spacing-3xl: 128px;
-
-            /* Transition Variables */
-            --transition-fast: 0.3s ease;
-            --transition-slow: 0.7s ease;
-        }
-
-        body.dark-mode {
-            --color-bg: #0a0a0a;
-            --color-text: #e0e0e0;
-            --color-text-secondary: rgba(224, 224, 224, 0.8);
-            --color-text-tertiary: rgba(224, 224, 224, 0.65);
-            --color-text-muted: rgba(224, 224, 224, 0.5);
-            --color-border: rgba(255, 255, 255, 0.08);
-            --color-border-hover: rgba(255, 255, 255, 0.2);
-            --color-hover-bg: rgba(255, 255, 255, 0.02);
-            --color-hover-bg-alt: rgba(255, 255, 255, 0.03);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Accessibility: Focus Styles */
-        *:focus-visible {
-            outline: 2px solid var(--color-text);
-            outline-offset: 2px;
-        }
-
-        /* Accessibility: Reduced Motion */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            background: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.6;
-        }
-
-        /* Accessibility: Skip to Content Link */
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--color-text);
-            color: var(--color-bg);
-            padding: 8px 16px;
-            text-decoration: none;
-            z-index: 100;
-            font-weight: 600;
-        }
-
-        .skip-link:focus {
-            top: 0;
-        }
-
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 6px;
-            background: var(--color-text);
-            z-index: 1000;
-            transition: width var(--transition-fast);
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(4px);
-            border-bottom: 1px solid var(--color-border);
-            z-index: 40;
-            padding-top: 4px;
-        }
-
-        body.dark-mode nav {
-            background: rgba(10, 10, 10, 0.98);
-        }
-
-        nav .nav-container {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 20px var(--spacing-lg);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav .logo {
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        nav .nav-links {
-            display: flex;
-            gap: var(--spacing-xl);
-            font-size: 12px;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            nav .nav-links {
-                gap: var(--spacing-md);
-            }
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--color-text);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-weight: 500;
-            transition: opacity var(--transition-fast);
-        }
-
-        nav a:hover {
-            opacity: 0.6;
-        }
-
-        .hero {
-            padding: var(--spacing-3xl) var(--spacing-lg);
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-xl);
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: var(--spacing-2xl) var(--spacing-lg);
-            }
-
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: var(--spacing-lg);
-            }
-        }
-
-        h1 {
-            font-size: 96px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 56px;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            h1 {
-                font-size: 72px;
-            }
-        }
-
-        .subtitle {
-            font-size: 20px;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-xs);
-            font-weight: 500;
-        }
-
-        .education {
-            font-size: 18px;
-            color: var(--color-text-tertiary);
-            margin-bottom: var(--spacing-lg);
-            font-weight: 400;
-        }
-
-        .tagline {
-            font-size: 18px;
-            color: var(--color-text-tertiary);
-            max-width: 656px;
-            line-height: 1.7;
-            min-height: var(--spacing-xl);
-        }
-
-        .cursor {
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        .headshot {
-            display: flex;
-            justify-content: center;
-        }
-
-        .headshot-image {
-            position: relative;
-            width: 400px;
-            height: 400px;
-            overflow: hidden;
-            border-radius: var(--spacing-xs);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            border: 2px solid var(--color-border);
-        }
-
-        body.dark-mode .headshot-image {
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .headshot-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            transform: scale(1.25);
-        }
-
-        @media (max-width: 768px) {
-            .headshot-image {
-                width: 280px;
-                height: 280px;
-            }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .headshot-image {
-                width: 340px;
-                height: 340px;
-            }
-        }
-
-        section {
-            padding: var(--spacing-3xl) var(--spacing-lg);
-            border-top: 1px solid var(--color-border);
-        }
-
-        section h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-2xl);
-            letter-spacing: -0.5px;
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            section h2 {
-                font-size: 32px;
-            }
-        }
-
-        .section-container {
-            max-width: 1440px;
-            margin: 0 auto;
-        }
-
-        .timeline {
-            position: relative;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: var(--spacing-md);
-            top: 0;
-            bottom: 0;
-            width: 1px;
-            background: linear-gradient(to bottom, var(--color-text), transparent);
-        }
-
-        .timeline-item {
-            margin-left: var(--spacing-2xl);
-            margin-bottom: var(--spacing-xl);
-            opacity: 0;
-            transition: opacity var(--transition-slow);
-            position: relative;
-        }
-
-        .timeline-item.in-view {
-            opacity: 1;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            left: -56px;
-            top: var(--spacing-xs);
-            width: var(--spacing-xl);
-            height: var(--spacing-xl);
-            background: var(--color-bg);
-            border: 2px solid var(--color-text);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-dot::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: var(--color-text);
-            border-radius: 50%;
-        }
-
-        .timeline-item:hover {
-            background: var(--color-hover-bg);
-            border-radius: 4px;
-        }
-
-        .timeline-year {
-            font-size: 11px;
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: var(--spacing-xs);
-            font-weight: 600;
-        }
-
-        .timeline-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: var(--spacing-xs);
-        }
-
-        .timeline-company {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .timeline-role {
-            font-size: 18px;
-            color: var(--color-text-secondary);
-            font-weight: 500;
-        }
-
-        .timeline-meta {
-            text-align: right;
-            font-size: 11px;
-            color: var(--color-text-muted);
-        }
-
-        .timeline-description {
-            font-size: 16px;
-            color: var(--color-text-tertiary);
-            line-height: 1.6;
-            max-width: 896px;
-            margin-top: 12px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: var(--spacing-lg);
-        }
-
-        @media (min-width: 1024px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .project-card {
-            padding: var(--spacing-md);
-            border: 1px solid var(--color-border);
-            border-radius: 4px;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            opacity: 0;
-            transition: all var(--transition-fast), opacity var(--transition-slow);
-        }
-
-        .project-card.in-view {
-            opacity: 1;
-        }
-
-        .project-card:hover {
-            border-color: var(--color-border-hover);
-            background: var(--color-hover-bg);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            gap: var(--spacing-sm);
-        }
-
-        .project-card h3 {
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .project-card:hover h3 {
-            text-decoration: underline;
-            text-decoration-offset: 4px;
-        }
-
-        .project-arrow {
-            width: 18px;
-            height: 18px;
-            color: var(--color-text-muted);
-            flex-shrink: 0;
-            margin-top: 4px;
-            transition: color var(--transition-fast);
-        }
-
-        .project-card:hover .project-arrow {
-            color: var(--color-text);
-        }
-
-        .project-description {
-            font-size: 14px;
-            color: var(--color-text-tertiary);
-            line-height: 1.6;
-            max-width: 896px;
-            margin-bottom: var(--spacing-sm);
-        }
-
-        .project-tags {
-            display: flex;
-            gap: var(--spacing-xs);
-            flex-wrap: wrap;
-        }
-
-        .project-tag {
-            font-size: 11px;
-            font-weight: 500;
-            padding: 6px 10px;
-            background: rgba(128, 128, 128, 0.12);
-            color: var(--color-text-tertiary);
-            border-radius: 9999px;
-        }
-
-        .contact-list {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-sm);
-        }
-
-        .contact-item {
-            padding: var(--spacing-sm);
-            border-radius: 4px;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background var(--transition-fast);
-            border: none;
-            background: none;
-            cursor: pointer;
-            font-size: inherit;
-            font-family: inherit;
-            text-align: left;
-            width: 100%;
-        }
-
-        .contact-item > div {
-            text-align: left;
-        }
-
-        .contact-item:hover {
-            background: var(--color-hover-bg-alt);
-        }
-
-        .contact-label {
-            font-size: 11px;
-            color: var(--color-text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 4px;
-            font-weight: 600;
-            display: block;
-        }
-
-        .contact-value {
-            font-size: 18px;
-            font-weight: 500;
-        }
-
-        .contact-item:hover .contact-value {
-            text-decoration: underline;
-        }
-
-        .arrow-icon {
-            width: 16px;
-            height: 16px;
-            color: var(--color-text-muted);
-            transition: color var(--transition-fast);
-        }
-
-        .contact-item:hover .arrow-icon {
-            color: var(--color-text);
-        }
-
-        footer {
-            border-top: 1px solid var(--color-border);
-            padding: var(--spacing-xl) var(--spacing-lg);
-            text-align: center;
-            font-size: 14px;
-            color: var(--color-text-muted);
-            font-weight: 500;
-        }
-
-        .copy-feedback {
-            position: fixed;
-            bottom: var(--spacing-md);
-            right: var(--spacing-md);
-            background: var(--color-text);
-            color: var(--color-bg);
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: 4px;
-            font-size: 12px;
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity var(--transition-fast);
-            pointer-events: none;
-        }
-
-        .copy-feedback.show {
-            opacity: 1;
-        }
-
-        .dark-mode-toggle {
-            background: none;
-            border: 1px solid var(--color-border-hover);
-            border-radius: 20px;
-            width: var(--spacing-xl);
-            height: var(--spacing-md);
-            position: relative;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            padding: 0;
-            margin-left: var(--spacing-md);
-        }
-
-        .dark-mode-toggle::before {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--color-text);
-            top: 2px;
-            left: 2px;
-            transition: transform var(--transition-fast);
-        }
-
-        .dark-mode-toggle.active::before {
-            transform: translateX(var(--spacing-md));
-        }
-
-        body.dark-mode .dark-mode-toggle::before {
-            background: var(--color-text);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Yash Thapliyal</title>
+<meta name="description" content="Yash Thapliyal is an AI/ML researcher at Berkeley AI Research (BAIR) and EECS student at UC Berkeley. Previously built agentic AI systems at Amazon and semantic reasoning for medical imaging at C.Light Technologies.">
+<meta name="keywords" content="Yash Thapliyal, AI researcher, machine learning engineer, UC Berkeley, BAIR, Berkeley AI Research, EECS, agentic AI, foundation models, multimodal learning, LLM, software engineer">
+<meta name="author" content="Yash Thapliyal">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://yashdthapliyal.github.io">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Yash Thapliyal | AI/ML Researcher & Engineer at UC Berkeley">
+<meta property="og:description" content="AI/ML researcher at Berkeley AI Research (BAIR). Building foundation models, agentic systems, and multimodal AI. Previously Amazon, C.Light Technologies.">
+<meta property="og:url" content="https://yashdthapliyal.github.io">
+<meta property="og:site_name" content="Yash Thapliyal">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yashdthapliyal">
+<meta name="twitter:creator" content="@yashdthapliyal">
+<meta name="twitter:title" content="Yash Thapliyal | AI/ML Researcher & Engineer at UC Berkeley">
+<meta name="twitter:description" content="AI/ML researcher at BAIR. Building foundation models, agentic systems, and multimodal AI.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Yash Thapliyal",
+  "url": "https://yashdthapliyal.github.io",
+  "email": "yash.thapliyal@berkeley.edu",
+  "jobTitle": "Machine Learning Researcher",
+  "worksFor": { "@type": "Organization", "name": "Berkeley Artificial Intelligence Research (BAIR)" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of California, Berkeley" },
+  "sameAs": [
+    "https://linkedin.com/in/yashdthapliyal",
+    "https://github.com/YashDThapliyal",
+    "https://twitter.com/yashdthapliyal"
+  ],
+  "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Foundation Models", "Multimodal Learning", "Agentic AI", "Natural Language Processing", "Computer Vision", "Software Engineering"]
+}
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --serif: 'Times New Roman', Times, Georgia, serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --blue: #3B7DD8;
+    --transition: 0.3s ease;
+  }
+
+  [data-theme="light"] {
+    --bg: #FAFAFA;
+    --bg-nav: rgba(250, 250, 250, 0.92);
+    --surface: #FFFFFF;
+    --border: #DCDCDC;
+    --border-hover: #B0B0B0;
+    --text: #1A1A1A;
+    --text-strong: #000000;
+    --text-mid: #3A3A3A;
+    --text-dim: #777777;
+    --mark-bg: rgba(59, 125, 216, 0.07);
+    --card-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  [data-theme="dark"] {
+    --bg: #0A0A0A;
+    --bg-nav: rgba(10, 10, 10, 0.92);
+    --surface: #111111;
+    --border: #222222;
+    --border-hover: #444444;
+    --text: #E0E0E0;
+    --text-strong: #FFFFFF;
+    --text-mid: #B0B0B0;
+    --text-dim: #707070;
+    --mark-bg: rgba(91, 158, 245, 0.08);
+    --card-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    font-family: var(--serif);
+    background: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  ::selection { background: var(--text); color: var(--bg); }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 54px;
+    background: var(--bg-nav);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border-bottom: 1px solid var(--border);
+    transition: all var(--transition);
+  }
+
+  .nav-left { display: flex; align-items: center; gap: 36px; }
+
+  .nav-name {
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: default;
+    color: var(--text-strong);
+  }
+
+  .nav-tabs { display: flex; gap: 0; }
+
+  .nav-tabs button {
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    color: var(--text-dim);
+    font-family: var(--serif);
+    font-size: 14.5px;
+    padding: 17px 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .nav-tabs button:hover { color: var(--text); }
+
+  .nav-tabs button.active {
+    color: var(--text-strong);
+    border-bottom-color: var(--text-strong);
+  }
+
+  .nav-right { display: flex; align-items: center; }
+
+  .theme-toggle {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: none;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .theme-toggle:hover { border-color: var(--border-hover); }
+
+  .theme-toggle svg {
+    width: 15px; height: 15px;
+    fill: none; stroke: var(--text-dim);
+    stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+    transition: stroke var(--transition);
+  }
+
+  .icon-sun, .icon-moon { display: none; }
+  [data-theme="dark"] .icon-sun { display: block; }
+  [data-theme="light"] .icon-moon { display: block; }
+
+  .page { display: none; padding-top: 54px; }
+  .page.active { display: block; }
+
+  /* HOME */
+  .hero {
+    min-height: calc(100vh - 54px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+    padding: 60px 40px;
+    flex-wrap: wrap;
+  }
+
+  .hero-inner { max-width: 620px; width: 100%; }
+
+  .hero-portrait {
+    flex-shrink: 0;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.25s;
+  }
+
+  .hero-portrait img {
+    width: 300px;
+    height: 370px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    transition: border-color var(--transition);
+  }
+
+  .hero-portrait img:hover { border-color: var(--border-hover); }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--blue);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.05s;
+  }
+
+  .hero-name {
+    font-size: clamp(40px, 5.5vw, 58px);
+    font-weight: 400;
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+    color: var(--text-strong);
+    margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.12s;
+  }
+
+  .hero-mission {
+    font-size: clamp(18px, 2.4vw, 22px);
+    font-style: italic;
+    color: var(--text-dim);
+    margin-bottom: 36px;
+    font-weight: 400;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.2s;
+  }
+
+  .hero-body {
+    font-size: 17px;
+    line-height: 1.85;
+    color: var(--text-mid);
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.3s;
+  }
+
+  .hero-body strong { color: var(--text-strong); font-weight: 700; }
+
+  .hero-body mark {
+    background: var(--mark-bg);
+    color: var(--text-strong);
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .hero-body .para { margin-bottom: 22px; }
+  .hero-body .para:last-child { margin-bottom: 0; }
+
+  /* INNER */
+  .inner {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 68px 40px 100px;
+  }
+
+  .sec-title {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: var(--text-strong);
+    margin-bottom: 4px;
+  }
+
+  .sec-sub {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin-bottom: 32px;
+    font-style: italic;
+  }
+
+  .w-item {
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+    transition: border-color var(--transition);
+  }
+
+  .w-item:last-of-type { border-bottom: 1px solid var(--border); }
+
+  .w-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3px;
+  }
+
+  .w-co {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--text-strong);
+  }
+
+  .w-date {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+  }
+
+  .w-role {
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-mid);
+    margin-bottom: 3px;
+  }
+
+  .w-loc { font-size: 13px; color: var(--text-dim); margin-bottom: 12px; }
+
+  .w-body {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    line-height: 1.76;
+    transition: color var(--transition);
+  }
+
+  .w-body strong { color: var(--text-strong); font-weight: 700; }
+
+  .w-tags {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px;
+  }
+
+  .w-tags span {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-dim);
+    transition: all var(--transition);
+    letter-spacing: 0.02em;
+  }
+
+  .spacer { height: 48px; }
+
+  .sk-group { padding: 16px 0; }
+
+  .sk-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 9px;
+  }
+
+  /* PROJECTS */
+  .p-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    padding: 28px 0;
+    border-top: 1px solid var(--border);
+    transition: all 0.2s;
+  }
+
+  .p-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .p-item:hover .p-arrow { opacity: 1; transform: translateX(0); }
+
+  .p-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .p-title-text {
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--text-strong);
+    transition: color 0.2s;
+  }
+
+  .p-arrow {
+    font-size: 15px;
+    color: var(--text-dim);
+    opacity: 0;
+    transition: all 0.2s;
+    transform: translateX(-4px);
+  }
+
+  .p-desc {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    line-height: 1.76;
+    margin-bottom: 14px;
+  }
+
+  .p-desc strong { color: var(--text-strong); font-weight: 700; }
+
+  .p-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .p-tags span {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 9px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    color: var(--text-dim);
+    transition: all var(--transition);
+  }
+
+  /* CONTACT */
+  .contact-row {
+    display: flex;
+    align-items: baseline;
+    padding: 18px 0;
+    border-top: 1px solid var(--border);
+    transition: border-color var(--transition);
+  }
+
+  .contact-row:last-child { border-bottom: 1px solid var(--border); }
+
+  .contact-label {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    width: 110px;
+    flex-shrink: 0;
+  }
+
+  .contact-value { font-size: 17px; }
+
+  .contact-value a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: all 0.2s;
+  }
+
+  .contact-value a:hover {
+    color: var(--text-dim);
+    border-bottom-color: var(--text-dim);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fi { opacity: 0; animation: fadeUp 0.4s ease forwards; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; height: 50px; }
+    .nav-left { gap: 20px; }
+    .nav-tabs button { padding: 15px 11px; font-size: 13.5px; }
+    .hero { padding: 36px 24px; gap: 36px; }
+    .hero-portrait img { width: 230px; height: 284px; }
+    .inner { padding: 48px 24px 80px; }
+    .w-top { flex-direction: column; gap: 1px; }
+    .contact-row { flex-direction: column; gap: 4px; }
+    .contact-label { width: auto; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-name { font-size: 15px; }
+    .nav-tabs button { font-size: 12.5px; padding: 14px 8px; }
+    .hero-body { font-size: 16px; }
+  }
+</style>
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div class="scroll-progress" id="scrollProgress" role="progressbar" aria-label="Page scroll progress"></div>
 
-    <nav role="navigation" aria-label="Main navigation">
-        <div class="nav-container">
-            <div class="logo">YT</div>
-            <div class="nav-links">
-                <a href="#journey">Journey</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-                <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode"></button>
-            </div>
+<nav>
+  <div class="nav-left">
+    <div class="nav-name">Yash Thapliyal</div>
+    <div class="nav-tabs">
+      <button class="active" onclick="go('home', this)">Home</button>
+      <button onclick="go('experience', this)">Experience</button>
+      <button onclick="go('projects', this)">Projects</button>
+      <button onclick="go('contact', this)">Contact</button>
+    </div>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HOME -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">EECS @ UC Berkeley</div>
+      <h1 class="hero-name">Yash Thapliyal</h1>
+      <p class="hero-mission">Building Personal Superintelligence</p>
+      <div class="hero-body">
+        <p class="para">
+            The core of my work is answering a simple question: how do we build intelligent systems that understand context, maintain state, and act usefully in the real world?
+        </p>
+        <p class="para">
+          Currently, I'm a researcher at <mark>Berkeley AI Research (BAIR)</mark>, where I work on speech foundation models, multimodal learning, and world modeling. I interned at <mark>Amazon</mark>, where I built an agentic AI workflow automation system using AWS Bedrock and MCP to automate anomaly detection, root cause analysis, and operational triaging across <strong>40,000+ support tickets</strong>, saving 25+ engineer hours per quarter. Most recently, I was at <mark>C.Light Technologies</mark>, where I built a hybrid reasoning layer that converts ambiguous natural-language queries into structured outputs for <strong>multi-agent routing and execution</strong>, applying language-model disambiguation and multi-turn context propagation to maintain conversational state.
+        </p>
+        <p class="para">
+            I've been exploring <strong>multi-agent architectures</strong>, <strong>persistent memory</strong>, and <strong>multimodal reasoning</strong>, with a focus on making language and reinforcement learning systems capable of <strong>planning</strong>, <strong>adaptation</strong>, and <strong>feedback-driven improvement</strong> over time.
+        </p>
+        <p class="para">
+          Long term, I want to build <strong>personal superintelligence</strong>: AI systems that deeply understand individual context, reason transparently, and compound human capability instead of replacing it.
+        </p>
+      </div>
+    </div>
+    <div class="hero-portrait" aria-hidden="true">
+      <img src="profile.JPG" alt="Yash Thapliyal" />
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="page" id="page-experience">
+  <div class="inner">
+    <h2 class="sec-title fi">Work</h2>
+    <p class="sec-sub fi">Where I've worked and what I've built.</p>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Berkeley Artificial Intelligence Research</span>
+        <span class="w-date">Sept 2025 - Present</span>
+      </div>
+      <div class="w-role">Machine Learning Researcher</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">Exploring speech foundation models, multimodal learning, and world modeling through paper replication and small-scale experiments.</div>
+      <div class="w-tags"><span>PyTorch</span><span>Speech Models</span><span>Multimodal</span><span>World Models</span></div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">C.Light Technologies</span>
+        <span class="w-date">Aug 2025 - Jan 2026</span>
+      </div>
+      <div class="w-role">Software Engineer Intern</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">Built a hybrid reasoning layer that converts ambiguous natural-language queries into structured outputs for <strong>multi-agent routing and execution</strong>. Applied language-model disambiguation and multi-turn context propagation to maintain conversational state and resolve follow-up queries.</div>
+      <div class="w-tags"><span>LLMs</span><span>NLP</span><span>Multi-Agent</span><span>Context Propagation</span></div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">Amazon</span>
+        <span class="w-date">May 2025 - Aug 2025</span>
+      </div>
+      <div class="w-role">Software Engineer Intern</div>
+      <div class="w-loc">Seattle, WA</div>
+      <div class="w-body">Developed an agentic AI workflow automation system using AWS Bedrock and Model Context Protocol (MCP) to automate operational workflows including temporal trend analysis, contextual synthesis, anomaly detection, and root cause analysis across <strong>40,000+ support tickets</strong>. Piloted system on team's 200+ tickets, automating triaging and alerting to reduce on-call noise. Saved <strong>25+ engineer hours per quarter</strong>.</div>
+      <div class="w-tags"><span>AWS Bedrock</span><span>MCP</span><span>Agentic AI</span><span>Anomaly Detection</span><span>Python</span></div>
+    </div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">smartQED</span>
+        <span class="w-date">Jul 2022 - Dec 2023</span>
+      </div>
+      <div class="w-role">Software Engineer Intern</div>
+      <div class="w-loc">Remote</div>
+      <div class="w-body">Implemented a summarization pipeline leveraging the T5 transformer model to generate insights from <strong>1,000+ Stack Overflow posts</strong>. Designed real-time analytics dashboard with Java/MySQL backend, implementing RegEx filtering to process <strong>500+ DB entries</strong>. Trained a custom NER model using spaCy for domain-specific classification, improving summarization accuracy by <strong>33%</strong>.</div>
+      <div class="w-tags"><span>T5</span><span>spaCy</span><span>NER</span><span>Java</span><span>MySQL</span></div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <h2 class="sec-title fi">Education</h2>
+    <div class="sec-sub fi"></div>
+
+    <div class="w-item fi">
+      <div class="w-top">
+        <span class="w-co">University of California, Berkeley</span>
+        <span class="w-date">Expected May 2028</span>
+      </div>
+      <div class="w-role">B.S. Electrical Engineering and Computer Science, Minor in Data Science</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body">Coursework: Artificial Intelligence, Machine Learning, Data Structures, Computer Architecture, Data Science Principles, Computer Simulations, Discrete Math & Probability Theory, Structure and Interpretation of Programming Languages, Linear Algebra, Multivariable Calculus.</div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <h2 class="sec-title fi">Skills</h2>
+    <div class="sec-sub fi"></div>
+
+    <div class="sk-group fi">
+      <div class="sk-label">Languages</div>
+      <div class="w-tags"><span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span><span>LaTeX</span></div>
+    </div>
+    <div class="sk-group fi">
+      <div class="sk-label">Frameworks & Tools</div>
+      <div class="w-tags"><span>PyTorch</span><span>TensorFlow</span><span>JAX</span><span>Transformers</span><span>vLLM</span><span>FastAPI</span><span>Flask</span><span>Django</span><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>LangChain</span><span>RAG</span><span>HuggingFace</span><span>ChromaDB</span><span>GCP</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="page-projects">
+  <div class="inner">
+    <h2 class="sec-title fi">Projects</h2>
+    <p class="sec-sub fi">What I build when nobody tells me what to build.</p>
+
+    <div class="p-list">
+
+      <a class="p-item fi" href="https://github.com/YashDThapliyal/ResearchAgents" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">Agentic Research Orchestrator</span>
+          <span class="p-arrow">↗</span>
         </div>
-    </nav>
+        <p class="p-desc">Multi-agent AI system coordinating <strong>4 specialized AI agents</strong> (ideation, code generation, execution, analysis) with <strong>20+ ML models</strong> to automatically run experiments across classification, regression, and clustering tasks. Features closed-loop execution with automatic debugging, verification, and retry logic to reduce hallucinations and produce reproducible artifacts including code, logs, metrics, and comprehensive reports.</p>
+        <div class="p-tags"><span>Python</span><span>Multi-Agent</span><span>LLMs</span></div>
+      </a>
 
-    <main id="main-content">
-        <section class="hero">
-            <div class="hero-grid">
-                <div>
-                    <h1>Yash<br>Thapliyal</h1>
-                    <p class="subtitle">AI/ML Researcher &amp; Software Engineer</p>
-                    <p class="education">EECS @ UC Berkeley</p>
-                    <p class="tagline"><span id="typewriter"></span><span class="cursor" aria-hidden="true">|</span></p>
-                </div>
-                <div class="headshot">
-                    <div class="headshot-image">
-                        <img src="./profile.JPG" alt="Portrait of Yash Thapliyal" loading="lazy" width="400" height="400">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="journey" aria-labelledby="journey-heading">
-            <div class="section-container">
-                <h2 id="journey-heading">Professional Journey</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-header">
-                        <div>
-                            <div class="timeline-company">Berkeley Artificial Intelligence Research</div>
-                            <div class="timeline-role">Machine Learning Researcher</div>
-                        </div>
-                        <div class="timeline-meta">
-                            <div>Sept 2025 - Present</div>
-                            <div>Berkeley, CA</div>
-                        </div>
-                    </div>
-                    <p class="timeline-description">Exploring speech foundation models, multimodal learning, and world modeling through paper replication and small-scale experiments.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-header">
-                        <div>
-                            <div class="timeline-company">C.Light Technologies</div>
-                            <div class="timeline-role">Software Engineer Intern</div>
-                        </div>
-                        <div class="timeline-meta">
-                            <div>Aug 2025 - Jan 2026</div>
-                            <div>Berkeley, CA</div>
-                        </div>
-                    </div>
-                    <p class="timeline-description">Designed a semantic intent reasoning system for a medical imaging dashboard, parsing compound natural-language queries over 100GB+ of retinal imaging data into structured intents. Implemented a hybrid symbolic-LLM decision layer with regex fast paths and multi-turn context propagation.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-header">
-                        <div>
-                            <div class="timeline-company">Amazon</div>
-                            <div class="timeline-role">Software Engineer Intern</div>
-                        </div>
-                        <div class="timeline-meta">
-                            <div>May 2025 - Aug 2025</div>
-                            <div>Seattle, WA</div>
-                        </div>
-                    </div>
-                    <p class="timeline-description">Developed production-grade agentic AI platform using AWS Bedrock and Model Context Protocol (MCP) to automate operational workflows including temporal trend analysis, contextual synthesis, anomaly detection, and root cause analysis across 40,000+ support tickets. Saved 25+ engineer hours per quarter.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-header">
-                        <div>
-                            <div class="timeline-company">smartQED</div>
-                            <div class="timeline-role">Software Engineer Intern</div>
-                        </div>
-                        <div class="timeline-meta">
-                            <div>July 2022 - Dec 2023</div>
-                            <div>Remote</div>
-                        </div>
-                    </div>
-                    <p class="timeline-description">Implemented a robust summarization pipeline leveraging the T5 transformer model to generate insights from 1,000+ Stack Overflow posts. Designed real-time analytics dashboard with Java/MySQL backend. Developed &amp; trained NER model using spaCy, improving summarization accuracy by 33%.</p>
-                </div>
-            </div>
+      <a class="p-item fi" href="https://github.com/YashDThapliyal/Autonomous-Driving-World-Model" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">Autonomous Driving World Model</span>
+          <span class="p-arrow">↗</span>
         </div>
-    </section>
+        <p class="p-desc">Interpretable video-based autopilot system analyzing raw dashcam footage to understand driving context and predict feasible next actions for ego vehicle. Built <strong>7-stage pipeline</strong> spanning perception, temporal smoothing, behavioral segmentation, and planning. Reduced temporal jitter by <strong>46.2%</strong>, segmented <strong>200+ frames</strong> into 43 behavioral phases and 52 driving intents across 9 scenarios.</p>
+        <div class="p-tags"><span>Python</span><span>Vision-Language</span><span>Computer Vision</span></div>
+      </a>
 
-        <section id="projects" aria-labelledby="projects-heading">
-            <div class="section-container">
-                <h2 id="projects-heading">Featured Projects</h2>
-            <div class="projects-grid">
-                <a href="https://github.com/YashDThapliyal/ResearchAgents" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <div class="project-header">
-                        <h3>Agentic Research Orchestrator</h3>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </div>
-                    <p class="project-description">Multi-agent AI system coordinating 4 specialized AI agents (ideation, code generation, execution, analysis) with 20+ ML models to automatically run experiments across classification, regression, and clustering tasks. Features closed-loop execution with automatic debugging, verification, and retry logic to reduce hallucinations and produce reproducible artifacts including code, logs, metrics, and comprehensive reports.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Multi-Agent</span>
-                        <span class="project-tag">LLMs</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/YashDThapliyal/Autonomous-Driving-World-Model" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <div class="project-header">
-                        <h3>Autonomous Driving World Model</h3>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </div>
-                    <p class="project-description">Interpretable video-based autopilot system analyzing raw dashcam footage to understand driving context and predict feasible next actions for ego vehicle. Built 7-stage pipeline spanning perception, temporal smoothing, behavioral segmentation, and planning. Reduced temporal jitter by 46.2%, segmented 200+ frames into 43 behavioral phases and 52 driving intents across 9 scenarios.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Vision-Language</span>
-                        <span class="project-tag">Computer Vision</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/YashDThapliyal/GITA-GPT" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <div class="project-header">
-                        <h3>GITA-GPT</h3>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </div>
-                    <p class="project-description">AI-powered question-answering system leveraging Retrieval-Augmented Generation (RAG) with Meta's LLAMA LLM via GROQ API for real-time inference on Bhagavad Gita teachings. Engineered end-to-end data pipeline to parse, chunk, and vectorize 700+ verses, storing embeddings in ChromaDB vector database for fast semantic search and retrieval.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">RAG</span>
-                        <span class="project-tag">LLaMA</span>
-                        <span class="project-tag">ChromaDB</span>
-                    </div>
-                </a>
-
-                <a href="https://pypi.org/project/memochain/" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <div class="project-header">
-                        <h3>MemoChain</h3>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </div>
-                    <p class="project-description">Lightweight open-source Python library enabling developers to add persistent conversation memory to any LLM application in under 5 lines of code. Features configurable context windows, native OpenAI integration, custom session management, and zero external infrastructure dependencies. Published on PyPI with comprehensive documentation.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">PyPI</span>
-                        <span class="project-tag">Open Source</span>
-                    </div>
-                </a>
-
-                <a href="https://github.com/yashthapliyal/Apanto" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <div class="project-header">
-                        <h3>Intelligent LLM Router</h3>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </div>
-                    <p class="project-description">Intelligent routing system dynamically evaluating and dispatching prompts across 20+ LLMs based on real-time latency, cost efficiency, and task-specific performance metrics. Custom scoring algorithms balance tradeoffs between speed, price, and accuracy. Extended with GPU-accelerated model hosting for dynamic Hugging Face model onboarding.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">Supabase</span>
-                        <span class="project-tag">Hugging Face</span>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=34ZKPqfge2M" target="_blank" rel="noopener noreferrer" class="project-card">
-                    <div class="project-header">
-                        <h3>LlamaFrame</h3>
-                        <span class="project-arrow" aria-hidden="true">↗</span>
-                    </div>
-                    <p class="project-description">Cutting-edge agentic, NLP-driven video editing system that interprets natural-language commands to autonomously query, reason over, and edit videos. Features include beat-synced editing powered by spectrogram analysis, intelligent object removal, scene filtering with temporal consistency, and multi-turn visual Q&amp;A using LLaMA-4.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Python</span>
-                        <span class="project-tag">FastAPI</span>
-                        <span class="project-tag">LLaMA</span>
-                        <span class="project-tag">Audio</span>
-                    </div>
-                </a>
-            </div>
+      <a class="p-item fi" href="https://github.com/YashDThapliyal/GITA-GPT" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">GITA-GPT</span>
+          <span class="p-arrow">↗</span>
         </div>
-    </section>
+        <p class="p-desc">AI-powered question-answering system leveraging <strong>Retrieval-Augmented Generation (RAG)</strong> with Meta's LLAMA LLM via GROQ API for real-time inference on Bhagavad Gita teachings. Engineered end-to-end data pipeline to parse, chunk, and vectorize <strong>700+ verses</strong>, storing embeddings in ChromaDB vector database for fast semantic search and retrieval.</p>
+        <div class="p-tags"><span>Python</span><span>RAG</span><span>LLaMA</span><span>ChromaDB</span></div>
+      </a>
 
-        <section id="contact" aria-labelledby="contact-heading">
-            <div class="section-container">
-                <h2 id="contact-heading">Get In Touch</h2>
-                <div class="contact-list">
-                    <button class="contact-item" id="emailCopyButton" aria-label="Copy email address to clipboard">
-                        <div>
-                            <span class="contact-label">Email</span>
-                            <span class="contact-value">yash.thapliyal@berkeley.edu</span>
-                        </div>
-                        <span class="arrow-icon" aria-hidden="true">📋</span>
-                    </button>
-
-                <a href="https://linkedin.com/in/yashdthapliyal/" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <div>
-                        <span class="contact-label">LinkedIn</span>
-                        <span class="contact-value">linkedin.com/in/yashdthapliyal</span>
-                    </div>
-                    <span class="arrow-icon" aria-hidden="true">↗</span>
-                </a>
-
-                <a href="https://github.com/YashDThapliyal" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <div>
-                        <span class="contact-label">GitHub</span>
-                        <span class="contact-value">github.com/YashDThapliyal</span>
-                    </div>
-                    <span class="arrow-icon" aria-hidden="true">↗</span>
-                </a>
-
-                <a href="https://twitter.com/yashdthapliyal" target="_blank" rel="noopener noreferrer" class="contact-item">
-                    <div>
-                        <span class="contact-label">X</span>
-                        <span class="contact-value">@yashdthapliyal</span>
-                    </div>
-                    <span class="arrow-icon" aria-hidden="true">↗</span>
-                </a>
-            </div>
+      <a class="p-item fi" href="https://pypi.org/project/memochain/" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">MemoChain</span>
+          <span class="p-arrow">↗</span>
         </div>
-        </section>
-    </main>
+        <p class="p-desc">Lightweight open-source Python library enabling developers to add <strong>persistent conversation memory</strong> to any LLM application in under 5 lines of code. Features configurable context windows, native OpenAI integration, custom session management, and zero external infrastructure dependencies. Published on <strong>PyPI</strong> with comprehensive documentation.</p>
+        <div class="p-tags"><span>Python</span><span>PyPI</span><span>Open Source</span></div>
+      </a>
 
-    <footer role="contentinfo">
-        &copy; 2026. Crafted with intention.
-    </footer>
+      <a class="p-item fi" href="https://github.com/yashthapliyal/Apanto" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">Intelligent LLM Router</span>
+          <span class="p-arrow">↗</span>
+        </div>
+        <p class="p-desc">Intelligent routing system dynamically evaluating and dispatching prompts across <strong>20+ LLMs</strong> based on real-time latency, cost efficiency, and task-specific performance metrics. Custom scoring algorithms balance tradeoffs between speed, price, and accuracy. Extended with <strong>GPU-accelerated model hosting</strong> for dynamic Hugging Face model onboarding.</p>
+        <div class="p-tags"><span>Python</span><span>Supabase</span><span>Hugging Face</span></div>
+      </a>
 
-    <div class="copy-feedback" id="copyFeedback" role="status" aria-live="polite">Email copied!</div>
+      <a class="p-item fi" href="https://www.youtube.com/watch?v=34ZKPqfge2M" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">LlamaFrame</span>
+          <span class="p-arrow">↗</span>
+        </div>
+        <p class="p-desc">Cutting-edge agentic, NLP-driven video editing system that interprets <strong>natural-language commands</strong> to autonomously query, reason over, and edit videos. Features include beat-synced editing powered by spectrogram analysis, intelligent object removal, scene filtering with temporal consistency, and <strong>multi-turn visual Q&A</strong> using LLaMA-4.</p>
+        <div class="p-tags"><span>Python</span><span>FastAPI</span><span>LLaMA</span><span>Audio</span></div>
+      </a>
 
-    <script>
-        // Dark mode toggle
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const body = document.body;
+      <a class="p-item fi" href="#" target="_blank" rel="noopener">
+        <div class="p-title">
+          <span class="p-title-text">Info Embedding in Neural Networks</span>
+          <span class="p-arrow">↗</span>
+        </div>
+        <p class="p-desc">Analyzed capacity-accuracy tradeoffs by embedding hidden information in neural network model weights while maintaining <strong>90%+ accuracy</strong>. Research conducted at San Jose State University exploring the intersection of steganography and deep learning.</p>
+        <div class="p-tags"><span>Python</span><span>Deep Learning</span><span>Research</span></div>
+      </a>
 
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-mode');
-            darkModeToggle.classList.add('active');
-        }
+    </div>
+  </div>
+</div>
 
-        darkModeToggle.addEventListener('click', function() {
-            body.classList.toggle('dark-mode');
-            darkModeToggle.classList.toggle('active');
+<!-- CONTACT -->
+<div class="page" id="page-contact">
+  <div class="inner">
+    <h2 class="sec-title fi">Contact</h2>
+    <p class="sec-sub fi">Always happy to talk about hard problems.</p>
 
-            // Save theme preference
-            const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
-            localStorage.setItem('theme', theme);
-        });
+    <div>
+      <div class="contact-row fi">
+        <span class="contact-label">Email</span>
+        <span class="contact-value"><a href="mailto:yash.thapliyal@berkeley.edu">yash.thapliyal [at] berkeley.edu</a></span>
+      </div>
+      <div class="contact-row fi">
+        <span class="contact-label">LinkedIn</span>
+        <span class="contact-value"><a href="https://linkedin.com/in/yashdthapliyal" target="_blank" rel="noopener">linkedin.com/in/yashdthapliyal</a></span>
+      </div>
+      <div class="contact-row fi">
+        <span class="contact-label">GitHub</span>
+        <span class="contact-value"><a href="https://github.com/YashDThapliyal" target="_blank" rel="noopener">github.com/YashDThapliyal</a></span>
+      </div>
+      <div class="contact-row fi">
+        <span class="contact-label">X</span>
+        <span class="contact-value"><a href="https://twitter.com/yashdthapliyal" target="_blank" rel="noopener">@yashdthapliyal</a></span>
+      </div>
+    </div>
+  </div>
+</div>
 
-        // Typewriter effect
-        const typewriter = document.getElementById('typewriter');
-        const fullText = 'Building agentic AI systems, large language models, and innovative solutions that push the boundaries of what\'s possible.';
-        let index = 0;
-        let typewriterTimeout;
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function go(page, btn) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tabs button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + page).classList.add('active');
+    btn.classList.add('active');
+    document.querySelectorAll('#page-' + page + ' .fi').forEach((el, i) => {
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = 'fadeUp 0.4s ease forwards ' + (i * 0.04) + 's';
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
-        function type() {
-            if (index < fullText.length) {
-                typewriter.textContent += fullText.charAt(index);
-                index++;
-                typewriterTimeout = setTimeout(type, 25);
-            }
-        }
+  function toggleTheme() {
+    const html = document.documentElement;
+    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  }
 
-        // Start typewriter effect only if user prefers motion
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (prefersReducedMotion) {
-            typewriter.textContent = fullText;
-        } else {
-            type();
-        }
-
-        // Scroll progress with debouncing
-        let scrollTimeout;
-        function updateScrollProgress() {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrolled = (scrollTop / docHeight) * 100;
-            const progressBar = document.getElementById('scrollProgress');
-            progressBar.style.width = scrolled + '%';
-            progressBar.setAttribute('aria-valuenow', Math.round(scrolled));
-        }
-
-        window.addEventListener('scroll', function() {
-            if (scrollTimeout) {
-                window.cancelAnimationFrame(scrollTimeout);
-            }
-            scrollTimeout = window.requestAnimationFrame(updateScrollProgress);
-        });
-
-        // Fade in on scroll with proper cleanup
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observedElements = document.querySelectorAll('.timeline-item, .project-card');
-        let visibleCount = 0;
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('in-view');
-                    visibleCount++;
-                    observer.unobserve(entry.target);
-
-                    // Disconnect observer when all elements are visible
-                    if (visibleCount === observedElements.length) {
-                        observer.disconnect();
-                    }
-                }
-            });
-        }, observerOptions);
-
-        observedElements.forEach(function(el) {
-            observer.observe(el);
-        });
-
-        // Copy email with error handling
-        const emailCopyButton = document.getElementById('emailCopyButton');
-        const emailAddress = 'yash.thapliyal@berkeley.edu';
-
-        emailCopyButton.addEventListener('click', function() {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(emailAddress)
-                    .then(function() {
-                        showCopyFeedback('Email copied!');
-                    })
-                    .catch(function(err) {
-                        console.error('Failed to copy email:', err);
-                        showCopyFeedback('Failed to copy email');
-                    });
-            } else {
-                // Fallback for older browsers
-                const textArea = document.createElement('textarea');
-                textArea.value = emailAddress;
-                textArea.style.position = 'fixed';
-                textArea.style.left = '-999999px';
-                document.body.appendChild(textArea);
-                textArea.select();
-                try {
-                    document.execCommand('copy');
-                    showCopyFeedback('Email copied!');
-                } catch (err) {
-                    console.error('Failed to copy email:', err);
-                    showCopyFeedback('Failed to copy email');
-                }
-                document.body.removeChild(textArea);
-            }
-        });
-
-        function showCopyFeedback(message) {
-            const feedback = document.getElementById('copyFeedback');
-            feedback.textContent = message;
-            feedback.classList.add('show');
-            setTimeout(function() {
-                feedback.classList.remove('show');
-            }, 2000);
-        }
-
-        // Smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-            link.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
-
-        // Cleanup on page unload
-        window.addEventListener('beforeunload', function() {
-            if (typewriterTimeout) {
-                clearTimeout(typewriterTimeout);
-            }
-            if (observer) {
-                observer.disconnect();
-            }
-        });
-    </script>
+  // Check for saved theme preference or default to light mode
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+</script>
 </body>
 </html>
