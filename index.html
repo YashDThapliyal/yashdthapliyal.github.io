@@ -183,7 +183,17 @@
   }
 
   .hero-inner { max-width: 620px; width: 100%; }
+.hero-bullets {
+  list-style: disc;
+  padding-left: 22px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: var(--text-mid);
+}
 
+.hero-bullets li {
+  margin-bottom: 6px;
+}
   .hero-portrait {
     flex-shrink: 0;
     opacity: 0;
@@ -499,18 +509,13 @@
       <h1 class="hero-name">Yash Thapliyal</h1>
       <p class="hero-mission">Building Personal Superintelligence</p>
       <div class="hero-body">
-        <p class="para">
-            The core of my work is answering a simple question: how do we build intelligent systems that understand context, maintain state, and act usefully in the real world?
-        </p>
-        <p class="para">
-          Currently, I'm a researcher at <mark>Berkeley AI Research (BAIR)</mark>, where I work on speech foundation models, multimodal learning, and world modeling. I interned at <mark>Amazon</mark>, where I built an agentic AI workflow automation system using AWS Bedrock and MCP to automate anomaly detection, root cause analysis, and operational triaging across <strong>40,000+ support tickets</strong>, saving 25+ engineer hours per quarter. Most recently, I was at <mark>C.Light Technologies</mark>, where I built a hybrid reasoning layer that converts ambiguous natural-language queries into structured outputs for <strong>multi-agent routing and execution</strong>, applying language-model disambiguation and multi-turn context propagation to maintain conversational state.
-        </p>
-        <p class="para">
-            I've been exploring <strong>multi-agent architectures</strong>, <strong>persistent memory</strong>, and <strong>multimodal reasoning</strong>, with a focus on making language and reinforcement learning systems capable of <strong>planning</strong>, <strong>adaptation</strong>, and <strong>feedback-driven improvement</strong> over time.
-        </p>
-        <p class="para">
-          Long term, I want to build <strong>personal superintelligence</strong>: AI systems that deeply understand individual context, reason transparently, and compound human capability instead of replacing it.
-        </p>
+  <ul class="hero-bullets">
+    <li>EECS @ UC Berkeley</li>
+    <li>ML Researcher @ Berkeley AI Research (BAIR)</li>
+    <li>Prev SWE Intern @ Amazon, C.Light Technologies, smartQED</li>
+    <li>Interested in personal superintelligence, world models, multi-agent systems, and multimodal AI</li>
+  </ul>
+
       </div>
     </div>
     <div class="hero-portrait" aria-hidden="true">
