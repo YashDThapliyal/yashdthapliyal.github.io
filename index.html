@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yash Thapliyal</title>
-<meta name="description" content="Yash Thapliyal is an AI/ML researcher at Berkeley AI Research (BAIR) and EECS student at UC Berkeley. Previously built agentic AI systems at Amazon and semantic reasoning for medical imaging at C.Light Technologies.">
+<meta name="description" content="Yash Thapliyal is an EECS student at UC Berkeley and AI/ML engineer building agent memory, MCP tooling, multimodal systems, and AI safety infrastructure. Currently at Splunk AI, BAIR, and Sky Computing Lab.">
 <meta name="keywords" content="Yash Thapliyal, AI researcher, machine learning engineer, UC Berkeley, BAIR, Berkeley AI Research, EECS, agentic AI, foundation models, multimodal learning, LLM, software engineer">
 <meta name="author" content="Yash Thapliyal">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -13,7 +13,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yash Thapliyal | AI/ML Researcher & Engineer at UC Berkeley">
-<meta property="og:description" content="AI/ML researcher at Berkeley AI Research (BAIR). Building foundation models, agentic systems, and multimodal AI. Previously Amazon, C.Light Technologies.">
+<meta property="og:description" content="EECS @ UC Berkeley. Building agent memory, MCP tooling, multimodal systems, and AI safety infrastructure. Currently Splunk AI, BAIR, and Sky Computing Lab.">
 <meta property="og:url" content="https://yashdthapliyal.github.io">
 <meta property="og:site_name" content="Yash Thapliyal">
 <meta property="og:locale" content="en_US">
@@ -22,7 +22,7 @@
 <meta name="twitter:site" content="@yashdthapliyal">
 <meta name="twitter:creator" content="@yashdthapliyal">
 <meta name="twitter:title" content="Yash Thapliyal | AI/ML Researcher & Engineer at UC Berkeley">
-<meta name="twitter:description" content="AI/ML researcher at BAIR. Building foundation models, agentic systems, and multimodal AI.">
+<meta name="twitter:description" content="EECS @ UC Berkeley. Splunk AI, BAIR, Sky Computing Lab. Agents, memory, MCP, and AI safety systems.">
 
 <script type="application/ld+json">
 {
@@ -329,7 +329,16 @@
     font-size: 15.5px;
     color: var(--text-mid);
     line-height: 1.76;
+    padding-left: 18px;
     transition: color var(--transition);
+  }
+
+  .w-body li {
+    margin-bottom: 8px;
+  }
+
+  .w-body li:last-child {
+    margin-bottom: 0;
   }
 
   .w-body strong { color: var(--text-strong); font-weight: 700; }
@@ -349,6 +358,131 @@
     letter-spacing: 0.02em;
   }
 
+  #page-experience .inner {
+    max-width: 1120px;
+  }
+
+  .experience-layout {
+    display: grid;
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+    margin-top: 28px;
+  }
+
+  .experience-rail {
+    position: sticky;
+    top: 82px;
+    display: grid;
+    gap: 14px;
+    padding: 12px 0 12px 20px;
+    border-left: 1px solid var(--border);
+  }
+
+  .rail-item {
+    position: relative;
+  }
+
+  .rail-item::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--text-strong);
+    transition: background var(--transition), border-color var(--transition);
+  }
+
+  .rail-date {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    line-height: 1.3;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    margin-bottom: 2px;
+  }
+
+  .rail-co {
+    display: block;
+    font-size: 13.5px;
+    line-height: 1.35;
+    color: var(--text-mid);
+    font-weight: 700;
+  }
+
+  .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 12px;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .timeline .w-item {
+    position: relative;
+    padding: 18px 20px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+  }
+
+  .timeline .w-item::before {
+    display: none;
+  }
+
+  .timeline .w-item::after {
+    content: attr(data-date);
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    max-width: 122px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    line-height: 1.35;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+    text-align: right;
+  }
+
+  .timeline .w-item:last-of-type {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .timeline .w-top {
+    padding-right: 130px;
+    margin-bottom: 2px;
+  }
+
+  .timeline .w-date {
+    display: none;
+  }
+
+  .timeline .w-role {
+    margin-bottom: 1px;
+  }
+
+  .timeline .w-loc {
+    margin-bottom: 9px;
+  }
+
+  .timeline .w-body {
+    font-size: 14.5px;
+    line-height: 1.58;
+  }
+
+  .timeline .w-tags {
+    margin-top: 10px;
+  }
+
   .spacer { height: 48px; }
 
   .sk-group { padding: 16px 0; }
@@ -363,16 +497,34 @@
   }
 
   /* PROJECTS */
+  #page-projects .inner {
+    max-width: 1120px;
+  }
+
+  .p-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
   .p-item {
     display: block;
     text-decoration: none;
     color: inherit;
-    padding: 28px 0;
-    border-top: 1px solid var(--border);
+    padding: 22px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
     transition: all 0.2s;
   }
 
   .p-item:last-child { border-bottom: 1px solid var(--border); }
+
+  .p-item:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
 
   .p-item:hover .p-arrow { opacity: 1; transform: translateX(0); }
 
@@ -399,10 +551,19 @@
   }
 
   .p-desc {
-    font-size: 15.5px;
+    font-size: 15px;
     color: var(--text-mid);
-    line-height: 1.76;
+    line-height: 1.68;
+    padding-left: 18px;
     margin-bottom: 14px;
+  }
+
+  .p-desc li {
+    margin-bottom: 8px;
+  }
+
+  .p-desc li:last-child {
+    margin-bottom: 0;
   }
 
   .p-desc strong { color: var(--text-strong); font-weight: 700; }
@@ -469,9 +630,33 @@
     .hero { padding: 36px 24px; gap: 36px; }
     .hero-portrait img { width: 230px; height: 284px; }
     .inner { padding: 48px 24px 80px; }
+    .experience-layout {
+      display: block;
+      margin-top: 24px;
+    }
+    .experience-rail {
+      display: none;
+    }
+    .timeline {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .timeline::before,
+    .timeline .w-item::before,
+    .timeline .w-item::after {
+      display: none;
+    }
+    .timeline .w-date {
+      display: block;
+    }
+    .timeline .w-top {
+      padding-right: 0;
+    }
     .w-top { flex-direction: column; gap: 1px; }
     .contact-row { flex-direction: column; gap: 4px; }
     .contact-label { width: auto; }
+    .p-list { grid-template-columns: 1fr; }
+    .p-item { padding: 20px; }
   }
 
   @media (max-width: 480px) {
@@ -510,16 +695,16 @@
       <p class="hero-mission">Building Personal Superintelligence</p>
       <div class="hero-body">
   <ul class="hero-bullets">
-    <li>EECS @ UC Berkeley</li>
-    <li>ML Researcher @ Berkeley AI Research (BAIR)</li>
-    <li>Prev SWE Intern @ Amazon, C.Light Technologies, smartQED</li>
-    <li>Interested in personal superintelligence, world models, multi-agent systems, and multimodal AI</li>
+    <li><strong>EECS @ UC Berkeley</strong></li>
+    <li>Currently @ <strong>Splunk AI</strong>, <strong>Berkeley AI Research (BAIR)</strong>, and <strong>Sky Computing Lab</strong></li>
+    <li>Prev SWE Intern @ <strong>Amazon</strong>, <strong>C.Light Technologies</strong>, and <strong>smartQED</strong></li>
+    <li>Interested in <strong>Agentic AI</strong>, <strong>world models</strong>, <strong>AI Memory</strong>, <strong>multi-agent systems</strong>, <strong>multimodal AI</strong>, and <strong>AI Safety</strong></li>
   </ul>
 
       </div>
     </div>
     <div class="hero-portrait" aria-hidden="true">
-      <img src="profile.JPG" alt="Yash Thapliyal" />
+      <img src="new_profile.jpg" alt="Yash Thapliyal" />
     </div>
   </div>
 </div>
@@ -530,48 +715,136 @@
     <h2 class="sec-title fi">Work</h2>
     <p class="sec-sub fi">Where I've worked and what I've built.</p>
 
-    <div class="w-item fi">
-      <div class="w-top">
-        <span class="w-co">Berkeley Artificial Intelligence Research</span>
-        <span class="w-date">Sept 2025 - Present</span>
+    <div class="experience-layout">
+    <aside class="experience-rail fi" aria-label="Experience timeline">
+      <div class="rail-item">
+        <span class="rail-date">May 2026 - Present</span>
+        <span class="rail-co">Splunk AI</span>
       </div>
-      <div class="w-role">Machine Learning Researcher</div>
-      <div class="w-loc">Berkeley, CA</div>
-      <div class="w-body">Exploring speech foundation models, multimodal learning, and world modeling through paper replication and small-scale experiments.</div>
-      <div class="w-tags"><span>PyTorch</span><span>Speech Models</span><span>Multimodal</span><span>World Models</span></div>
+      <div class="rail-item">
+        <span class="rail-date">Apr 2026 - Present</span>
+        <span class="rail-co">Sky Computing Lab</span>
+      </div>
+      <div class="rail-item">
+        <span class="rail-date">Oct 2025 - Present</span>
+        <span class="rail-co">BAIR</span>
+      </div>
+      <div class="rail-item">
+        <span class="rail-date">Feb 2026 - May 2026</span>
+        <span class="rail-co">Google</span>
+      </div>
+      <div class="rail-item">
+        <span class="rail-date">Aug 2025 - Jan 2026</span>
+        <span class="rail-co">C.Light</span>
+      </div>
+      <div class="rail-item">
+        <span class="rail-date">May 2025 - Aug 2025</span>
+        <span class="rail-co">Amazon</span>
+      </div>
+      <div class="rail-item">
+        <span class="rail-date">Jul 2022 - Dec 2023</span>
+        <span class="rail-co">smartQED</span>
+      </div>
+    </aside>
+
+    <div class="timeline">
+    <div class="w-item fi" data-date="May 2026 - Present">
+      <div class="w-top">
+        <span class="w-co">Splunk (Cisco)</span>
+        <span class="w-date">May 2026 - Present</span>
+      </div>
+      <div class="w-role">Machine Learning Engineer Intern, Splunk AI</div>
+      <div class="w-loc">San Jose, CA</div>
+      <ul class="w-body">
+        <li>Building a <strong>unified context layer</strong> for <strong>agent memory</strong>, using <strong>distillation</strong> to transform <strong>multimodal interaction traces</strong> into compact, durable memory artifacts through <strong>extraction</strong> and <strong>ranking pipelines</strong>.</li>
+      </ul>
+      <div class="w-tags"><span>Agent Memory</span><span>Multimodal Data</span><span>Ranking</span><span>Summarization</span></div>
     </div>
 
-    <div class="w-item fi">
+    <div class="w-item fi" data-date="Apr 2026 - Present">
+      <div class="w-top">
+        <span class="w-co">Sky Computing Lab</span>
+        <span class="w-date">Apr 2026 - Present</span>
+      </div>
+      <div class="w-role">Researcher</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <ul class="w-body">
+        <li>Researching <strong>offline optimization</strong> techniques that transform <strong>chain-of-thought traces</strong> into reusable retrieval signals for improved reasoning.</li>
+      </ul>
+      <div class="w-tags"><span>CoT Traces</span><span>Retrieval</span><span>Reasoning</span><span>Optimization</span></div>
+    </div>
+
+    <div class="w-item fi" data-date="Oct 2025 - Present">
+      <div class="w-top">
+        <span class="w-co">Berkeley AI Research Lab (BAIR)</span>
+        <span class="w-date">Oct 2025 - Present</span>
+      </div>
+      <div class="w-role">Researcher</div>
+      <div class="w-loc">Berkeley, CA</div>
+      <ul class="w-body">
+        <li>Built and benchmarked an <strong>end-to-end synthetic speech pipeline</strong> that generates English audio, extracts <strong>phoneme-level metadata</strong>, compares <strong>GLM-TTS</strong> and <strong>Piper</strong> backends, and validates audio and label quality for downstream speech modeling.</li>
+      </ul>
+      <div class="w-tags"><span>Speech Models</span><span>Synthetic Data</span><span>Evaluation</span><span>Pipelines</span></div>
+    </div>
+
+    <div class="w-item fi" data-date="Feb 2026 - May 2026">
+      <div class="w-top">
+        <span class="w-co">Google</span>
+        <span class="w-date">Feb 2026 - May 2026</span>
+      </div>
+      <div class="w-role">Contract Software Engineer, Codebase Collaboration</div>
+      <div class="w-loc">Sunnyvale, CA</div>
+      <ul class="w-body">
+        <li>Built a full-stack <strong>React + FastAPI</strong> platform with <strong>Dockerized</strong> services deployed on <strong>Kubernetes</strong>, supporting <strong>Gemini</strong>-powered <strong>NL2SQL</strong> workflows.</li>
+        <li>Built a custom <strong>MCP server</strong> for schema inspection, query execution, and database configuration, enabling agent-native access to <strong>AlloyDB Omni</strong>.</li>
+      </ul>
+      <div class="w-tags"><span>React</span><span>FastAPI</span><span>Kubernetes</span><span>Gemini</span><span>MCP</span><span>AlloyDB Omni</span></div>
+    </div>
+
+    <div class="w-item fi" data-date="Aug 2025 - Jan 2026">
       <div class="w-top">
         <span class="w-co">C.Light Technologies</span>
         <span class="w-date">Aug 2025 - Jan 2026</span>
       </div>
       <div class="w-role">Software Engineer Intern</div>
       <div class="w-loc">Berkeley, CA</div>
-      <div class="w-body">Built a hybrid reasoning layer that converts ambiguous natural-language queries into structured outputs for <strong>multi-agent routing and execution</strong>. Applied language-model disambiguation and multi-turn context propagation to maintain conversational state and resolve follow-up queries.</div>
-      <div class="w-tags"><span>LLMs</span><span>NLP</span><span>Multi-Agent</span><span>Context Propagation</span></div>
+      <ul class="w-body">
+        <li>Built a hybrid reasoning layer that converts ambiguous natural-language queries into structured outputs for <strong>multi-agent routing and execution</strong>.</li>
+        <li>Applied language-model disambiguation and multi-turn context propagation to maintain conversational state and resolve follow-up queries.</li>
+      </ul>
+      <div class="w-tags"><span>LLMs</span><span>Structured Outputs</span><span>Multi-Agent Routing</span><span>Context Propagation</span></div>
     </div>
 
-    <div class="w-item fi">
+    <div class="w-item fi" data-date="May 2025 - Aug 2025">
       <div class="w-top">
         <span class="w-co">Amazon</span>
         <span class="w-date">May 2025 - Aug 2025</span>
       </div>
       <div class="w-role">Software Engineer Intern</div>
       <div class="w-loc">Seattle, WA</div>
-      <div class="w-body">Developed an agentic AI workflow automation system using AWS Bedrock and Model Context Protocol (MCP) to automate operational workflows including temporal trend analysis, contextual synthesis, anomaly detection, and root cause analysis across <strong>40,000+ support tickets</strong>. Piloted system on team's 200+ tickets, automating triaging and alerting to reduce on-call noise. Saved <strong>25+ engineer hours per quarter</strong>.</div>
-      <div class="w-tags"><span>AWS Bedrock</span><span>MCP</span><span>Agentic AI</span><span>Anomaly Detection</span><span>Python</span></div>
+      <ul class="w-body">
+        <li>Built an <strong>agentic AI workflow system</strong> with <strong>AWS Bedrock</strong>, <strong>Strands Agents</strong>, and <strong>MCP</strong> to reduce on-call operational burden.</li>
+        <li>Prototyped multi-agent orchestration with MCP tool calls for ticket retrieval, summarization, anomaly detection, RCA, and escalation-risk analysis.</li>
+        <li>Piloted on <strong>200+ team tickets</strong>, saving an estimated <strong>25+ engineer hours per quarter</strong>.</li>
+      </ul>
+      <div class="w-tags"><span>AWS Bedrock</span><span>Strands Agents</span><span>MCP</span><span>Agentic AI</span><span>RCA</span></div>
     </div>
 
-    <div class="w-item fi">
+    <div class="w-item fi" data-date="Jul 2022 - Dec 2023">
       <div class="w-top">
         <span class="w-co">smartQED</span>
         <span class="w-date">Jul 2022 - Dec 2023</span>
       </div>
       <div class="w-role">Software Engineer Intern</div>
       <div class="w-loc">Remote</div>
-      <div class="w-body">Implemented a summarization pipeline leveraging the T5 transformer model to generate insights from <strong>1,000+ Stack Overflow posts</strong>. Designed real-time analytics dashboard with Java/MySQL backend, implementing RegEx filtering to process <strong>500+ DB entries</strong>. Trained a custom NER model using spaCy for domain-specific classification, improving summarization accuracy by <strong>33%</strong>.</div>
+      <ul class="w-body">
+        <li>Implemented a summarization pipeline leveraging the T5 transformer model to generate insights from <strong>1,000+ Stack Overflow posts</strong>.</li>
+        <li>Designed real-time analytics dashboard with Java/MySQL backend, implementing RegEx filtering to process <strong>500+ DB entries</strong>.</li>
+        <li>Trained a custom NER model using spaCy for domain-specific classification, improving summarization accuracy by <strong>33%</strong>.</li>
+      </ul>
       <div class="w-tags"><span>T5</span><span>spaCy</span><span>NER</span><span>Java</span><span>MySQL</span></div>
+    </div>
+    </div>
     </div>
 
     <div class="spacer"></div>
@@ -596,11 +869,15 @@
 
     <div class="sk-group fi">
       <div class="sk-label">Languages</div>
-      <div class="w-tags"><span>Python</span><span>Java</span><span>C++</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span><span>LaTeX</span></div>
+      <div class="w-tags"><span>Python</span><span>C++</span><span>Java</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span></div>
     </div>
     <div class="sk-group fi">
-      <div class="sk-label">Frameworks & Tools</div>
-      <div class="w-tags"><span>PyTorch</span><span>TensorFlow</span><span>JAX</span><span>Transformers</span><span>vLLM</span><span>FastAPI</span><span>Flask</span><span>Django</span><span>AWS</span><span>Docker</span><span>Kubernetes</span><span>LangChain</span><span>RAG</span><span>HuggingFace</span><span>ChromaDB</span><span>GCP</span></div>
+      <div class="sk-label">ML / AI</div>
+      <div class="w-tags"><span>PyTorch</span><span>JAX</span><span>TensorFlow</span><span>Transformers</span><span>HuggingFace</span><span>vLLM</span><span>RAG</span><span>LLM Evaluation</span><span>Fine-Tuning</span></div>
+    </div>
+    <div class="sk-group fi">
+      <div class="sk-label">Systems & Infrastructure</div>
+      <div class="w-tags"><span>Linux</span><span>Docker</span><span>Kubernetes</span><span>Git</span><span>AWS</span><span>GCP</span><span>FastAPI</span><span>PostgreSQL</span><span>Neo4j</span><span>MCP</span></div>
     </div>
   </div>
 </div>
@@ -618,7 +895,10 @@
           <span class="p-title-text">ShadowCommit</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Built a <strong>shadow execution engine</strong> for AI agent sandboxing that <strong>clones the filesystem</strong>, rewrites command paths, and compares <strong>before/after fingerprints</strong> to detect attacks through <strong>execution evidence</strong> rather than token scanning, validated across a <strong>455-test suite</strong> with <strong>96% coverage</strong>. Designed <strong>5 adversarial attack agents</strong> spanning explicit data exfiltration, <strong>3 shell obfuscation variants</strong>, persistence, and data corruption; proved token-based monitoring catches only <strong>2/5 attack categories</strong> while the <strong>shadow execution method</strong> caught <strong>5/5</strong> with <strong>0 false positives</strong>.</p>
+        <ul class="p-desc">
+          <li>Built a <strong>shadow execution engine</strong> for AI agent sandboxing that <strong>clones the filesystem</strong>, rewrites command paths, and compares <strong>before/after fingerprints</strong> to detect attacks through <strong>execution evidence</strong> rather than token scanning.</li>
+          <li>Designed <strong>5 adversarial attack agents</strong> spanning explicit data exfiltration, <strong>3 shell obfuscation variants</strong>, persistence, and data corruption; proved token-based monitoring catches only <strong>2/5 attack categories</strong> while the <strong>shadow execution method</strong> caught <strong>5/5</strong> with <strong>0 false positives</strong>.</li>
+        </ul>
         <div class="p-tags"><span>Python</span><span>AI Safety</span><span>Agent Security</span><span>Adversarial Testing</span><span>Security Research</span></div>
       </a>
 
@@ -627,8 +907,11 @@
           <span class="p-title-text">ChronosGraph</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Built a <strong>temporal knowledge graph backend</strong> for AI agents that persists object and environment state changes from a <strong>world simulation</strong> in a <strong>Neo4j graph database</strong> as timestamped relationships and built a custom <strong>MCP server</strong> with <strong>8 tools</strong> for structured graph-grounded retrieval. Developed an <strong>adversarial temporal reasoning benchmark</strong> with <strong>LLM-as-judge</strong> evaluation across blind, context-stuffed, and graph-grounded agents, where the graph-grounded agent achieved <strong>93% accuracy</strong> and outperformed the context stuffing agent on interval-overlap queries.</p>
-        <div class="p-tags"><span>Python</span><span>Neo4j</span><span>Cypher</span><span>MCP</span><span>Knowledge Graphs</span><span>LLM Evaluation</span><span>Ai2Thor</span></div>
+        <ul class="p-desc">
+          <li>Built a <strong>knowledge graph backend</strong> to improve AI agent memory by persisting object and environment state changes from a <strong>world simulation</strong> as timestamped relationships in a <strong>Neo4j graph database</strong>.</li>
+          <li>Developed a custom <strong>MCP server</strong> with <strong>8 tools</strong> for structured graph-grounded retrieval and an <strong>adversarial temporal reasoning benchmark</strong> with <strong>LLM-as-judge</strong> evaluation, where the graph-grounded agent achieved <strong>93% accuracy</strong>.</li>
+        </ul>
+        <div class="p-tags"><span>Python</span><span>Neo4j</span><span>Cypher</span><span>MCP</span><span>Knowledge Graphs</span><span>LLM Evaluation</span><span>AI2-THOR</span></div>
       </a>
 
       <a class="p-item fi" href="https://github.com/YashDThapliyal/ResearchAgents" target="_blank" rel="noopener noreferrer">
@@ -636,8 +919,11 @@
           <span class="p-title-text">Agentic Research Orchestrator</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Multi-agent AI system coordinating <strong>4 specialized AI agents</strong> (ideation, code generation, execution, analysis) with <strong>20+ ML models</strong> to automatically run experiments across classification, regression, and clustering tasks. Features closed-loop execution with automatic debugging, verification, and retry logic to reduce hallucinations and produce reproducible artifacts including code, logs, metrics, and comprehensive reports.</p>
-        <div class="p-tags"><span>Python</span><span>Multi-Agent</span><span>LLMs</span></div>
+        <ul class="p-desc">
+          <li>Built a <strong>multi-agent ML platform</strong> that <strong>schedules, manages, and monitors</strong> research experiments end-to-end, coordinating <strong>4 specialized AI agents</strong> with <strong>20+ ML models</strong> to produce reproducible artifacts like code, logs, metrics, and reports.</li>
+          <li>Developed a <strong>closed-loop system</strong> that automatically executes, verifies, debugs, and retries synthetic code to reduce hallucinations.</li>
+        </ul>
+        <div class="p-tags"><span>Python</span><span>Multi-Agent Systems</span><span>Machine Learning</span><span>LLMs</span></div>
       </a>
 
       <a class="p-item fi" href="https://github.com/YashDThapliyal/Autonomous-Driving-World-Model" target="_blank" rel="noopener noreferrer">
@@ -645,8 +931,24 @@
           <span class="p-title-text">Autonomous Driving World Model</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Interpretable video-based autopilot system analyzing raw dashcam footage to understand driving context and predict feasible next actions for ego vehicle. Built <strong>7-stage pipeline</strong> spanning perception, temporal smoothing, behavioral segmentation, and planning. Reduced temporal jitter by <strong>46.2%</strong>, segmented <strong>200+ frames</strong> into 43 behavioral phases and 52 driving intents across 9 scenarios.</p>
-        <div class="p-tags"><span>Python</span><span>Vision-Language</span><span>Computer Vision</span></div>
+        <ul class="p-desc">
+          <li><strong>Interpretable video-based autopilot system</strong> analyzing raw dashcam footage to understand driving context and predict feasible next actions for ego vehicle.</li>
+          <li>Built <strong>7-stage pipeline</strong> spanning <strong>perception</strong>, <strong>temporal smoothing</strong>, <strong>behavioral segmentation</strong>, and <strong>planning</strong>.</li>
+          <li>Reduced temporal jitter by <strong>46.2%</strong>, segmented <strong>200+ frames</strong> into <strong>43 behavioral phases</strong> and <strong>52 driving intents</strong> across <strong>9 scenarios</strong>.</li>
+        </ul>
+        <div class="p-tags"><span>Python</span><span>Vision-Language Models</span><span>Computer Vision</span></div>
+      </a>
+
+      <a class="p-item fi" href="https://github.com/YashDThapliyal/SkillRunes" target="_blank" rel="noopener noreferrer">
+        <div class="p-title">
+          <span class="p-title-text">SkillRunes</span>
+          <span class="p-arrow">↗</span>
+        </div>
+        <ul class="p-desc">
+          <li>Published an <strong>open-source PyPI CLI</strong> that converts coding-agent sessions into versioned <strong>SKILL.md</strong> updates for reusable project memory.</li>
+          <li>Built an <strong>agent observability platform</strong> with <strong>FastAPI</strong> that tracks failure patterns, context compactions, token usage, skill history, and eval results.</li>
+        </ul>
+        <div class="p-tags"><span>Python</span><span>PyPI</span><span>FastAPI</span><span>Claude Code</span><span>Agent Memory</span></div>
       </a>
 
       <a class="p-item fi" href="https://github.com/YashDThapliyal/GITA-GPT" target="_blank" rel="noopener noreferrer">
@@ -654,7 +956,10 @@
           <span class="p-title-text">GITA-GPT</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">AI-powered question-answering system leveraging <strong>Retrieval-Augmented Generation (RAG)</strong> with Meta's LLAMA LLM via GROQ API for real-time inference on Bhagavad Gita teachings. Engineered end-to-end data pipeline to parse, chunk, and vectorize <strong>700+ verses</strong>, storing embeddings in ChromaDB vector database for fast semantic search and retrieval.</p>
+        <ul class="p-desc">
+          <li>AI-powered question-answering system leveraging <strong>Retrieval-Augmented Generation (RAG)</strong> with Meta's LLAMA LLM via GROQ API for real-time inference on Bhagavad Gita teachings.</li>
+          <li>Engineered end-to-end data pipeline to parse, chunk, and vectorize <strong>700+ verses</strong>, storing embeddings in ChromaDB vector database for fast semantic search and retrieval.</li>
+        </ul>
         <div class="p-tags"><span>Python</span><span>RAG</span><span>LLaMA</span><span>ChromaDB</span></div>
       </a>
 
@@ -663,7 +968,11 @@
           <span class="p-title-text">MemoChain</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Lightweight open-source Python library enabling developers to add <strong>persistent conversation memory</strong> to any LLM application in under 5 lines of code. Features configurable context windows, native OpenAI integration, custom session management, and zero external infrastructure dependencies. Published on <strong>PyPI</strong> with comprehensive documentation.</p>
+        <ul class="p-desc">
+          <li>Lightweight open-source Python library enabling developers to add <strong>persistent conversation memory</strong> to any LLM application in under 5 lines of code.</li>
+          <li>Features configurable context windows, native OpenAI integration, custom session management, and zero external infrastructure dependencies.</li>
+          <li>Published on <strong>PyPI</strong> with comprehensive documentation.</li>
+        </ul>
         <div class="p-tags"><span>Python</span><span>PyPI</span><span>Open Source</span></div>
       </a>
 
@@ -672,7 +981,11 @@
           <span class="p-title-text">Intelligent LLM Router</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Intelligent routing system dynamically evaluating and dispatching prompts across <strong>20+ LLMs</strong> based on real-time latency, cost efficiency, and task-specific performance metrics. Custom scoring algorithms balance tradeoffs between speed, price, and accuracy. Extended with <strong>GPU-accelerated model hosting</strong> for dynamic Hugging Face model onboarding.</p>
+        <ul class="p-desc">
+          <li>Intelligent routing system dynamically evaluating and dispatching prompts across <strong>20+ LLMs</strong> based on real-time latency, cost efficiency, and task-specific performance metrics.</li>
+          <li>Custom scoring algorithms balance tradeoffs between speed, price, and accuracy.</li>
+          <li>Extended with <strong>GPU-accelerated model hosting</strong> for dynamic Hugging Face model onboarding.</li>
+        </ul>
         <div class="p-tags"><span>Python</span><span>Supabase</span><span>Hugging Face</span></div>
       </a>
 
@@ -681,7 +994,10 @@
           <span class="p-title-text">LlamaFrame</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Cutting-edge agentic, NLP-driven video editing system that interprets <strong>natural-language commands</strong> to autonomously query, reason over, and edit videos. Features include beat-synced editing powered by spectrogram analysis, intelligent object removal, scene filtering with temporal consistency, and <strong>multi-turn visual Q&A</strong> using LLaMA-4.</p>
+        <ul class="p-desc">
+          <li>Cutting-edge agentic, NLP-driven video editing system that interprets <strong>natural-language commands</strong> to autonomously query, reason over, and edit videos.</li>
+          <li>Features include beat-synced editing powered by spectrogram analysis, intelligent object removal, scene filtering with temporal consistency, and <strong>multi-turn visual Q&A</strong> using LLaMA-4.</li>
+        </ul>
         <div class="p-tags"><span>Python</span><span>FastAPI</span><span>LLaMA</span><span>Audio</span></div>
       </a>
 
@@ -690,8 +1006,11 @@
           <span class="p-title-text">Info Embedding in Neural Networks</span>
           <span class="p-arrow">↗</span>
         </div>
-        <p class="p-desc">Analyzed capacity-accuracy tradeoffs by embedding hidden information in neural network model weights while maintaining <strong>90%+ accuracy</strong>. Research conducted at San Jose State University exploring the intersection of steganography and deep learning.</p>
-        <div class="p-tags"><span>Python</span><span>Deep Learning</span><span>Research</span></div>
+        <ul class="p-desc">
+          <li>Analyzed capacity-accuracy tradeoffs by embedding hidden information in neural network model weights while maintaining <strong>90%+ accuracy</strong>.</li>
+          <li>Research conducted at <strong>San Jose State University</strong> exploring the intersection of steganography and deep learning.</li>
+        </ul>
+        <div class="p-tags"><span>Python</span><span>Deep Learning</span><span>Neural Networks</span><span>Research</span></div>
       </a>
 
     </div>
