@@ -1238,9 +1238,9 @@ const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
 const order=['eval','memory','orch','applied'];
 
 /* ---------------- computed symmetric layout ---------------- */
-const VBW=1120, VBH=760;
+const VBW=1120, VBH=800;
 const CTR = { x:VBW/2, y:VBH/2 };
-const RING = 165;   // center -> cluster anchor distance (tightened; no hub)
+const RING = 210;   // center -> cluster anchor distance
 /* node offsets in each cluster's outward frame: +u outward from center, +v tangential */
 const LAYOUT = {
   eval:    [ {id:'evalforge',u:40,v:0,big:1}, {id:'corro',u:4,v:-120,big:1}, {id:'shadow',u:4,v:120}, {id:'mettle',u:-74,v:-62}, {id:'infoembed',u:-74,v:62} ],
@@ -1264,7 +1264,7 @@ Object.entries(LAYOUT).forEach(([cl,members])=>{
   });
   const cu=(minu+maxu)/2, cv=(minv+maxv)/2;
   const hx=ax+cu*ux+cv*vx, hy=ay+cu*uy+cv*vy;
-  const rx=(maxu-minu)/2+36, ry=(maxv-minv)/2+42;
+  const rx=(maxu-minu)/2+24, ry=(maxv-minv)/2+28;
   let tx, ty;
   if(Math.abs(uy)>0.5){            // top / bottom clusters: title stacked outward (vertical)
     tx=hx; ty=hy + (uy>0? ry+34 : -(ry+26));
