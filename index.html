@@ -856,7 +856,6 @@
       <div class="hero-tag">EECS @ UC Berkeley</div>
       <h1 class="hero-name">Yash Thapliyal</h1>
       <p class="hero-thesis">My work centers around building AI systems that are <span class="accent">trustworthy</span>, <span class="accent">efficient</span>, and <span class="accent">useful</span>.</p>
-      <p class="hero-mission">Building Personal Superintelligence</p>
       <div class="hero-body">
   <ul class="hero-bullets">
     <li><strong>EECS @ UC Berkeley</strong></li>
@@ -940,9 +939,10 @@
       <ul class="w-body">
         <li>Designed an <strong>agent memory architecture</strong> that structures conversations, documents, and tool traces into <strong>short-term, session, and long-term context</strong>, with extraction logic that classifies <strong>durable facts, decisions, preferences, and workflow patterns</strong> for reuse across future agent tasks.</li>
         <li>Built a <strong>prompt-optimization platform</strong> with a FastAPI backend, live dashboard, CLI, and an <strong>MCP server</strong> behind a shared service layer, automatically improving LLM system prompts using <strong>GEPA</strong> (Genetic-Pareto reflective evolution) via <strong>DSPy</strong> so agents can launch, monitor, and retrieve the best prompt programmatically.</li>
-        <li>Prototyped a <strong>knowledge-distillation pipeline</strong> (synthetic data generation → teacher labeling → <strong>LoRA SFT</strong> → multi-tier semantic evaluation) to compress a <strong>120B-parameter teacher</strong> into a compact on-device model for <strong>structured memory extraction</strong>.</li>
+        <li>Distilled a <strong>120B-parameter teacher</strong> into a compact <strong>3B on-device student</strong> (MLX, Apple Silicon) for <strong>structured memory extraction</strong>, reaching <strong>52% strict semantic-agreement F1</strong> with the teacher on fully held-out conversations, a <strong>~40x parameter reduction</strong>. Built the full pipeline (synthetic data, teacher labeling, <strong>LoRA SFT</strong>) and post-trained with <strong>DPO</strong> and <strong>GRPO</strong> reinforcement learning, <strong>ablating</strong> each lever to isolate the true bottleneck.</li>
+        <li>Hardened the <strong>evaluation harness</strong> (MiniLM embeddings with threshold-aware bipartite matching): caught two silent <strong>train/eval contamination bugs</strong> that had inflated reported gains, and fixed two metric defects to recover <strong>~5% relative F1</strong> with no model retraining.</li>
       </ul>
-      <div class="w-tags"><span>Agent Memory</span><span>Prompt Optimization</span><span>GEPA</span><span>DSPy</span><span>MCP</span><span>Distillation</span><span>LoRA</span></div>
+      <div class="w-tags"><span>Agent Memory</span><span>Prompt Optimization</span><span>GEPA</span><span>DSPy</span><span>MCP</span><span>Distillation</span><span>LoRA</span><span>SFT</span><span>DPO</span><span>GRPO</span><span>RL</span><span>MLX</span><span>Evaluation</span></div>
     </div>
 
     <div class="w-item fi" data-date="Apr 2026 - Present">
