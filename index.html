@@ -1353,8 +1353,8 @@ const N = [
   { id:'actionrank', label:'ActionRank', cl:'orch', r:24, big:1, x:560, y:646, lp:[0,38,'middle'], g:'AR',
     desc:'Score the whole toolbox in one forward pass instead of generating a tool call.',
     full:['Tested Netflix\u2019s GenRec \u201cscore, don\u2019t generate\u201d idea on agent tool selection: run the LLM once over the context and score every candidate tool from that single pass, instead of decoding a function call token by token.',
-      'On 500 held-out ToolBench steps with a fine-tuned Qwen2.5-1.5B backbone, scoring matched generation on top-1 accuracy (66.6% vs. 66.0%), never selected a nonexistent tool (0% vs. 0.6%), placed the right tool in its top five 98% of the time (vs. 91%), and cut per-decision latency from 575 ms to 250 ms.',
-      'The scorer\u2019s fine-tuning only worked after changing how the prompt is pooled, turning a 5-point loss into a tie. Unseen tools remain the generator\u2019s edge (50% vs. 41%).'],
+      'On 1,352 held-out ToolBench steps that no training run monitored, with a fine-tuned Qwen2.5-1.5B backbone and three seeds per system, scoring landed 2.6 points behind generation on top-1 accuracy (64.0% vs. 66.6%) and level on MRR@5 (0.778 vs. 0.764). It never selected a nonexistent tool (0% vs. 0.9%), placed the right tool in its top five 97.5% of the time (vs. 90.7%), and cut per-decision latency from 632 ms to 247 ms.',
+      'The scorer\u2019s fine-tuning only worked after switching from mean to last-token pooling. An early tie on a 500-step development set did not survive a pre-registered rerun; adding GenRec\u2019s language-modeling loss then narrowed the gap from 4.1 to 2.6 points. Tools never seen as a training label remain the generator\u2019s edge (54% vs. 49%).'],
     tags:['Tool Selection','ToolBench','Qwen','Fine-Tuning'], links:[['Repo','https://github.com/YashDThapliyal/ActionRank'],['Report','blog/actionrank.html']] },
 ];
 /* only same-focus edges remain — cross-cluster links removed */

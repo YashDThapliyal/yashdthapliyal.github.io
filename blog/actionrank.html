@@ -9,11 +9,11 @@
 <link rel="canonical" href="https://yashdthapliyal.github.io/blog/actionrank.html">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ActionRank | Yash Thapliyal">
-<meta property="og:description" content="Does Netflix's score-don't-generate idea work for agent tool selection? Scoring lands within about 3 points of generating on accuracy, never invents a tool, ranks far better, and is 2.5x faster.">
+<meta property="og:description" content="Does Netflix's score-don't-generate idea work for agent tool selection? Scoring lands within about 3 points of generating on accuracy, never invents a tool, ranks far better, and is 2.6x faster.">
 <meta property="og:url" content="https://yashdthapliyal.github.io/blog/actionrank.html">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ActionRank: score the toolbox, don't generate the tool name">
-<meta name="twitter:description" content="Scoring the tool list lands within about 3 points of generating the name, never invents a tool, ranks far better, and is 2.5x faster. ToolBench, 1.5B Qwen, three seeds.">
+<meta name="twitter:description" content="Scoring the tool list lands within about 3 points of generating the name, never invents a tool, ranks far better, and is 2.6x faster. ToolBench, 1.5B Qwen, three seeds.">
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
@@ -390,7 +390,7 @@
 
     <p>An agent picks its next tool by writing a function call. The model spells out the tool name one token at a time, the framework parses the text, and the call runs. This is how most agent frameworks work today.</p>
 
-    <p>This has three costs. Decoding a name takes 10 to 20 forward passes, so each decision is slow. The model can spell a name that does not match any tool, and the call fails. And you get one name, not a ranking over the offered tools. Getting alternatives means more decoding, and the alternatives are mostly respellings of the first guess.</p>
+    <p>This has three costs. Decoding a tool name takes about 10 forward passes on top of the prompt pass (6 to 14 for most ToolBench tools with this tokenizer), so each decision is slow. The model can spell a name that does not match any tool, and the call fails. And you get one name, not a ranking over the offered tools. Getting alternatives means more decoding, and the alternatives are mostly respellings of the first guess.</p>
 
     <p>None of this is necessary. The agent's toolbox is a fixed list. The model does not need to write a name. It needs to pick one.</p>
 
@@ -409,13 +409,15 @@
       </thead>
       <tbody>
         <tr><td>generation</td><td class="n"><strong>66.6%</strong></td><td class="n"><strong>62.7%</strong></td><td class="n">0.764</td><td class="n">90.7%</td><td class="n">0.9%</td><td class="n">632 ms</td></tr>
-        <tr><td>ActionRank, ranking loss only</td><td class="n">62.6%</td><td class="n">56.6%</td><td class="n">0.768</td><td class="n">97.2%</td><td class="n"><strong>0.0%</strong></td><td class="n"><strong>251 ms</strong></td></tr>
-        <tr><td>ActionRank, GenRec's full objective</td><td class="n">64.0%</td><td class="n">58.7%</td><td class="n"><strong>0.778</strong></td><td class="n"><strong>97.5%</strong></td><td class="n"><strong>0.0%</strong></td><td class="n">256 ms</td></tr>
-        <tr class="delta"><td>difference, last row vs generation</td><td class="n">-2.6</td><td class="n">-4.0</td><td class="n">+0.014</td><td class="n">+6.8</td><td class="n">12 fewer</td><td class="n">2.5x</td></tr>
+        <tr><td>ActionRank, ranking loss only</td><td class="n">62.5%</td><td class="n">56.6%</td><td class="n">0.768</td><td class="n">97.2%</td><td class="n"><strong>0.0%</strong></td><td class="n">251 ms</td></tr>
+        <tr><td>ActionRank, GenRec's full objective</td><td class="n">64.0%</td><td class="n">58.7%</td><td class="n"><strong>0.778</strong></td><td class="n"><strong>97.5%</strong></td><td class="n"><strong>0.0%</strong></td><td class="n"><strong>247 ms</strong></td></tr>
+        <tr class="delta"><td>difference, last row vs generation</td><td class="n">-2.6</td><td class="n">-4.0</td><td class="n">+0.014</td><td class="n">+6.8</td><td class="n">-0.9</td><td class="n">2.6x</td></tr>
       </tbody>
     </table>
     </div>
     <p class="caption">Best value per column in bold; the difference row is the full-objective scorer relative to generation, in points. Mean of three training seeds per system, evaluated on 1,352 held-out steps outside every system's training-time monitoring. "Tool picks" is top-1 excluding steps where the right answer is to stop. MRR is Mean Reciprocal Rank over each system's five best guesses, the metric GenRec reports; it was computed afterwards from the saved predictions. All three use the same LoRA configuration and three backbone epochs on the same data. Latency is from a laptop GPU at batch size 1. Every system selects a tool name only; none generates arguments.</p>
+
+    <p><strong>A note on scale.</strong> Everything here uses a 1.5B-parameter backbone, chosen because of compute. The absolute accuracies belong to that scale, and to a dataset whose labels cap top-1 well below 100% for any system. A larger backbone would likely lift both systems. Whether it narrows the gap is untested. GenRec reports that larger backbones rank better, and the scorer's weakest slice, tools it never trained on, depends on how well the model reads a description. The structural results do not depend on size: a scorer cannot name a tool that was not offered, and it never pays for decoding.</p>
 
     <p>The rest of this post is how I got there. The first version of this experiment said the scorer lost badly. A pooling fix made it a tie. A clean evaluation and three seeds turned the tie into a 4-point loss. Then re-reading GenRec's recipe turned up a loss term I had skipped, and adding it recovered a third of that. Here is how the two approaches differ, then what I built, then what happened.</p>
 
@@ -546,7 +548,7 @@
 
     <p>One more number, because it is the one GenRec uses. GenRec never reports first-guess accuracy. Its offline metric is Mean Reciprocal Rank, which scores the whole ranking. On MRR the full-objective scorer gets 0.778 and the generator 0.764. Compared seed by seed with the same trajectory-level intervals, no pairing favors the generator: six of nine are a dead heat, within 0.006, and the three against the generator's weakest seed favor the scorer. The reason is visible in the predictions. The generator's first guess is right more often, but when it is wrong its alternatives are mostly respellings of that guess. The scorer's second and third choices are real candidates, and MRR credits that.</p>
 
-    <p>Everything structural is unchanged: zero hallucinated tools on every seed, top-5 between 97 and 98%, and 256 ms per decision on the laptop against the generator's 632.</p>
+    <p>Everything structural is unchanged: zero hallucinated tools on every seed, top-5 between 97 and 98%, and 247 ms per decision on the laptop against the generator's 632.</p>
 
     <h3>Where the accuracy gap lives</h3>
 
@@ -561,7 +563,7 @@
 
     <h2>What this means</h2>
 
-    <p>Scoring is a trade, not a free win. GenRec's structural promises transferred exactly: the scorer cannot pick a tool that was not offered, it ranks every candidate from one forward pass, and it decides in less than half the time. What did not fully transfer is accuracy parity. With GenRec's full objective and three seeds, generating the name is still about 2.6 points more accurate, and about 4 points more accurate on the steps where a tool is actually chosen, though no seed pairing is decisive, and on GenRec's own ranking metric the two are level. Whether that trade is worth it depends on the agent. One that retries from the ranking, or that cannot afford an invalid call, gets a lot for 3 points. One that executes its first choice and can validate names cheaply gets less.</p>
+    <p>Scoring is a trade, not a free win. GenRec's structural promises transferred exactly: the scorer cannot pick a tool that was not offered, it ranks every candidate from one forward pass, and it decides in less than half the time. What did not fully transfer is accuracy parity. With GenRec's full objective and three seeds, generating the name is still about 2.6 points more accurate, and about 4 points more accurate on the steps where a tool is actually chosen, though no seed pairing is decisive, and on GenRec's own ranking metric the two are level. Whether that trade is worth it depends on the agent. One that retries from the ranking, or that cannot afford an invalid call, gets a lot for 3 to 4 points. One that executes its first choice and can validate names cheaply gets less.</p>
 
     <p>The scorer is also the more predictable system. Three seeds within 2 points, against a 5-point spread for the generator driven by how well each run learns to stop. That matters if you are going to train one and ship it.</p>
 
@@ -580,7 +582,7 @@
     <h2>Limitations and future expansions</h2>
 
     <ul>
-      <li>Each task lists about 6 candidates, so this is shortlist ranking, not retrieval. Random guessing already gets about 84% top-5. The real test for scoring is ranking all 6,372 tools in the catalog at once. That is the next experiment.</li>
+      <li>Each task lists about 6 candidates, so this is shortlist ranking, not retrieval. Random guessing already gets about 83% top-5. The real test for scoring is ranking all 6,372 tools in the catalog at once. That is the next experiment.</li>
       <li>The headline has three seeds per system on 1,352 steps. Everything else in the post is one run on the 500-step development set. One dataset and one backbone size throughout.</li>
       <li>This replicates GenRec's Phase 2. It does not do Phase 1, domain adaptation of the backbone before ranking, which GenRec credits with a 10 to 20% relative gain, nor reward weighting, which ToolBench has no signal for. Phase 1, more training data, and a larger backbone are the natural next steps, and GenRec reports gains from all three.</li>
       <li>The 1,352 steps were never monitored during training, but earlier frozen-head experiments did report aggregate numbers over the full held-out split, and those informed the choice of head and pooling. A truly independent test needs a predeclared train, dev, and test split with retraining. That is the next experiment.</li>
@@ -590,7 +592,7 @@
       <li>Latencies come from Apple Silicon at batch size 1. I expect the ratio to hold elsewhere, but I have not measured it. The absolute numbers will not transfer.</li>
     </ul>
 
-    <p>The code, data pipeline, training scripts, and every prediction file are in the repo below.</p>
+    <p>The code, data pipeline, training scripts, configs, pre-registration documents, and per-run results tables are in the repo below. Checkpoints and per-step prediction files are not tracked; the evaluation script regenerates them.</p>
 
   </article>
 
@@ -678,8 +680,8 @@
 
   hbars('c5', [
     { group: 'Tool was a training label (651 steps)' },
-    { label: 'Generation', series: 'gen', value: 67.3, note: 'seeds: 69.3 / 64.1 / 68.4' },
-    { label: 'ActionRank', series: 'ar', value: 63.0, note: 'seeds: 64.1 / 60.7 / 64.1' },
+    { label: 'Generation', series: 'gen', value: 67.2, note: 'seeds: 69.3 / 64.1 / 68.4' },
+    { label: 'ActionRank', series: 'ar', value: 62.9, note: 'seeds: 64.1 / 60.7 / 64.1' },
     { group: 'Tool was never a training label (329 steps)' },
     { label: 'Generation', series: 'gen', value: 53.8, note: 'seeds: 55.0 / 51.1 / 55.3' },
     { label: 'ActionRank', series: 'ar', value: 44.2, note: 'seeds: 46.8 / 42.2 / 43.5' },
