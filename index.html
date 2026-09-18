@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yash Thapliyal</title>
-<meta name="description" content="Yash Thapliyal is an EECS student at UC Berkeley and AI/ML engineer building agent memory, MCP tooling, multimodal systems, and AI safety infrastructure. Currently at Splunk AI, BAIR, and Sky Computing Lab.">
+<meta name="description" content="Yash Thapliyal is an EECS student at UC Berkeley and AI/ML engineer building agent memory, MCP tooling, multimodal systems, and AI safety infrastructure. Currently at BAIR. Previously EleutherAI, Sky Computing Lab, and Splunk AI.">
 <meta name="keywords" content="Yash Thapliyal, AI researcher, machine learning engineer, UC Berkeley, BAIR, Berkeley AI Research, EECS, agentic AI, foundation models, multimodal learning, LLM, software engineer">
 <meta name="author" content="Yash Thapliyal">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
@@ -13,7 +13,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Yash Thapliyal | AI/ML Researcher & Engineer at UC Berkeley">
-<meta property="og:description" content="EECS @ UC Berkeley. Building agent memory, MCP tooling, multimodal systems, and AI safety infrastructure. Currently Splunk AI, BAIR, and Sky Computing Lab.">
+<meta property="og:description" content="EECS @ UC Berkeley. Building agent memory, MCP tooling, multimodal systems, and AI safety infrastructure. Currently BAIR. Previously EleutherAI, Sky Computing Lab, and Splunk AI.">
 <meta property="og:url" content="https://yashdthapliyal.github.io">
 <meta property="og:site_name" content="Yash Thapliyal">
 <meta property="og:locale" content="en_US">
@@ -22,7 +22,7 @@
 <meta name="twitter:site" content="@yashdthapliyal">
 <meta name="twitter:creator" content="@yashdthapliyal">
 <meta name="twitter:title" content="Yash Thapliyal | AI/ML Researcher & Engineer at UC Berkeley">
-<meta name="twitter:description" content="EECS @ UC Berkeley. Splunk AI, BAIR, Sky Computing Lab. Agents, memory, MCP, and AI safety systems.">
+<meta name="twitter:description" content="EECS @ UC Berkeley. BAIR, EleutherAI, Sky Computing Lab, Splunk AI. Agents, memory, MCP, and AI safety systems.">
 
 <script type="application/ld+json">
 {
@@ -746,6 +746,81 @@
     .hero-body { font-size: 16px; }
   }
 
+  /* BLOG */
+  #page-blog .inner { max-width: 1120px; }
+
+  .b-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .b-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    padding: 22px 24px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: var(--card-shadow);
+    transition: all 0.2s;
+  }
+
+  .b-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .b-kind {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+  }
+
+  .b-kind .b-date { color: var(--text-dim); letter-spacing: 0.04em; text-transform: none; }
+
+  .b-card h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--text-strong);
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .b-card p {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    flex: 1;
+  }
+
+  .b-card .w-tags { margin-top: 0; }
+
+  .b-read {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--text-dim);
+    margin-top: 14px;
+    transition: color 0.2s;
+  }
+
+  .b-card:hover .b-read { color: var(--text-strong); }
+
+  @media (max-width: 768px) {
+    .b-list { grid-template-columns: 1fr; }
+  }
+
   /* ===== Projects atlas (integrated) ===== */
   #projects-atlas { --c-eval:#2E9E82; --c-memory:#3B7DD8; --c-orch:#8A6DD6; --c-applied:#D8894A; --tintbg:var(--surface); }
   #projects-atlas .pa-head { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
@@ -838,6 +913,7 @@
       <button class="active" onclick="go('home', this)">Home</button>
       <button onclick="go('experience', this)">Experience</button>
       <button onclick="go('projects', this)">Projects</button>
+      <button onclick="go('blog', this)">Blog</button>
       <button onclick="go('contact', this)">Contact</button>
     </div>
   </div>
@@ -859,8 +935,8 @@
       <div class="hero-body">
   <ul class="hero-bullets">
     <li><strong>EECS @ UC Berkeley</strong></li>
-    <li>Currently @ <strong>Splunk AI</strong>, <strong>Berkeley AI Research (BAIR)</strong>, and <strong>Sky Computing Lab</strong></li>
-    <li>Prev SWE Intern @ <strong>Amazon</strong>, <strong>C.Light Technologies</strong>, and <strong>smartQED</strong></li>
+    <li>Currently @ <strong>Berkeley AI Research (BAIR)</strong></li>
+    <li>Prev @ <strong>EleutherAI</strong>, <strong>Sky Computing Lab</strong>, <strong>Splunk AI</strong>, <strong>Google</strong>, <strong>Amazon</strong>, <strong>C.Light Technologies</strong>, and <strong>smartQED</strong></li>
     <li>Interested in <strong>Agentic AI</strong>, <strong>AI Safety & Alignment</strong>, <strong>Multi-Agent Systems</strong>, <strong>Reinforcement Learning</strong>, <strong>AI Memory</strong>, and <strong>Post Training</strong></li>
   </ul>
 
@@ -899,11 +975,15 @@
     <div class="experience-layout">
     <aside class="experience-rail fi" aria-label="Experience timeline">
       <div class="rail-item">
-        <span class="rail-date">May 2026 - Present</span>
+        <span class="rail-date">Jul 2026 - Sep 2026</span>
+        <span class="rail-co">EleutherAI</span>
+      </div>
+      <div class="rail-item">
+        <span class="rail-date">May 2026 - Aug 2026</span>
         <span class="rail-co">Splunk AI</span>
       </div>
       <div class="rail-item">
-        <span class="rail-date">Apr 2026 - Present</span>
+        <span class="rail-date">Apr 2026 - Sep 2026</span>
         <span class="rail-co">Sky Computing Lab</span>
       </div>
       <div class="rail-item">
@@ -929,33 +1009,45 @@
     </aside>
 
     <div class="timeline">
-    <div class="w-item fi" data-date="May 2026 - Present">
+    <div class="w-item fi" data-date="Jul 2026 - Sep 2026">
+      <div class="w-top">
+        <span class="w-co">EleutherAI</span>
+        <span class="w-date">Jul 2026 - Sep 2026</span>
+      </div>
+      <div class="w-role">AI Safety Research Fellow, SOAR-S3</div>
+      <div class="w-loc">Remote</div>
+      <ul class="w-body">
+        <li>Designed an <strong>evaluation harness</strong> for <strong>deceptive compliance</strong> in tool-using agents, replay-verifying tool calls against fresh environments to detect <strong>false completion claims</strong> across <strong>481 trajectories, 8 models, and 15 pressure conditions</strong>.</li>
+      </ul>
+      <div class="w-tags"><span>AI Safety</span><span>Agent Evaluation</span><span>Tool Use</span><span>Deceptive Compliance</span></div>
+    </div>
+
+    <div class="w-item fi" data-date="May 2026 - Aug 2026">
       <div class="w-top">
         <span class="w-co">Splunk (Cisco)</span>
-        <span class="w-date">May 2026 - Present</span>
+        <span class="w-date">May 2026 - Aug 2026</span>
       </div>
       <div class="w-role">Machine Learning Engineer Intern, Splunk AI</div>
       <div class="w-loc">San Jose, CA</div>
       <ul class="w-body">
-        <li>Architected a <strong>multi-tier memory system</strong> spanning short-term, session, and long-term memory that extracts <strong>durable facts, user preferences, decisions, and workflow patterns</strong> from conversations, documents, and tool traces for reuse across future agent tasks.</li>
-        <li>Distilled a <strong>120B-parameter teacher</strong> into a compact <strong>3B on-device student</strong> (MLX, Apple Silicon) reaching <strong>52.1% F1</strong> on fully held-out conversations—a <strong>~40x parameter reduction</strong>. Hardened the evaluation framework with <strong>MiniLM embeddings</strong> and <strong>bipartite matching</strong>, uncovering <strong>train/eval contamination bugs</strong> to recover <strong>+5% relative F1</strong> with zero retraining.</li>
-        <li>Trained the student locally with <strong>MLX</strong> and <strong>LoRA</strong>, comparing <strong>preference optimization (DPO)</strong>, <strong>RL with verifiable rewards (GRPO)</strong>, quantization, and data scaling to isolate performance bottlenecks and identify the best-performing training recipe.</li>
-        <li>Built a <strong>prompt-optimization platform from 0 to 1</strong> (Dockerized <strong>FastAPI</strong> backend, <strong>SQLAlchemy</strong> storage, dashboard, CLI, <strong>MCP server</strong>) using <strong>GEPA</strong> via <strong>DSPy</strong> to lift task accuracy by up to <strong>+50 points</strong> (0.27→0.77) across 8 optimization jobs.</li>
+        <li>Architected a <strong>multi-tier memory system</strong> for AI agents spanning short-term, session, and long-term memory, extracting durable facts, user preferences, decisions, and workflow patterns from conversations, documents, and tool traces.</li>
+        <li>Distilled a <strong>120B teacher into a 3B on-device student</strong> (<strong>40x fewer parameters</strong>) with MLX/LoRA; explored <strong>preference optimization and RL post-training</strong> via DPO/GRPO, alongside quantization and data scaling, to identify the best-performing training recipe; built a leakage-resistant evaluation framework with <strong>MiniLM embeddings and bipartite matching</strong>.</li>
+        <li>Built a prompt-optimization platform from 0 to 1 (Docker, FastAPI, SQLAlchemy, dashboard, CLI, MCP) using <strong>GEPA via DSPy</strong>, lifting task accuracy by up to <strong>+50 points</strong> (0.27 to 0.77) across 8 optimization jobs.</li>
       </ul>
       <div class="w-tags"><span>Agent Memory</span><span>Prompt Optimization</span><span>GEPA</span><span>DSPy</span><span>MCP</span><span>Distillation</span><span>LoRA</span><span>SFT</span><span>DPO</span><span>GRPO</span><span>RL</span><span>MLX</span><span>Evaluation</span><span>SQLAlchemy</span></div>
     </div>
 
-    <div class="w-item fi" data-date="Apr 2026 - Present">
+    <div class="w-item fi" data-date="Apr 2026 - Sep 2026">
       <div class="w-top">
         <span class="w-co">Sky Computing Lab</span>
-        <span class="w-date">Apr 2026 - Present</span>
+        <span class="w-date">Apr 2026 - Sep 2026</span>
       </div>
-      <div class="w-role">Researcher</div>
+      <div class="w-role">AI Researcher</div>
       <div class="w-loc">Berkeley, CA</div>
       <ul class="w-body">
-        <li>Researching <strong>offline optimization</strong> techniques that transform <strong>chain-of-thought traces</strong> into reusable retrieval signals for improved reasoning.</li>
+        <li>Built a <strong>FAISS-based reasoning-trace retrieval pipeline</strong> over <strong>58K chain-of-thought traces</strong>, evaluating whether retrieved solutions from related problems improve LLM mathematical reasoning across <strong>7,680 graded generations</strong> on AIME 2025–26.</li>
       </ul>
-      <div class="w-tags"><span>CoT Traces</span><span>Retrieval</span><span>Reasoning</span><span>Optimization</span></div>
+      <div class="w-tags"><span>FAISS</span><span>Retrieval</span><span>CoT Traces</span><span>Reasoning</span><span>LLM Evaluation</span></div>
     </div>
 
     <div class="w-item fi" data-date="Oct 2025 - Present">
@@ -963,13 +1055,13 @@
         <span class="w-co">Berkeley AI Research Lab (BAIR)</span>
         <span class="w-date">Oct 2025 - Present</span>
       </div>
-      <div class="w-role">Researcher</div>
+      <div class="w-role">AI Researcher</div>
       <div class="w-loc">Berkeley, CA</div>
       <ul class="w-body">
-        <li>Built and benchmarked an <strong>end-to-end synthetic speech pipeline</strong> that generates English audio, extracts <strong>phoneme-level metadata</strong>, compares <strong>GLM-TTS</strong> and <strong>Piper</strong> backends, and validates audio and label quality for downstream speech modeling.</li>
-        <li>Built a <strong>PyTorch SFT pipeline</strong> that adapts <strong>Qwen2.5-Omni-3B</strong>'s multimodal <strong>Thinker</strong> via <strong>LoRA</strong> on <strong>1,000 synthetic speech samples</strong>, with held-out evaluation of <strong>confusable-word transcription</strong>.</li>
+        <li>Built an <strong>end-to-end synthetic speech pipeline</strong> generating <strong>1,700+ validated minimal-pair clips</strong> with phoneme-level supervision across three voices using eSpeak and Piper TTS.</li>
+        <li>Fine-tuned <strong>Qwen2.5-Omni-3B with LoRA/PEFT</strong> to transcribe speech as spoken rather than “correcting” unusual words, raising accuracy on unseen clips from <strong>72% to 92%</strong> and cutting word substitutions by <strong>66%</strong>.</li>
       </ul>
-      <div class="w-tags"><span>Speech Models</span><span>Synthetic Data</span><span>PyTorch</span><span>LoRA</span><span>SFT</span><span>Evaluation</span></div>
+      <div class="w-tags"><span>Speech Models</span><span>Synthetic Data</span><span>PyTorch</span><span>LoRA</span><span>PEFT</span><span>Evaluation</span></div>
     </div>
 
     <div class="w-item fi" data-date="Feb 2026 - May 2026">
@@ -980,10 +1072,9 @@
       <div class="w-role">Contract Software Engineer, Codebase Collaboration</div>
       <div class="w-loc">Sunnyvale, CA</div>
       <ul class="w-body">
-        <li>Built a full-stack <strong>React + FastAPI</strong> platform with <strong>Dockerized</strong> services deployed on <strong>Kubernetes</strong>, supporting <strong>Gemini</strong>-powered <strong>NL2SQL</strong> workflows.</li>
-        <li>Built a custom <strong>MCP server</strong> for schema inspection, query execution, and database configuration, enabling agent-native access to <strong>AlloyDB Omni</strong>.</li>
+        <li>Developed a <strong>Gemini/Vertex AI tool router</strong> spanning <strong>5 tools</strong> for an <strong>NL2SQL platform</strong> on GKE/AlloyDB; built a <strong>768-dim pgvector index</strong> over <strong>1.08 million transactions</strong>, with SQL execution, embedding, and vector retrieval each under <strong>550 ms</strong>.</li>
       </ul>
-      <div class="w-tags"><span>React</span><span>FastAPI</span><span>Kubernetes</span><span>Gemini</span><span>MCP</span><span>AlloyDB Omni</span></div>
+      <div class="w-tags"><span>Gemini</span><span>Vertex AI</span><span>GKE</span><span>AlloyDB</span><span>pgvector</span><span>NL2SQL</span></div>
     </div>
 
     <div class="w-item fi" data-date="Aug 2025 - Jan 2026">
@@ -1008,9 +1099,7 @@
       <div class="w-role">Software Engineer Intern</div>
       <div class="w-loc">Seattle, WA</div>
       <ul class="w-body">
-        <li>Built an <strong>agentic AI workflow system</strong> with <strong>AWS Bedrock</strong>, <strong>Strands Agents</strong>, and <strong>MCP</strong> to reduce on-call operational burden.</li>
-        <li>Prototyped multi-agent orchestration with MCP tool calls for ticket retrieval, summarization, anomaly detection, RCA, and escalation-risk analysis.</li>
-        <li>Piloted on <strong>200+ team tickets</strong>, saving an estimated <strong>25+ engineer hours per quarter</strong>.</li>
+        <li>Designed and piloted a <strong>multi-agent</strong> workflow using <strong>Strands Agents</strong> with <strong>AWS Bedrock</strong> and <strong>MCP</strong> for ticket triage, summarization, anomaly detection, and root-cause analysis across <strong>200+ tickets</strong>, saving <strong>25+ engineer hours per quarter</strong>.</li>
       </ul>
       <div class="w-tags"><span>AWS Bedrock</span><span>Strands Agents</span><span>MCP</span><span>Agentic AI</span><span>RCA</span></div>
     </div>
@@ -1044,6 +1133,7 @@
       </div>
       <div class="w-role">B.S. Electrical Engineering and Computer Science, Minor in Data Science</div>
       <div class="w-loc">Berkeley, CA</div>
+      <div class="w-body"><strong>Leadership:</strong> Vice President, UC Berkeley Codebase; Staff, Agentic AI Summit 2026</div>
       <div class="w-body">Coursework: Artificial Intelligence, Machine Learning, Data Structures, Computer Architecture, Data Science Principles, Computer Simulations, Discrete Math & Probability Theory, Structure and Interpretation of Programming Languages, Linear Algebra, Multivariable Calculus.</div>
     </div>
 
@@ -1058,11 +1148,11 @@
     </div>
     <div class="sk-group fi">
       <div class="sk-label">ML / AI</div>
-      <div class="w-tags"><span>PyTorch</span><span>JAX</span><span>TensorFlow</span><span>Transformers</span><span>HuggingFace</span><span>vLLM</span><span>RAG</span><span>LLM Evaluation</span><span>Fine-Tuning</span></div>
+      <div class="w-tags"><span>PyTorch</span><span>Transformers</span><span>Hugging Face</span><span>LoRA Fine-Tuning</span><span>Knowledge Distillation</span><span>Quantization</span><span>RAG</span><span>LLM Evaluation</span><span>Synthetic Data</span><span>Agentic Systems</span><span>DSPy</span></div>
     </div>
     <div class="sk-group fi">
       <div class="sk-label">Systems & Infrastructure</div>
-      <div class="w-tags"><span>Linux</span><span>Docker</span><span>Kubernetes</span><span>Git</span><span>AWS</span><span>GCP</span><span>FastAPI</span><span>PostgreSQL</span><span>Neo4j</span><span>MCP</span></div>
+      <div class="w-tags"><span>Linux</span><span>Docker</span><span>Kubernetes</span><span>AWS (Bedrock)</span><span>GCP</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>Neo4j</span><span>React</span><span>MCP</span><span>Git</span></div>
     </div>
   </div>
 </div>
@@ -1089,6 +1179,24 @@
         <div class="pa-hint">Hover to preview &middot; click any node for the full write-up</div>
       </div>
       <div class="pa-modal" id="pa-modal"><div class="pa-modal-box" id="pa-modalBox"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BLOG -->
+<div class="page" id="page-blog">
+  <div class="inner">
+    <h2 class="sec-title fi">Blog</h2>
+    <p class="sec-sub fi">Longer write-ups on projects, experiments, and what I learned from them.</p>
+
+    <div class="b-list">
+      <a class="b-card fi" href="blog/actionrank.html">
+        <div class="b-kind"><span>Technical Report</span><span class="b-date">2026</span></div>
+        <h3>ActionRank</h3>
+        <p>Does Netflix's "score, don't generate" idea work for agent tool selection? Scoring a fixed tool list in one forward pass versus generating the tool name token by token, tested on ToolBench.</p>
+        <div class="w-tags"><span>Tool Selection</span><span>ToolBench</span><span>Qwen</span><span>GenRec</span><span>Agents</span></div>
+        <div class="b-read">Read &rarr;</div>
+      </a>
     </div>
   </div>
 </div>
@@ -1146,6 +1254,16 @@
   if (currentTheme === 'dark') {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
+
+  // Open a tab directly from the URL hash (e.g. /#blog)
+  function openFromHash() {
+    const page = (location.hash || '').replace('#', '');
+    if (!page || !document.getElementById('page-' + page)) return;
+    const btn = document.querySelector('.nav-tabs button[onclick*="\'' + page + '\'"]');
+    if (btn) go(page, btn);
+  }
+  window.addEventListener('DOMContentLoaded', openFromHash);
+  window.addEventListener('hashchange', openFromHash);
 </script>
 <script>
 
@@ -1226,12 +1344,24 @@ const N = [
     full:['Analyzed capacity\u2013accuracy tradeoffs by embedding hidden information in neural-network weights while maintaining 90%+ accuracy, probing how much a model can conceal without visible degradation.',
       'Research conducted at San Jose State University, exploring the intersection of steganography, interpretability, and deep learning.'],
     tags:['AI Safety','Interpretability','Deep Learning','Research'], links:[['Demo','https://colab.research.google.com/drive/1Axc93VmZi4ech7Nw6iGqgkjloETYTxeG?usp=sharing']] },
+  { id:'tipguard', label:'TIP-Guard', cl:'eval', r:21, x:560, y:270, lp:[0,35,'middle'], g:'TG',
+    desc:'Does decoding a prompt before judging it catch more attacks? A 20-arm guardrail study says no.',
+    full:['Built a benchmark and seven guardrail configurations for Task-in-Prompt attacks, where a request for a secret is hidden inside an encoding puzzle, and evaluated them on 989 held-out cases across two language models (20 runs, 27,709 model calls).',
+      'The main hypothesis did not hold: decoding the prompt before classifying it changed nothing measurable, because a well-written raw-prompt classifier plus an output check already blocked 751 of 752 attacks. The decode step only added about one extra model call per case.',
+      'What mattered instead: how the secret was introduced in the system prompt moved gpt-4o-mini\u2019s leak rate from 0.03 to 0.75, and removing a single word from the classifier prompt eliminated a 68% false-positive rate on legitimate traffic without losing attack coverage.'],
+    tags:['AI Safety','Guardrails','Prompt Injection','Benchmark'], links:[['Repo','https://github.com/YashDThapliyal/TIP-Guard']] },
+  { id:'actionrank', label:'ActionRank', cl:'orch', r:24, big:1, x:560, y:646, lp:[0,38,'middle'], g:'AR',
+    desc:'Score the whole toolbox in one forward pass instead of generating a tool call.',
+    full:['Tested Netflix\u2019s GenRec \u201cscore, don\u2019t generate\u201d idea on agent tool selection: run the LLM once over the context and score every candidate tool from that single pass, instead of decoding a function call token by token.',
+      'On 500 held-out ToolBench steps with a fine-tuned Qwen2.5-1.5B backbone, scoring matched generation on top-1 accuracy (66.6% vs. 66.0%), never selected a nonexistent tool (0% vs. 0.6%), placed the right tool in its top five 98% of the time (vs. 91%), and cut per-decision latency from 575 ms to 250 ms.',
+      'The scorer\u2019s fine-tuning only worked after changing how the prompt is pooled, turning a 5-point loss into a tie. Unseen tools remain the generator\u2019s edge (50% vs. 41%).'],
+    tags:['Tool Selection','ToolBench','Qwen','Fine-Tuning'], links:[['Repo','https://github.com/YashDThapliyal/ActionRank'],['Report','blog/actionrank.html']] },
 ];
 /* only same-focus edges remain — cross-cluster links removed */
 const E = [
-  {a:'corro',b:'evalforge'},{a:'evalforge',b:'shadow'},{a:'evalforge',b:'mettle'},{a:'corro',b:'mettle'},{a:'shadow',b:'infoembed'},
+  {a:'corro',b:'evalforge'},{a:'evalforge',b:'shadow'},{a:'evalforge',b:'mettle'},{a:'corro',b:'mettle'},{a:'shadow',b:'infoembed'},{a:'shadow',b:'tipguard'},{a:'corro',b:'tipguard'},
   {a:'chronos',b:'memochain'},{a:'chronos',b:'skillrunes'},{a:'memochain',b:'skillrunes'},
-  {a:'orch',b:'router'},
+  {a:'orch',b:'router'},{a:'actionrank',b:'router'},{a:'actionrank',b:'orch'},
   {a:'world',b:'llama'},{a:'llama',b:'gita'},{a:'world',b:'gita'},
 ];
 const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
@@ -1243,9 +1373,9 @@ const CTR = { x:VBW/2, y:VBH/2 };
 const RING = 210;   // center -> cluster anchor distance
 /* node offsets in each cluster's outward frame: +u outward from center, +v tangential */
 const LAYOUT = {
-  eval:    [ {id:'evalforge',u:40,v:0,big:1}, {id:'corro',u:4,v:-120,big:1}, {id:'shadow',u:4,v:120}, {id:'mettle',u:-74,v:-62}, {id:'infoembed',u:-74,v:62} ],
+  eval:    [ {id:'evalforge',u:40,v:0,big:1}, {id:'corro',u:4,v:-120,big:1}, {id:'shadow',u:4,v:120}, {id:'mettle',u:-74,v:-80}, {id:'tipguard',u:-80,v:0}, {id:'infoembed',u:-74,v:80} ],
   memory:  [ {id:'chronos',u:34,v:0,big:1}, {id:'memochain',u:-32,v:-76}, {id:'skillrunes',u:-32,v:76} ],
-  orch:    [ {id:'orch',u:34,v:-46}, {id:'router',u:-32,v:46} ],
+  orch:    [ {id:'actionrank',u:36,v:0,big:1}, {id:'orch',u:-30,v:-80}, {id:'router',u:-30,v:80} ],
   applied: [ {id:'world',u:20,v:-90}, {id:'gita',u:20,v:90}, {id:'llama',u:-58,v:0} ],
 };
 const HALO={};
@@ -1276,7 +1406,7 @@ Object.entries(LAYOUT).forEach(([cl,members])=>{
 /* label reconciliation: full names on site, short labels on the map */
 const FULLNAME={orch:'Agentic Research Orchestrator',router:'Intelligent LLM Router',world:'Autonomous Driving World Model',infoembed:'Info Embedding in Neural Networks'};
 const SHORT={orch:'Research Orchestrator',router:'LLM Router',world:'Driving World Model',infoembed:'Info in Weights'};
-const FEAT=new Set(['corro','evalforge','chronos','shadow']);
+const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard']);
 N.forEach(n=>{ n.short = SHORT[n.id]||n.label; if(FULLNAME[n.id]) n.label=FULLNAME[n.id]; n.feat=FEAT.has(n.id); });
 
 const root=document.getElementById('projects-atlas');
