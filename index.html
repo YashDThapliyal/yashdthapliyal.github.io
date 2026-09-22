@@ -821,67 +821,45 @@
     .b-list { grid-template-columns: 1fr; }
   }
 
-  /* ===== Projects atlas (integrated) ===== */
-  #projects-atlas { --c-eval:#2E9E82; --c-memory:#3B7DD8; --c-orch:#8A6DD6; --c-applied:#D8894A; --tintbg:var(--surface); }
-  #projects-atlas .pa-head { display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
-  #projects-atlas .pa-toggle { display:inline-flex; border:1px solid var(--border); border-radius:6px; overflow:hidden; }
-  #projects-atlas .pa-toggle button { font-family:var(--mono); font-size:12px; letter-spacing:0.03em; color:var(--text-mid); background:var(--surface); border:none; padding:7px 14px; cursor:pointer; transition:all 0.2s; }
-  #projects-atlas .pa-toggle button + button { border-left:1px solid var(--border); }
-  #projects-atlas .pa-toggle button.active { background:var(--text-strong); color:var(--bg); }
-  #projects-atlas .pa-thesis { font-family:var(--mono); font-size:13px; line-height:1.7; color:var(--text-dim); margin:18px 0 26px; padding-left:14px; border-left:2px solid var(--border); }
-  #projects-atlas .pa-thesis .g { color:var(--blue); }
-  /* list */
-  #projects-atlas .pa-list { display:block; }
-  #projects-atlas .pa-list.off { display:none; }
-  #projects-atlas .pa-cluster { margin-bottom:14px; border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--surface); box-shadow:var(--card-shadow); }
-  #projects-atlas .pa-cl-band { display:flex; align-items:center; gap:14px; padding:16px 20px; position:relative; }
-  #projects-atlas .pa-cl-band::before { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--cc); }
-  #projects-atlas .pa-num { font-family:var(--mono); font-size:12px; font-weight:600; color:#fff; background:var(--cc); width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  #projects-atlas .pa-cl-band .pa-txt { flex:1; }
-  #projects-atlas .pa-cl-band h3 { font-family:var(--mono); font-size:16px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--cc); line-height:1.2; }
-  #projects-atlas .pa-cl-band .pa-sub { font-size:15px; color:var(--text-mid); margin-top:2px; }
-  #projects-atlas .pa-cl-band .pa-cnt { font-family:var(--mono); font-size:11px; color:var(--text-dim); flex-shrink:0; }
-  #projects-atlas .pa-cl-body { padding:6px 20px 18px; display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-  #projects-atlas .pa-pcard { text-align:left; cursor:pointer; background:transparent; border:1px solid var(--border); border-radius:9px; padding:14px 16px; transition:all 0.18s; font-family:var(--serif); }
-  #projects-atlas .pa-pcard:hover { border-color:var(--cc); transform:translateY(-2px); background:color-mix(in srgb, var(--cc) 5%, var(--surface)); }
-  #projects-atlas .pa-pt { display:flex; align-items:baseline; gap:7px; margin-bottom:5px; }
-  #projects-atlas .pa-pt b { font-size:16px; font-weight:700; color:var(--text-strong); }
-  #projects-atlas .pa-pt .pa-ex { font-family:var(--mono); font-size:10.5px; color:var(--text-dim); margin-left:auto; opacity:0; transition:opacity 0.18s; }
-  #projects-atlas .pa-pcard:hover .pa-ex { opacity:1; }
-  #projects-atlas .pa-pcard p { font-size:13.5px; line-height:1.5; color:var(--text-mid); margin-bottom:9px; }
-  #projects-atlas .pa-chips { display:flex; flex-wrap:wrap; gap:5px; }
-  #projects-atlas .pa-chips span { font-family:var(--mono); font-size:10px; padding:2px 7px; border:1px solid var(--border); border-radius:3px; color:var(--text-dim); }
-  /* map */
-  #projects-atlas .pa-stage { position:relative; margin-top:4px; display:none; }
-  #projects-atlas .pa-stage.on { display:block; }
-  #projects-atlas svg.pa-graph { width:100%; height:auto; display:block; }
-  #projects-atlas .pa-halo ellipse { stroke-width:1.1; stroke-dasharray:3 6; stroke-linecap:round; }
-  #projects-atlas .pa-cl-title { font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; }
-  #projects-atlas .pa-halo { transition:opacity 0.25s; } #projects-atlas .pa-halo.faded { opacity:0.18; }
-  #projects-atlas .pa-edge { fill:none; stroke-width:1.6; opacity:0.55; transition:opacity 0.22s, stroke-width 0.22s; }
-  #projects-atlas .pa-edge.hot { opacity:1 !important; stroke-width:2.6; } #projects-atlas .pa-edge.faded { opacity:0.05 !important; }
-  #projects-atlas .pa-node { cursor:pointer; transition:opacity 0.22s; }
-  #projects-atlas .pa-node .pa-ring { fill:none; stroke-width:1; opacity:0.5; transition:all 0.22s; }
-  #projects-atlas .pa-node .pa-core { stroke:var(--bg); stroke-width:2.5; transition:all 0.22s; }
-  #projects-atlas .pa-node .pa-glyph { font-family:var(--mono); font-size:11px; font-weight:600; fill:#fff; text-anchor:middle; pointer-events:none; }
-  #projects-atlas .pa-node .pa-lbl { font-family:var(--mono); font-size:11px; fill:var(--text-mid); paint-order:stroke; stroke:var(--bg); stroke-width:4px; stroke-linejoin:round; pointer-events:none; }
-  #projects-atlas .pa-node.big .pa-lbl { font-weight:600; fill:var(--text-strong); }
-  #projects-atlas .pa-node:hover .pa-ring, #projects-atlas .pa-node.hotn .pa-ring { opacity:1; stroke-width:1.6; }
-  #projects-atlas .pa-node.faded { opacity:0.15; }
-  #projects-atlas .pa-center circle.c1 { fill:var(--surface); stroke:var(--border-hover); stroke-width:1.4; }
-  #projects-atlas .pa-center circle.c2 { fill:none; stroke:var(--border); stroke-width:1; stroke-dasharray:2 5; }
-  #projects-atlas .pa-center text { font-family:var(--mono); fill:var(--text-strong); font-weight:600; text-anchor:middle; pointer-events:none; }
-  #projects-atlas .pa-center .csub { font-weight:400; fill:var(--text-dim); }
-  #projects-atlas .pa-card { position:absolute; width:290px; max-width:82vw; background:var(--surface); border:1px solid var(--border-hover); border-radius:10px; box-shadow:var(--card-shadow); padding:15px 16px; opacity:0; transform:translateY(4px); pointer-events:none; transition:opacity 0.16s, transform 0.16s; z-index:20; }
-  #projects-atlas .pa-card.show { opacity:1; transform:translateY(0); pointer-events:auto; }
-  #projects-atlas .pa-card .pa-ct { display:flex; align-items:center; gap:8px; margin-bottom:2px; }
-  #projects-atlas .pa-cdot { width:8px; height:8px; border-radius:50%; }
-  #projects-atlas .pa-card h3 { font-size:17px; font-weight:700; color:var(--text-strong); }
-  #projects-atlas .pa-card .pa-meta { font-family:var(--mono); font-size:10px; color:var(--text-dim); letter-spacing:0.05em; margin-bottom:8px; text-transform:uppercase; }
-  #projects-atlas .pa-card p { font-size:13.5px; line-height:1.5; color:var(--text-mid); margin-bottom:9px; }
-  #projects-atlas .pa-more { font-family:var(--mono); font-size:10.5px; color:var(--blue); }
-  #projects-atlas .pa-hint { font-family:var(--mono); font-size:11px; color:var(--text-dim); text-align:center; margin-top:2px; }
-  /* modal */
+  /* Interactive project explorer */
+  #page-projects .inner { max-width:1360px; }
+  #projects-atlas { --c-eval:#2E9E82; --c-memory:#3B7DD8; --c-orch:#8A6DD6; --c-applied:#D8894A; }
+  #projects-atlas .pa-head { display:flex; align-items:baseline; justify-content:space-between; gap:20px; }
+  #projects-atlas .pa-total, #projects-atlas .pa-eyebrow { font:10px var(--mono); text-transform:uppercase; letter-spacing:0.1em; color:var(--text-dim); }
+  #projects-atlas .pa-topics { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+  #projects-atlas .pa-topic { display:flex; align-items:center; gap:10px; text-align:left; min-width:0; min-height:40px; padding:9px 12px; border:1px solid var(--border); border-radius:5px; background:color-mix(in srgb,var(--cc) 4%,var(--surface)); color:var(--text); cursor:pointer; transition:background .2s,border-color .2s,transform .2s; }
+  #projects-atlas .pa-topic:hover { border-color:var(--cc); }
+  #projects-atlas .pa-topic[aria-pressed="true"] { background:color-mix(in srgb,var(--cc) 14%,var(--surface)); border-color:var(--cc); }
+  #projects-atlas .pa-topic-name { display:block; font:11px/1.5 var(--mono); color:var(--text-mid); }
+  #projects-atlas .pa-topic-count { font:10px var(--mono); color:var(--text-dim); }
+  #projects-atlas .pa-toolbar { display:flex; align-items:center; gap:16px; margin-bottom:22px; flex-wrap:wrap; }
+  #projects-atlas .pa-all { border:1px solid var(--border); background:var(--surface); color:var(--text-mid); border-radius:20px; padding:9px 15px; cursor:pointer; font:11px var(--mono); }
+  #projects-atlas .pa-all[aria-pressed="true"] { background:var(--text-strong); color:var(--bg); border-color:var(--text-strong); }
+  #projects-atlas .pa-result { font:11px var(--mono); color:var(--text-dim); }
+  #projects-atlas .pa-search { margin-left:auto; display:flex; align-items:center; gap:10px; border-bottom:1px solid var(--border-hover); padding:8px 0; color:var(--text-dim); font:11px var(--mono); }
+  #projects-atlas .pa-search input { width:230px; min-width:0; border:0; background:transparent; color:var(--text); font:12px var(--mono); padding:3px; }
+  #projects-atlas .pa-cluster { margin-bottom:32px; }
+  #projects-atlas [hidden] { display:none !important; }
+  #projects-atlas .pa-cl-band { display:flex; align-items:baseline; gap:16px; margin-bottom:14px; }
+  #projects-atlas .pa-cl-band .pa-eyebrow { color:var(--cc); display:flex; gap:8px; white-space:nowrap; }
+  #projects-atlas .pa-cl-band h3 { font-size:18px; font-weight:400; color:var(--text-mid); }
+  #projects-atlas .pa-cl-body { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+  #projects-atlas .pa-pcard { min-width:0; position:relative; display:flex; flex-direction:column; text-align:left; cursor:pointer; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:18px; color:var(--text); font-family:var(--serif); transition:transform .2s,border-color .2s,box-shadow .2s; animation:projectIn .25s ease both; }
+  #projects-atlas .pa-pcard:hover { transform:translateY(-4px); border-color:var(--cc); box-shadow:0 8px 24px color-mix(in srgb,var(--cc) 10%,transparent); }
+  #projects-atlas .pa-pt { display:flex; align-items:baseline; gap:10px; margin-bottom:12px; width:100%; }
+  #projects-atlas .pa-pt b { font-size:21px; font-weight:400; color:var(--text-strong); line-height:1.2; }
+  #projects-atlas .pa-ex { color:var(--cc); margin-left:auto; }
+  #projects-atlas .pa-desc { display:block; font-size:15px; line-height:1.5; color:var(--text-mid); margin-bottom:12px; }
+  #projects-atlas .pa-outcome { display:block; font:11px/1.55 var(--mono); color:var(--text-mid); border-left:2px solid var(--cc); padding-left:9px; margin:0 0 14px; }
+  #projects-atlas .pa-chips { display:flex; flex-wrap:wrap; gap:5px; font:9px/1.5 var(--mono); color:var(--text-dim); margin-top:auto; }
+  #projects-atlas .pa-chips span { padding:3px 6px; border-radius:3px; background:color-mix(in srgb,var(--cc) 6%,var(--bg)); }
+  #projects-atlas .pa-card-bottom { display:flex; justify-content:space-between; gap:8px; margin-top:18px; padding-top:12px; border-top:1px solid var(--border); color:var(--text-dim); font:10px var(--mono); }
+  #projects-atlas .pa-card-bottom span:last-child { color:var(--cc); }
+  #projects-atlas .pa-empty { text-align:center; padding:60px 20px; color:var(--text-mid); font-size:20px; }
+  #projects-atlas :is(button,a,input):focus-visible { outline:2px solid var(--blue); outline-offset:4px; }
+  #projects-atlas .pa-cdot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  @keyframes projectIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  #projects-atlas .pa-modal:not(.show) { visibility:hidden; }
   #projects-atlas .pa-modal { position:fixed; inset:0; background:var(--scrim, rgba(20,20,20,0.5)); display:flex; align-items:center; justify-content:center; padding:24px; z-index:1000; opacity:0; pointer-events:none; transition:opacity 0.18s; }
   #projects-atlas .pa-modal.show { opacity:1; pointer-events:auto; }
   #projects-atlas .pa-modal-box { background:var(--surface); border:1px solid var(--border-hover); border-radius:14px; box-shadow:var(--card-shadow); width:100%; max-width:540px; max-height:86vh; overflow:auto; padding:26px 30px 28px; position:relative; transform:translateY(8px); transition:transform 0.18s; }
@@ -900,7 +878,27 @@
   #projects-atlas .pa-modal-box .pa-links { display:flex; gap:9px; flex-wrap:wrap; }
   #projects-atlas .pa-modal-box .pa-links a { font-family:var(--mono); font-size:12px; letter-spacing:0.03em; text-decoration:none; color:var(--text-mid); border:1px solid var(--border); border-radius:6px; padding:7px 14px; transition:all 0.2s; }
   #projects-atlas .pa-modal-box .pa-links a:hover { color:var(--text-strong); border-color:var(--border-hover); transform:translateY(-1px); }
-  @media (max-width: 768px) { #projects-atlas .pa-toggle { display:none; } #projects-atlas .pa-stage { display:none !important; } #projects-atlas .pa-list { display:block !important; } #projects-atlas .pa-cl-body { grid-template-columns:1fr; } }
+  @media (max-width:900px) {
+    #projects-atlas .pa-cl-body { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+  @media (max-width:540px) {
+    #projects-atlas .pa-head { display:block; }
+    #projects-atlas .pa-head .sec-sub { margin-bottom:12px; }
+    #projects-atlas .pa-total { display:block; margin-bottom:24px; }
+    #projects-atlas .pa-topic { padding:8px 10px; }
+    #projects-atlas .pa-topic-name { font-size:10px; }
+    #projects-atlas .pa-cl-body { grid-template-columns:1fr; }
+    #projects-atlas .pa-cl-band { display:block; }
+    #projects-atlas .pa-cl-band h3 { margin-top:6px; }
+    #projects-atlas .pa-search { width:100%; margin:0; }
+    #projects-atlas .pa-search input { width:100%; }
+    #projects-atlas .pa-modal { padding:16px; }
+    #projects-atlas .pa-modal-box { padding:26px 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior:auto; }
+    #projects-atlas *, #projects-atlas .fi { animation:none !important; transition:none !important; opacity:1; }
+  }
 
 </style>
 </head>
@@ -1166,19 +1164,17 @@
           <h2 class="sec-title">Projects</h2>
           <p class="sec-sub">What I build when nobody tells me what to build.</p>
         </div>
-        <div class="pa-toggle">
-          <button id="pa-tl" class="active" onclick="paSetView('list')">&#8801; List</button>
-          <button id="pa-tg" onclick="paSetView('graph')">&#9702; Map</button>
-        </div>
+        <span class="pa-total" id="pa-total"></span>
       </div>
-      <div class="pa-thesis fi">Four focus areas, one goal: AI systems that are <span class="g">trustworthy</span>, <span class="g">efficient</span>, and <span class="g">useful</span>. Click any project for the full write-up.</div>
-      <div class="pa-list fi" id="pa-list"></div>
-      <div class="pa-stage" id="pa-stage">
-        <svg id="pa-svg" class="pa-graph" viewBox="0 0 1120 880" xmlns="http://www.w3.org/2000/svg"><g id="pa-halos"></g><g id="pa-edges"></g><g id="pa-nodes"></g></svg>
-        <div class="pa-card" id="pa-card"></div>
-        <div class="pa-hint">Hover to preview &middot; click any node for the full write-up</div>
+      <div class="pa-topics" id="pa-topics" role="group" aria-label="Filter projects by focus"></div>
+      <div class="pa-toolbar">
+        <button class="pa-all" id="pa-all" aria-pressed="true" aria-controls="pa-list">All projects</button>
+        <span class="pa-result" id="pa-result" role="status" aria-live="polite"></span>
+        <label class="pa-search">Search <input id="pa-search" type="search" placeholder="Project, topic, or tool…" autocomplete="off"></label>
       </div>
-      <div class="pa-modal" id="pa-modal"><div class="pa-modal-box" id="pa-modalBox"></div></div>
+      <div class="pa-list" id="pa-list"></div>
+      <p class="pa-empty" id="pa-empty" hidden>No projects match. Try another topic or search.</p>
+      <div class="pa-modal" id="pa-modal"><div class="pa-modal-box" id="pa-modalBox" role="dialog" aria-modal="true" aria-labelledby="pa-modal-title" tabindex="-1"></div></div>
     </div>
   </div>
 </div>
@@ -1276,241 +1272,203 @@
 
 (function(){
 const CL = {
-  eval:    { name:'Evaluation & Trust',   sub:'Verifying agent behavior, safety, and interpretability instead of trusting them.', color:'var(--c-eval)',    hex:'#2E9E82', ang:-90 },
-  memory:  { name:'Agent Memory',         sub:'Durable, structured memory that agents can reuse.', color:'var(--c-memory)',  hex:'#3B7DD8', ang:0 },
-  orch:    { name:'Orchestration',        sub:'Coordinating many models and agents at scale.',    color:'var(--c-orch)',    hex:'#8A6DD6', ang:90 },
-  applied: { name:'Applied & Multimodal', sub:'Putting agents to work on real-world inputs.',      color:'var(--c-applied)', hex:'#D8894A', ang:180 },
+  eval:    { name:'Evaluation & Trust',   sub:'Verifying agent behavior, safety, and interpretability instead of trusting them.', color:'var(--c-eval)',    hex:'#2E9E82' },
+  memory:  { name:'Agent Memory',         sub:'Durable, structured memory that agents can reuse.', color:'var(--c-memory)',  hex:'#3B7DD8' },
+  orch:    { name:'Agent Decisions & Compute', sub:'Choosing tools, routing models, coordinating agents, and deciding when repair is worth more compute.',    color:'var(--c-orch)',    hex:'#8A6DD6' },
+  applied: { name:'Applied & Multimodal', sub:'Putting agents to work on real-world inputs.',      color:'var(--c-applied)', hex:'#D8894A' },
 };
 const N = [
-  { id:'corro', label:'CorroborationBench', cl:'eval', r:26, big:1, x:405, y:120, lp:[-34,4,'end'], g:'CB',
+  { id:'corro', label:'CorroborationBench', cl:'eval',
     desc:'Do agents tell independent evidence from duplicated sources before acting?',
     full:['Designed a controlled benchmark testing whether LLM agents distinguish independent sources from duplicated or aggregated evidence before approving tool use.',
       'Ran 1,200 evaluations across 4 frontier models: explicit policy prompting improved authorization action match from 49.2% to 78.0%, while models correctly counted independent evidence sources only 68.8% of the time.'],
     tags:['Agent Eval','Data Provenance','LLMs'], links:[] },
-  { id:'evalforge', label:'EvalForge', cl:'eval', r:24, big:1, x:560, y:88, lp:[32,4,'start'], g:'EF',
+  { id:'evalforge', label:'EvalForge', cl:'eval',
     desc:'Executable synthetic stress tests that verify agents against hidden ground truth.',
     full:['Built an agent evaluation system that generates executable synthetic stress tests for tool-using agents and verifies their behavior against hidden ground truth, with no LLM judge in the correctness path.',
       'Tested 6 models across 216 live episodes, surfacing measurable gaps between apparent task completion and fully verified success.',
       'Now extending it into an RL-compatible environment with repeated rollouts and deterministic reward signals for policy optimization.'],
     tags:['Agent Eval','Tool Use','RL','Synthetic Data'], links:[['Repo','https://github.com/YashDThapliyal/EvalForge'],['Demo','https://youtu.be/YAVRJJiykAE']] },
-  { id:'mettle', label:'Mettle', cl:'eval', r:20, x:508, y:190, lp:[-28,14,'end'], g:'MT',
+  { id:'mettle', label:'Mettle', cl:'orch',
     desc:'One strong repair vs. searching many: when does extra compute pay off?',
     full:['Investigated whether a failing agent is better repaired by one strong model proposal or by spending extra compute searching over multiple candidate repairs, via a controlled comparison using held-out and regression evaluations.',
       'Found a counterintuitive split: single-shot repair generalized better on the primary held-out task, while repair search won on regression behavior. That sharpens the question of when additional test-time compute is actually justified.'],
     tags:['Agent Repair','Test-Time Compute','LLMs'], links:[['Repo','https://github.com/YashDThapliyal/mettle-agent-repair-search'],['Demo','https://youtu.be/tyMPjxk07K0']] },
-  { id:'shadow', label:'ShadowCommit', cl:'eval', r:21, x:700, y:140, lp:[30,4,'start'], g:'SC',
+  { id:'shadow', label:'ShadowCommit', cl:'eval',
     desc:'Catches agent attacks by execution fingerprints, not token scanning.',
     full:['Built a shadow execution engine for AI agent sandboxing that clones the filesystem, rewrites command paths, and compares before/after fingerprints to detect attacks through execution evidence rather than token scanning.',
       'Designed 5 adversarial attack agents spanning data exfiltration, 3 shell obfuscation variants, persistence, and data corruption; token-based monitoring caught only 2/5 categories while shadow execution caught 5/5 with 0 false positives.'],
     tags:['AI Safety','Agent Security','Adversarial'], links:[['Repo','https://github.com/YashDThapliyal/ShadowCommit']] },
-  { id:'chronos', label:'ChronosGraph', cl:'memory', r:25, big:1, x:905, y:330, lp:[34,4,'start'], g:'CG',
+  { id:'chronos', label:'ChronosGraph', cl:'memory',
     desc:'Graph-grounded agent memory in Neo4j with temporal reasoning.',
     full:['Built a knowledge graph backend to improve AI agent memory by persisting object and environment state changes from a world simulation as timestamped relationships in a Neo4j graph database.',
       'Developed a custom MCP server with 8 tools for structured graph-grounded retrieval, and an adversarial temporal-reasoning benchmark with LLM-as-judge evaluation, where the graph-grounded agent reached 93% accuracy over blind and context-stuffed baselines.'],
     tags:['Neo4j','MCP','Knowledge Graphs','LLM Eval'], links:[['Repo','https://github.com/YashDThapliyal/ChronosGraph']] },
-  { id:'memochain', label:'MemoChain', cl:'memory', r:20, x:948, y:212, lp:[30,4,'start'], g:'MC',
+  { id:'memochain', label:'MemoChain', cl:'memory',
     desc:'Drop-in persistent memory for any LLM app in under five lines. On PyPI.',
     full:['Lightweight open-source Python library that adds persistent conversation memory to any LLM application in under five lines of code.',
       'Features configurable context windows, native OpenAI integration, custom session management, and zero external infrastructure dependencies.',
       'Published on PyPI with comprehensive documentation.'],
     tags:['PyPI','Open Source'], links:[['PyPI','https://pypi.org/project/memochain/']] },
-  { id:'skillrunes', label:'SkillRunes', cl:'memory', r:20, x:812, y:236, lp:[-28,14,'end'], g:'SR',
+  { id:'skillrunes', label:'SkillRunes', cl:'memory',
     desc:'Turns coding-agent sessions into versioned SKILL.md memory.',
     full:['Published an open-source PyPI CLI that converts coding-agent sessions into versioned SKILL.md updates for reusable project memory.',
       'Built an agent observability platform with FastAPI that tracks failure patterns, context compactions, token usage, skill history, and eval results.'],
     tags:['PyPI','FastAPI','Agent Memory'], links:[['Repo','https://github.com/YashDThapliyal/SkillRunes']] },
-  { id:'orch', label:'Research Orchestrator', cl:'orch', r:22, x:790, y:520, lp:[32,4,'start'], g:'RO',
+  { id:'orch', label:'Research Orchestrator', cl:'orch',
     desc:'Multi-agent platform that schedules, runs, and monitors ML experiments.',
     full:['Built a multi-agent ML platform that schedules, manages, and monitors research experiments end-to-end, coordinating 4 specialized AI agents with 20+ ML models to produce reproducible artifacts like code, logs, metrics, and reports.',
       'Developed a closed-loop system that automatically executes, verifies, debugs, and retries synthetic code to reduce hallucinations.'],
     tags:['Multi-Agent','LLMs','ML'], links:[['Repo','https://github.com/YashDThapliyal/ResearchAgents']] },
-  { id:'router', label:'LLM Router', cl:'orch', r:19, x:648, y:562, lp:[0,34,'middle'], g:'LR',
+  { id:'router', label:'LLM Router', cl:'orch',
     desc:'Routes prompts across 20+ LLMs by latency, cost, and task fit.',
     full:['Intelligent routing system that dynamically evaluates and dispatches prompts across 20+ LLMs based on real-time latency, cost efficiency, and task-specific performance metrics.',
       'Custom scoring algorithms balance tradeoffs between speed, price, and accuracy.',
       'Extended with GPU-accelerated model hosting for dynamic Hugging Face model onboarding.'],
     tags:['Routing','Hugging Face'], links:[['Repo','https://github.com/yashthapliyal/Apanto']] },
-  { id:'world', label:'Driving World Model', cl:'applied', r:20, x:268, y:472, lp:[-30,4,'end'], g:'DW',
+  { id:'world', label:'Driving World Model', cl:'applied',
     desc:'Turns dashcam video into symbolic world states and planner commands.',
     full:['Interpretable video-based autopilot system that analyzes raw dashcam footage to understand driving context and predict feasible next actions for the ego vehicle.',
       'Built a 7-stage pipeline spanning perception, temporal smoothing, behavioral segmentation, and planning.',
       'Reduced temporal jitter by 46.2%, and segmented 200+ frames into 43 behavioral phases and 52 driving intents across 9 scenarios.'],
     tags:['VLMs','Computer Vision'], links:[['Repo','https://github.com/YashDThapliyal/Autonomous-Driving-World-Model']] },
-  { id:'llama', label:'LlamaFrame', cl:'applied', r:19, x:352, y:548, lp:[0,34,'middle'], g:'LF',
+  { id:'llama', label:'LlamaFrame', cl:'applied',
     desc:'Natural-language video editor that reasons over and edits footage.',
     full:['Agentic, NLP-driven video editing system that interprets natural-language commands to autonomously query, reason over, and edit videos.',
       'Features beat-synced editing powered by spectrogram analysis, intelligent object removal, scene filtering with temporal consistency, and multi-turn visual Q&A using LLaMA-4.'],
     tags:['FastAPI','LLaMA','Audio'], links:[['Video','https://www.youtube.com/watch?v=34ZKPqfge2M']] },
-  { id:'gita', label:'GITA-GPT', cl:'applied', r:18, x:430, y:474, lp:[28,-16,'start'], g:'GG',
+  { id:'gita', label:'GITA-GPT', cl:'applied',
     desc:'RAG question-answering over 700+ verses with LLaMA and ChromaDB.',
     full:['AI-powered question-answering system using Retrieval-Augmented Generation (RAG) with Meta\u2019s LLaMA via the GROQ API for real-time inference on Bhagavad Gita teachings.',
       'Engineered an end-to-end pipeline to parse, chunk, and vectorize 700+ verses, storing embeddings in a ChromaDB vector database for fast semantic search and retrieval.'],
     tags:['RAG','LLaMA','ChromaDB'], links:[['Repo','https://github.com/YashDThapliyal/GITA-GPT']] },
-  { id:'infoembed', label:'Info in Weights', cl:'eval', r:18, x:648, y:210, lp:[30,4,'start'], g:'IW',
+  { id:'infoembed', label:'Info in Weights', cl:'eval',
     desc:'Probing what neural-network weights can hide — an interpretability and safety question.',
     full:['Analyzed capacity\u2013accuracy tradeoffs by embedding hidden information in neural-network weights while maintaining 90%+ accuracy, probing how much a model can conceal without visible degradation.',
       'Research conducted at San Jose State University, exploring the intersection of steganography, interpretability, and deep learning.'],
     tags:['AI Safety','Interpretability','Deep Learning','Research'], links:[['Demo','https://colab.research.google.com/drive/1Axc93VmZi4ech7Nw6iGqgkjloETYTxeG?usp=sharing']] },
-  { id:'tipguard', label:'TIP-Guard', cl:'eval', r:21, x:560, y:270, lp:[0,35,'middle'], g:'TG',
+  { id:'tipguard', label:'TIP-Guard', cl:'eval',
     desc:'Does decoding a prompt before judging it catch more attacks? A 20-arm guardrail study says no.',
     full:['Built a benchmark and seven guardrail configurations for Task-in-Prompt attacks, where a request for a secret is hidden inside an encoding puzzle, and evaluated them on 989 held-out cases across two language models (20 runs, 27,709 model calls).',
       'The main hypothesis did not hold: decoding the prompt before classifying it changed nothing measurable, because a well-written raw-prompt classifier plus an output check already blocked 751 of 752 attacks. The decode step only added about one extra model call per case.',
       'What mattered instead: how the secret was introduced in the system prompt moved gpt-4o-mini\u2019s leak rate from 0.03 to 0.75, and removing a single word from the classifier prompt eliminated a 68% false-positive rate on legitimate traffic without losing attack coverage.'],
     tags:['AI Safety','Guardrails','Prompt Injection','Benchmark'], links:[['Repo','https://github.com/YashDThapliyal/TIP-Guard']] },
-  { id:'laya', label:'Laya White-Box Attack', cl:'eval', r:22, big:1, x:560, y:270, lp:[0,35,'middle'], g:'LW',
+  { id:'laya', label:'Laya White-Box Attack', cl:'eval',
     desc:'Can an agent talk its way past a non-LLM monitor? White-box gradient attacks on a fine-tuned Laya checker.',
     full:['Fine-tuned Laya, an open-weight 421M typed-decision model, as a trusted monitor for agent tool-use traces, testing whether a monitor that can\u2019t be argued with resists the manipulation that persuades LLM monitors.',
       'The monitor was near-perfect on two of its three training-style datasets (AUROC 1.00) but near chance on held-out SHADE-Arena sabotage (0.58), flagging 92% of harmless traces. A white-box HotFlip attack editing only the agent\u2019s own words removed 44\u201390% of correct alarms on its training-style datasets within 20 word swaps (47\u2013100% when every swap had to be a plausible word), but only 17% on SHADE-Arena, where the agent writes little of the trace.',
       'Success tracked how much of the trace the agent wrote, not monitor accuracy: in InjecAgent, 83% of alarms fell when one fixed tool call was the evidence vs. 7% with two. On traces with a fixed action record, about 4 in 10 successful edits changed the agent\u2019s story (\u201cposted\u201d \u2192 \u201cgenerated\u201d) while the record still showed the harm.'],
     tags:['AI Safety','Monitoring','Adversarial ML','Laya'], links:[['Repo','https://github.com/YashDThapliyal/laya-whitebox-attack'],['Report','blog/laya-whitebox-attack.html']] },
-  { id:'actionrank', label:'ActionRank', cl:'orch', r:24, big:1, x:560, y:646, lp:[0,38,'middle'], g:'AR',
+  { id:'actionrank', label:'ActionRank', cl:'orch',
     desc:'Score the whole toolbox in one forward pass instead of generating a tool call.',
     full:['Tested Netflix\u2019s GenRec \u201cscore, don\u2019t generate\u201d idea on agent tool selection: run the LLM once over the context and score every candidate tool from that single pass, instead of decoding a function call token by token.',
       'On 1,352 held-out ToolBench steps that no training run monitored, with a fine-tuned Qwen2.5-1.5B backbone and three seeds per system, scoring landed 2.6 points behind generation on top-1 accuracy (64.0% vs. 66.6%) and level on MRR@5 (0.778 vs. 0.764). It never selected a nonexistent tool (0% vs. 0.9%), placed the right tool in its top five 97.5% of the time (vs. 90.7%), and cut per-decision latency from 632 ms to 247 ms.',
       'The scorer\u2019s fine-tuning only worked after switching from mean to last-token pooling. An early tie on a 500-step development set did not survive a pre-registered rerun; adding GenRec\u2019s language-modeling loss then narrowed the gap from 4.1 to 2.6 points. Tools never seen as a training label remain the generator\u2019s edge (54% vs. 49%).'],
     tags:['Tool Selection','ToolBench','Qwen','Fine-Tuning'], links:[['Repo','https://github.com/YashDThapliyal/ActionRank'],['Report','blog/actionrank.html']] },
 ];
-/* only same-focus edges remain — cross-cluster links removed */
-const E = [
-  {a:'corro',b:'evalforge'},{a:'evalforge',b:'shadow'},{a:'evalforge',b:'mettle'},{a:'corro',b:'mettle'},{a:'shadow',b:'infoembed'},{a:'laya',b:'tipguard'},{a:'laya',b:'shadow'},{a:'shadow',b:'tipguard'},{a:'corro',b:'tipguard'},
-  {a:'chronos',b:'memochain'},{a:'chronos',b:'skillrunes'},{a:'memochain',b:'skillrunes'},
-  {a:'orch',b:'router'},{a:'actionrank',b:'router'},{a:'actionrank',b:'orch'},
-  {a:'world',b:'llama'},{a:'llama',b:'gita'},{a:'world',b:'gita'},
-];
 const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
 const order=['eval','memory','orch','applied'];
-
-/* ---------------- computed symmetric layout ---------------- */
-const VBW=1120, VBH=800;
-const CTR = { x:VBW/2, y:VBH/2 };
-const RING = 210;   // center -> cluster anchor distance
-/* node offsets in each cluster's outward frame: +u outward from center, +v tangential */
-const LAYOUT = {
-  eval:    [ {id:'evalforge',u:40,v:0,big:1}, {id:'corro',u:4,v:-120,big:1}, {id:'shadow',u:4,v:120}, {id:'mettle',u:-74,v:-156}, {id:'tipguard',u:-84,v:-52}, {id:'laya',u:-84,v:52,big:1}, {id:'infoembed',u:-74,v:156} ],
-  memory:  [ {id:'chronos',u:34,v:0,big:1}, {id:'memochain',u:-32,v:-76}, {id:'skillrunes',u:-32,v:76} ],
-  orch:    [ {id:'actionrank',u:36,v:0,big:1}, {id:'orch',u:-30,v:-80}, {id:'router',u:-30,v:80} ],
-  applied: [ {id:'world',u:20,v:-90}, {id:'gita',u:20,v:90}, {id:'llama',u:-58,v:0} ],
-};
-const HALO={};
-Object.entries(LAYOUT).forEach(([cl,members])=>{
-  const a=CL[cl].ang*Math.PI/180, ux=Math.cos(a), uy=Math.sin(a), vx=-uy, vy=ux;
-  const ax=CTR.x+RING*ux, ay=CTR.y+RING*uy;
-  let minu=1e9,maxu=-1e9,minv=1e9,maxv=-1e9;
-  members.forEach(m=>{
-    const n=nodeById[m.id];
-    n.x=ax+m.u*ux+m.v*vx; n.y=ay+m.u*uy+m.v*vy; n.big=!!m.big;
-    const anchor = ux>0.3?'start':(ux<-0.3?'end':'middle');
-    const ly = Math.abs(ux)<0.3 ? (uy>0? n.r+14 : -(n.r+8)) : 4;
-    n.lp=[Math.round((n.r+9)*ux), Math.round(Math.abs(ux)<0.3?ly:(n.r+9)*uy+4), anchor];
-    minu=Math.min(minu,m.u-n.r); maxu=Math.max(maxu,m.u+n.r);
-    minv=Math.min(minv,m.v-n.r); maxv=Math.max(maxv,m.v+n.r);
-  });
-  const cu=(minu+maxu)/2, cv=(minv+maxv)/2;
-  const hx=ax+cu*ux+cv*vx, hy=ay+cu*uy+cv*vy;
-  const rx=(maxu-minu)/2+24, ry=(maxv-minv)/2+28;
-  let tx, ty;
-  if(Math.abs(uy)>0.5){            // top / bottom clusters: title stacked outward (vertical)
-    tx=hx; ty=hy + (uy>0? ry+34 : -(ry+26));
-  } else {                          // left / right clusters: title below the region, clear of the top cluster
-    tx=hx; ty=hy + ry + 30;
-  }
-  HALO[cl]={ hx, hy, rx, ry, rot:CL[cl].ang, tx, ty };
-});
-/* label reconciliation: full names on site, short labels on the map */
+const questions={eval:'When can we trust an agent?', memory:'What should an agent remember?', orch:'How do agents choose and coordinate?', applied:'What can AI do with real-world inputs?'};
 const FULLNAME={orch:'Agentic Research Orchestrator',router:'Intelligent LLM Router',world:'Autonomous Driving World Model',infoembed:'Info Embedding in Neural Networks'};
-const SHORT={laya:'Laya Attack',orch:'Research Orchestrator',router:'LLM Router',world:'Driving World Model',infoembed:'Info in Weights'};
 const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard','laya']);
-N.forEach(n=>{ n.short = SHORT[n.id]||n.label; if(FULLNAME[n.id]) n.label=FULLNAME[n.id]; n.feat=FEAT.has(n.id); });
-
-const root=document.getElementById('projects-atlas');
-const NS='http://www.w3.org/2000/svg';
-const svg=document.getElementById('pa-svg');
-const gH=document.getElementById('pa-halos'), gE=document.getElementById('pa-edges'), gN=document.getElementById('pa-nodes');
-const card=document.getElementById('pa-card'); const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
-const listEl=document.getElementById('pa-list');
-
-/* ---- LIST (flagships first, starred) ---- */
+N.forEach(n=>{ if(FULLNAME[n.id]) n.label=FULLNAME[n.id]; n.feat=FEAT.has(n.id); });
+// Short scan copy; full project write-ups remain available in the dialog.
+const summaries={
+  corro:'Can agents tell independent evidence from duplicated sources?',
+  evalforge:'Stress tests for tool-using agents, checked against hidden ground truth.',
+  shadow:'Detecting agent attacks through sandboxed execution evidence.',
+  tipguard:'Testing whether decoding hidden requests improves guardrails.',
+  laya:'White-box attacks on a fine-tuned, non-LLM safety monitor.',
+  infoembed:'How much information can neural-network weights hide?',
+  chronos:'Persistent agent memory with graph-based temporal reasoning.',
+  memochain:'Persistent conversation memory in under five lines of Python.',
+  skillrunes:'Turning coding sessions into reusable, versioned agent skills.',
+  actionrank:'Selecting tools in one forward pass instead of generating calls.',
+  mettle:'When is repair search worth the extra compute?',
+  orch:'Coordinating agents to run and verify ML experiments.',
+  router:'Routing prompts across models by latency, cost, and task fit.',
+  world:'Turning dashcam footage into world states and driving actions.',
+  llama:'Editing and querying video through natural-language commands.',
+  gita:'Retrieval-grounded answers from 700+ Bhagavad Gita verses.'
+};
+const outcomes={
+  corro:'Authorization action match: 49.2% → 78.0% with explicit policy prompting.',
+  evalforge:'6 models tested across 216 live episodes.',
+  shadow:'Caught 5/5 tested attack categories; token scanning caught 2/5.',
+  chronos:'93% accuracy on a temporal-reasoning benchmark with LLM judging.',
+  actionrank:'247 ms vs. 632 ms per decision; top-1 accuracy 2.6 points lower.'
+};
+const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
+const listEl=document.getElementById('pa-list'), topics=document.getElementById('pa-topics');
+document.getElementById('pa-total').textContent=`${N.length} projects / ${order.length} areas`;
 order.forEach((k,i)=>{
-  const c=CL[k]; let items=N.filter(n=>n.cl===k);
-  items.sort((a,b)=>(b.feat?1:0)-(a.feat?1:0));
-  const cl=document.createElement('div'); cl.className='pa-cluster'; cl.style.setProperty('--cc',c.hex);
-  let cards='';
-  items.forEach(n=>{ cards+=`<button class="pa-pcard" data-id="${n.id}"><div class="pa-pt"><b>${n.label}</b><span class="pa-ex">full write-up \u2192</span></div><p>${n.desc}</p><div class="pa-chips">${n.tags.slice(0,4).map(t=>`<span>${t}</span>`).join('')}</div></button>`; });
-  cl.innerHTML=`<div class="pa-cl-band"><span class="pa-num">${String(i+1).padStart(2,'0')}</span><div class="pa-txt"><h3>${c.name}</h3><div class="pa-sub">${c.sub}</div></div><span class="pa-cnt">${items.length} project${items.length>1?'s':''}</span></div><div class="pa-cl-body">${cards}</div>`;
-  listEl.appendChild(cl);
+  const c=CL[k], items=N.filter(n=>n.cl===k).sort((a,b)=>Number(b.feat)-Number(a.feat));
+  const topic=document.createElement('button');
+  topic.className='pa-topic'; topic.style.setProperty('--cc',c.hex); topic.dataset.topic=k;
+  topic.setAttribute('aria-controls','pa-list');
+  topic.setAttribute('aria-pressed','false');
+  topic.innerHTML=`<span class="pa-topic-name">${c.name}</span><span class="pa-topic-count">${items.length}</span>`;
+  topics.appendChild(topic);
+  const section=document.createElement('section');
+  section.className='pa-cluster'; section.id=`pa-group-${k}`; section.dataset.topic=k;
+  section.setAttribute('aria-labelledby',`pa-heading-${k}`); section.style.setProperty('--cc',c.hex);
+  section.innerHTML=`<header class="pa-cl-band"><div class="pa-eyebrow"><span class="pa-num">${String(i+1).padStart(2,'0')}</span>${c.name}</div><h3 id="pa-heading-${k}">${questions[k]}</h3></header><div class="pa-cl-body">${items.map(n=>`<button class="pa-pcard" data-id="${n.id}" aria-haspopup="dialog"><span class="pa-pt"><b>${n.label}</b><span class="pa-ex" aria-hidden="true">↗</span></span><span class="pa-desc">${summaries[n.id]||n.desc}</span>${outcomes[n.id]?`<span class="pa-outcome">${outcomes[n.id]}</span>`:``}<span class="pa-chips">${n.tags.slice(0,3).map(t=>`<span>${t}</span>`).join('')}</span><span class="pa-card-bottom"><span>${n.links.length?n.links.map(l=>l[0]).join(' / '):'Research project'}</span><span>Explore →</span></span></button>`).join('')}</div>`;
+  listEl.appendChild(section);
 });
+let selectedTopic='all';
+const search=document.getElementById('pa-search'), allButton=document.getElementById('pa-all');
+function filterProjects(){
+  const query=search.value.trim().toLowerCase();
+  let count=0;
+  listEl.querySelectorAll('.pa-pcard').forEach(card=>{
+    const n=nodeById[card.dataset.id];
+    const matches=(selectedTopic==='all'||n.cl===selectedTopic) && `${n.label} ${n.desc} ${summaries[n.id]||''} ${outcomes[n.id]||''} ${n.tags.join(' ')} ${CL[n.cl].name}`.toLowerCase().includes(query);
+    card.hidden=!matches;
+    if(matches) count++;
+  });
+  [...listEl.children].forEach(section=>{section.hidden=![...section.querySelectorAll('.pa-pcard')].some(card=>!card.hidden);});
+  topics.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.topic===selectedTopic)));
+  allButton.setAttribute('aria-pressed',String(selectedTopic==='all'));
+  document.getElementById('pa-result').textContent=`${count} of ${N.length} projects`;
+  document.getElementById('pa-empty').hidden=count!==0;
+}
+topics.addEventListener('click',e=>{
+  const topic=e.target.closest('.pa-topic');
+  if(topic){ selectedTopic=selectedTopic===topic.dataset.topic?'all':topic.dataset.topic; filterProjects(); }
+});
+allButton.addEventListener('click',()=>{selectedTopic='all';search.value='';filterProjects();});
+search.addEventListener('input',filterProjects);
+filterProjects();
 listEl.addEventListener('click',e=>{ const b=e.target.closest('.pa-pcard'); if(b) paOpenModal(b.dataset.id); });
-
-/* ---- MAP build ---- */
-Object.entries(HALO).forEach(([k,h])=>{
-  const c=CL[k]; const g=document.createElementNS(NS,'g'); g.setAttribute('class','pa-halo'); g.dataset.cl=k;
-  const e=document.createElementNS(NS,'ellipse'); e.setAttribute('cx',h.hx); e.setAttribute('cy',h.hy); e.setAttribute('rx',h.rx); e.setAttribute('ry',h.ry); e.setAttribute('transform',`rotate(${h.rot} ${h.hx} ${h.hy})`);
-  e.setAttribute('fill',c.hex); e.setAttribute('fill-opacity','0.06'); e.setAttribute('stroke',c.hex); e.setAttribute('stroke-opacity','0.18');
-  const t=document.createElementNS(NS,'text'); t.setAttribute('class','pa-cl-title'); t.setAttribute('x',h.tx); t.setAttribute('y',h.ty+4); t.setAttribute('text-anchor','middle'); t.setAttribute('fill',c.hex); t.textContent=c.name.toUpperCase();
-  g.append(e,t); gH.appendChild(g);
-});
-function curve(a,b,k=0.16){ const mx=(a.x+b.x)/2,my=(a.y+b.y)/2,dx=b.x-a.x,dy=b.y-a.y; return `M ${a.x} ${a.y} Q ${mx-dy*k} ${my+dx*k} ${b.x} ${b.y}`; }
-E.forEach(e=>{ const a=nodeById[e.a],b=nodeById[e.b]; const p=document.createElementNS(NS,'path'); p.setAttribute('class','pa-edge'); p.setAttribute('d',curve(a,b)); p.setAttribute('stroke',CL[a.cl].hex); e.line=p; gE.appendChild(p); });
-const nodeEls={};
-N.forEach(n=>{
-  const g=document.createElementNS(NS,'g'); g.setAttribute('class','pa-node'+(n.big?' big':'')); g.dataset.id=n.id; g.setAttribute('transform',`translate(${n.x},${n.y})`);
-  const ring=document.createElementNS(NS,'circle'); ring.setAttribute('class','pa-ring'); ring.setAttribute('r',n.r+5); ring.setAttribute('stroke',CL[n.cl].hex);
-  const core=document.createElementNS(NS,'circle'); core.setAttribute('class','pa-core'); core.setAttribute('r',n.r); core.setAttribute('fill',CL[n.cl].hex);
-  const gl=document.createElementNS(NS,'text'); gl.setAttribute('class','pa-glyph'); gl.setAttribute('y','4'); gl.textContent=n.g;
-  const lbl=document.createElementNS(NS,'text'); lbl.setAttribute('class','pa-lbl'); lbl.setAttribute('x',n.lp[0]); lbl.setAttribute('y',n.lp[1]); lbl.setAttribute('text-anchor',n.lp[2]); lbl.textContent=n.short;
-  g.append(ring,core,gl,lbl); gN.appendChild(g); nodeEls[n.id]={g,ring};
-  g.addEventListener('mouseenter',()=>paFocus(n.id));
-  g.addEventListener('mouseleave',paScheduleBlur);
-  g.addEventListener('click',()=>paOpenModal(n.id));
-});
-/* ---- interaction ---- */
-let blurT;
-function neighbors(id){ const s=new Set([id]); E.forEach(e=>{ if(e.a===id)s.add(e.b); if(e.b===id)s.add(e.a); }); return s; }
-function paFocus(id){
-  clearTimeout(blurT); const nb=neighbors(id); const me=nodeById[id];
-  N.forEach(n=>nodeEls[n.id].g.classList.toggle('faded',!nb.has(n.id)));
-  nodeEls[id].g.classList.add('hotn');
-  root.querySelectorAll('.pa-halo').forEach(h=>h.classList.toggle('faded',h.dataset.cl!==me.cl));
-  E.forEach(e=>{ const on=(e.a===id||e.b===id); e.line.classList.toggle('hot',on); e.line.classList.toggle('faded',!on); });
-  paShowCard(id);
-}
-function paScheduleBlur(){ blurT=setTimeout(()=>{ if(!card.matches(':hover')) paBlur(); },140); }
-function paBlur(){
-  N.forEach(n=>nodeEls[n.id].g.classList.remove('faded','hotn'));
-  root.querySelectorAll('.pa-halo').forEach(h=>h.classList.remove('faded'));
-  E.forEach(e=>e.line.classList.remove('hot','faded'));
-  card.classList.remove('show');
-}
-card.addEventListener('mouseleave',paBlur);
-function paShowCard(id){
-  const n=nodeById[id], col=CL[n.cl].hex;
-  card.innerHTML=`<div class="pa-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div><div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div><p>${n.desc}</p><div class="pa-more">click for full details \u2192</div>`;
-  const pt=svg.createSVGPoint(); pt.x=n.x; pt.y=n.y; const sc=pt.matrixTransform(svg.getScreenCTM());
-  const sb=document.getElementById('pa-stage').getBoundingClientRect();
-  let left=sc.x-sb.left+n.r+16, top=sc.y-sb.top-20;
-  if(left+290>sb.width) left=sc.x-sb.left-306;
-  top=Math.max(0,Math.min(top,sb.height-140));
-  card.style.left=left+'px'; card.style.top=top+'px'; card.classList.add('show');
-}
+let previousFocus, previousOverflow;
 window.paOpenModal=function(id){
   const n=nodeById[id], col=CL[n.cl].hex;
   modalBox.innerHTML=`<button class="pa-modal-x" aria-label="Close" onclick="paCloseModal()">\u00d7</button>`
-    +`<div class="pa-m-ct"><span class="pa-cdot" style="background:${col}"></span><h3>${n.label}</h3></div>`
+    +`<div class="pa-m-ct"><span class="pa-cdot" style="background:${col}"></span><h3 id="pa-modal-title">${n.label}</h3></div>`
     +`<div class="pa-meta" style="color:${col}">${CL[n.cl].name}</div>`
     +`<ul class="pa-full">${n.full.map(x=>`<li>${x}</li>`).join('')}</ul>`
     +`<div class="pa-m-sub">Stack</div><div class="pa-tags">${n.tags.map(t=>`<span>${t}</span>`).join('')}</div>`
     +(n.links.length?`<div class="pa-links">${n.links.map(l=>`<a href="${l[1]}" target="_blank" rel="noopener">${l[0]} \u2197</a>`).join('')}</div>`:``);
-  modal.classList.add('show'); card.classList.remove('show');
+  previousFocus=document.activeElement; previousOverflow=document.body.style.overflow;
+  modal.classList.add('show'); document.body.style.overflow='hidden';
+  modalBox.querySelector('button').focus();
 };
-window.paCloseModal=function(){ modal.classList.remove('show'); };
+window.paCloseModal=function(){
+  if(!modal.classList.contains('show')) return;
+  modal.classList.remove('show'); document.body.style.overflow=previousOverflow;
+  previousFocus?.focus({preventScroll:true});
+};
 modal.addEventListener('click',e=>{ if(e.target===modal) window.paCloseModal(); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') window.paCloseModal(); });
-window.paSetView=function(v){ const g=v==='graph';
-  document.getElementById('pa-stage').classList.toggle('on',g);
-  document.getElementById('pa-list').classList.toggle('off',g);
-  document.getElementById('pa-tg').classList.toggle('active',g);
-  document.getElementById('pa-tl').classList.toggle('active',!g);
-};
+document.addEventListener('keydown',e=>{
+  if(!modal.classList.contains('show')) return;
+  if(e.key==='Escape') window.paCloseModal();
+  if(e.key==='Tab'){
+    const focusable=[...modalBox.querySelectorAll('button, a[href]')];
+    const first=focusable[0], last=focusable.at(-1);
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+  }
+});
 })();
 
 </script>
