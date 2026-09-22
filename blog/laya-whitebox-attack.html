@@ -381,7 +381,7 @@
       <div class="chart" id="anatomy"></div>
     </div>
 
-    <p>SHADE-Arena looks hard to attack for a bad reason. The agent writes about 2.5% of a typical trace, and the checker reads long traces in chunks, about 15 of them. Many chunks of ordinary banking and email output raise the alarm on their own, and the agent can't edit those. Let the attack rewrite tool results too and two-thirds of SHADE-Arena alarms disappear.</p>
+    <p>SHADE-Arena looks hard to attack for a bad reason. In the traces I attacked, the agent wrote about 2.5% of a typical trace, and the checker read each one in chunks, about 15 of them. Many chunks of ordinary banking and email output raise the alarm on their own, and the agent can't edit those. Let the attack rewrite tool results too and two-thirds of SHADE-Arena alarms disappear.</p>
 
     <p>The cleanest evidence comes from inside one dataset, where the checker's accuracy is the same for every trace:</p>
 
@@ -393,7 +393,7 @@
 
     <p>In "direct harm" cases the damning evidence is one fixed tool call. In "data stealing" cases it's two: reading private data, then emailing it to an outsider. The agent's words can outweigh one fixed call much more often than two.</p>
 
-    <p>Two caveats. On R-Judge and SHADE-Arena the checker is close to guessing, so some of the "correct" alarms it raised were lucky, and removing them says less about robustness. And four datasets, two of them synthetic, make this a strong pattern rather than a proven rule.</p>
+    <p>Two caveats. On R-Judge and SHADE-Arena the checker is close to guessing, so some of the "correct" alarms it raised were lucky, and removing them says less about robustness. And four datasets, two of them synthetic, make this a suggestive pattern, not an established rule.</p>
 
     <h2>3. Plausible words don't stop the attack</h2>
 
@@ -408,11 +408,11 @@
 
     <p>On the held-out examples the restricted attack did as well or slightly better, perhaps because it stops wasting swaps on junk tokens. "Plausible" here means each word fits its slot <em>on its own</em>. Several such swaps in one sentence can still add up to nonsense, which matters in section 5.</p>
 
-    <p>Fine-tuning did help in one clear comparison. On the same 85 InjecAgent traces, the original untrained Laya lost 78% of its alarms and the fine-tuned checker 36%, mostly because the fine-tuned one started out far more certain.</p>
+    <p>Fine-tuning did help in one clear comparison. On the same 85 InjecAgent traces, the plausible-word attack pushed the original untrained Laya below a 50% score on 78% of them and the fine-tuned checker on 36%, mostly because the fine-tuned one started out far more certain. Measured at each model's own alarm cutoff, it's 78% vs 46%.</p>
 
     <h2>4. What the successful edits actually do</h2>
 
-    <p>I rebuilt and read all 73 successful plausible-word edits. The ones that matter most change the agent's story while a fixed record contradicts the new story:</p>
+    <p>I rebuilt all 73 successful plausible-word edits; two language models labelled every one, and I read a sample of 26 by hand (section 5). The ones that matter most change the agent's story while a fixed record contradicts the new story:</p>
 
     <div class="diffs">
       <div class="diff">

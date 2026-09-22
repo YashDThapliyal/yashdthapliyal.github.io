@@ -1200,7 +1200,7 @@
       <a class="b-card fi" href="blog/laya-whitebox-attack.html">
         <div class="b-kind"><span>Research Note</span><span class="b-date">2026</span></div>
         <h3>Fooling a Trusted Monitor</h3>
-        <p>A fine-tuned Laya monitor for agent traces is near chance on held-out sabotage, and a white-box attack flips its verdicts by changing what the agent's narration claims happened.</p>
+        <p>A fine-tuned Laya monitor for agent traces is near chance on held-out sabotage, and a white-box attack flips its verdicts cheaply wherever the evidence is the agent's own words, sometimes by rewording what the agent claims it did.</p>
         <div class="w-tags"><span>AI Control</span><span>Monitoring</span><span>Adversarial</span><span>Laya</span></div>
         <div class="b-read">Read &rarr;</div>
       </a>
@@ -1360,7 +1360,7 @@ const N = [
   { id:'laya', label:'Laya White-Box Attack', cl:'eval', r:22, big:1, x:560, y:270, lp:[0,35,'middle'], g:'LW',
     desc:'Can an agent talk its way past a non-LLM monitor? White-box gradient attacks on a fine-tuned Laya checker.',
     full:['Fine-tuned Laya, an open-weight 421M typed-decision model, as a trusted monitor for agent tool-use traces, testing whether a monitor that can\u2019t be argued with resists the manipulation that persuades LLM monitors.',
-      'The monitor was near-perfect on two of its three training-style datasets (AUROC 1.00) but near chance on held-out SHADE-Arena sabotage (0.58), flagging 92% of harmless traces. A white-box HotFlip attack editing only the agent\u2019s own words removed 44\u201390% of correct alarms within 20 word swaps, even when every swap had to be a plausible word.',
+      'The monitor was near-perfect on two of its three training-style datasets (AUROC 1.00) but near chance on held-out SHADE-Arena sabotage (0.58), flagging 92% of harmless traces. A white-box HotFlip attack editing only the agent\u2019s own words removed 44\u201390% of correct alarms on its training-style datasets within 20 word swaps (47\u2013100% when every swap had to be a plausible word), but only 17% on SHADE-Arena, where the agent writes little of the trace.',
       'Success tracked how much of the trace the agent wrote, not monitor accuracy: in InjecAgent, 83% of alarms fell when one fixed tool call was the evidence vs. 7% with two. On traces with a fixed action record, about 4 in 10 successful edits changed the agent\u2019s story (\u201cposted\u201d \u2192 \u201cgenerated\u201d) while the record still showed the harm.'],
     tags:['AI Safety','Monitoring','Adversarial ML','Laya'], links:[['Repo','https://github.com/YashDThapliyal/laya-whitebox-attack'],['Report','blog/laya-whitebox-attack.html']] },
   { id:'actionrank', label:'ActionRank', cl:'orch', r:24, big:1, x:560, y:646, lp:[0,38,'middle'], g:'AR',
