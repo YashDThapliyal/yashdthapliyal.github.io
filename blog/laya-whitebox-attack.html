@@ -358,7 +358,7 @@
 
     <h2>1. It doesn't catch unfamiliar sabotage</h2>
 
-    <p>On held-out examples like its training data, the checker's detection score was 0.99. On SHADE-Arena it was 0.58. For comparison, the language-model checkers that ship with the MRT data reach 0.66 on the same traces. The chart shows why 0.58 is so bad in practice.</p>
+    <p>On held-out examples like its training data, the checker looked excellent: 0.99 when all three training-style test sets are pooled together. That blended number is dominated by InjecAgent and ToolEmu, which make up 220 of its 255 examples; on R-Judge alone it's 0.52, as the table shows. On SHADE-Arena it was 0.58. For comparison, the language-model checkers that ship with the MRT data reach 0.66 on the same traces. The chart shows why 0.58 is so bad in practice.</p>
 
     <div class="fig">
       <div class="ft">On SHADE-Arena, the checker flags almost everything</div>
