@@ -1357,6 +1357,12 @@ const N = [
       'The main hypothesis did not hold: decoding the prompt before classifying it changed nothing measurable, because a well-written raw-prompt classifier plus an output check already blocked 751 of 752 attacks. The decode step only added about one extra model call per case.',
       'What mattered instead: how the secret was introduced in the system prompt moved gpt-4o-mini\u2019s leak rate from 0.03 to 0.75, and removing a single word from the classifier prompt eliminated a 68% false-positive rate on legitimate traffic without losing attack coverage.'],
     tags:['AI Safety','Guardrails','Prompt Injection','Benchmark'], links:[['Repo','https://github.com/YashDThapliyal/TIP-Guard']] },
+  { id:'laya', label:'Laya White-Box Attack', cl:'eval', r:22, big:1, x:560, y:270, lp:[0,35,'middle'], g:'LW',
+    desc:'Can an agent talk its way past a non-LLM monitor? White-box gradient attacks on a fine-tuned Laya checker.',
+    full:['Fine-tuned Laya, an open-weight 421M typed-decision model, as a trusted monitor for agent tool-use traces, testing whether a monitor that can\u2019t be argued with resists the manipulation that persuades LLM monitors.',
+      'The monitor was near-perfect on training-style data (AUROC 0.99) but near chance on held-out SHADE-Arena sabotage (0.58), flagging 92% of harmless traces. A white-box HotFlip attack editing only the agent\u2019s own words removed 44\u201390% of correct alarms within 20 word swaps, even when every swap had to be a plausible word.',
+      'Success tracked how much of the trace the agent wrote, not monitor accuracy: in InjecAgent, 83% of alarms fell when one fixed tool call was the evidence vs. 7% with two. On traces with a fixed action record, about 4 in 10 successful edits changed the agent\u2019s story (\u201cposted\u201d \u2192 \u201cgenerated\u201d) while the record still showed the harm.'],
+    tags:['AI Safety','Monitoring','Adversarial ML','Laya'], links:[['Repo','https://github.com/YashDThapliyal/laya-whitebox-attack'],['Report','blog/laya-whitebox-attack.html']] },
   { id:'actionrank', label:'ActionRank', cl:'orch', r:24, big:1, x:560, y:646, lp:[0,38,'middle'], g:'AR',
     desc:'Score the whole toolbox in one forward pass instead of generating a tool call.',
     full:['Tested Netflix\u2019s GenRec \u201cscore, don\u2019t generate\u201d idea on agent tool selection: run the LLM once over the context and score every candidate tool from that single pass, instead of decoding a function call token by token.',
@@ -1366,7 +1372,7 @@ const N = [
 ];
 /* only same-focus edges remain — cross-cluster links removed */
 const E = [
-  {a:'corro',b:'evalforge'},{a:'evalforge',b:'shadow'},{a:'evalforge',b:'mettle'},{a:'corro',b:'mettle'},{a:'shadow',b:'infoembed'},{a:'shadow',b:'tipguard'},{a:'corro',b:'tipguard'},
+  {a:'corro',b:'evalforge'},{a:'evalforge',b:'shadow'},{a:'evalforge',b:'mettle'},{a:'corro',b:'mettle'},{a:'shadow',b:'infoembed'},{a:'laya',b:'tipguard'},{a:'laya',b:'shadow'},{a:'shadow',b:'tipguard'},{a:'corro',b:'tipguard'},
   {a:'chronos',b:'memochain'},{a:'chronos',b:'skillrunes'},{a:'memochain',b:'skillrunes'},
   {a:'orch',b:'router'},{a:'actionrank',b:'router'},{a:'actionrank',b:'orch'},
   {a:'world',b:'llama'},{a:'llama',b:'gita'},{a:'world',b:'gita'},
@@ -1380,7 +1386,7 @@ const CTR = { x:VBW/2, y:VBH/2 };
 const RING = 210;   // center -> cluster anchor distance
 /* node offsets in each cluster's outward frame: +u outward from center, +v tangential */
 const LAYOUT = {
-  eval:    [ {id:'evalforge',u:40,v:0,big:1}, {id:'corro',u:4,v:-120,big:1}, {id:'shadow',u:4,v:120}, {id:'mettle',u:-74,v:-80}, {id:'tipguard',u:-80,v:0}, {id:'infoembed',u:-74,v:80} ],
+  eval:    [ {id:'evalforge',u:40,v:0,big:1}, {id:'corro',u:4,v:-120,big:1}, {id:'shadow',u:4,v:120}, {id:'mettle',u:-74,v:-156}, {id:'tipguard',u:-84,v:-52}, {id:'laya',u:-84,v:52,big:1}, {id:'infoembed',u:-74,v:156} ],
   memory:  [ {id:'chronos',u:34,v:0,big:1}, {id:'memochain',u:-32,v:-76}, {id:'skillrunes',u:-32,v:76} ],
   orch:    [ {id:'actionrank',u:36,v:0,big:1}, {id:'orch',u:-30,v:-80}, {id:'router',u:-30,v:80} ],
   applied: [ {id:'world',u:20,v:-90}, {id:'gita',u:20,v:90}, {id:'llama',u:-58,v:0} ],
@@ -1412,8 +1418,8 @@ Object.entries(LAYOUT).forEach(([cl,members])=>{
 });
 /* label reconciliation: full names on site, short labels on the map */
 const FULLNAME={orch:'Agentic Research Orchestrator',router:'Intelligent LLM Router',world:'Autonomous Driving World Model',infoembed:'Info Embedding in Neural Networks'};
-const SHORT={orch:'Research Orchestrator',router:'LLM Router',world:'Driving World Model',infoembed:'Info in Weights'};
-const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard']);
+const SHORT={laya:'Laya Attack',orch:'Research Orchestrator',router:'LLM Router',world:'Driving World Model',infoembed:'Info in Weights'};
+const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard','laya']);
 N.forEach(n=>{ n.short = SHORT[n.id]||n.label; if(FULLNAME[n.id]) n.label=FULLNAME[n.id]; n.feat=FEAT.has(n.id); });
 
 const root=document.getElementById('projects-atlas');
