@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yashdthapliyal.github.io/sitemap.xml

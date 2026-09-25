@@ -11,12 +11,79 @@
 <meta property="og:title" content="ActionRank | Yash Thapliyal">
 <meta property="og:description" content="Does Netflix's score-don't-generate idea work for agent tool selection? Scoring lands within about 3 points of generating on accuracy, never invents a tool, ranks far better, and is 2.6x faster.">
 <meta property="og:url" content="https://yashdthapliyal.github.io/blog/actionrank.html">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Yash Thapliyal">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yashdthapliyal.github.io/assets/og-actionrank.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ActionRank, a technical report by Yash Thapliyal: does Netflix's score, don't generate idea work for agent tool selection?">
+<meta property="article:published_time" content="2026-09-18">
+<meta property="article:author" content="https://yashdthapliyal.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yashdthapliyal">
+<meta name="twitter:creator" content="@yashdthapliyal">
 <meta name="twitter:title" content="ActionRank: score the toolbox, don't generate the tool name">
 <meta name="twitter:description" content="Scoring the tool list lands within about 3 points of generating the name, never invents a tool, ranks far better, and is 2.6x faster. ToolBench, 1.5B Qwen, three seeds.">
+<meta name="twitter:image" content="https://yashdthapliyal.github.io/assets/og-actionrank.png">
+<meta name="twitter:image:alt" content="ActionRank, a technical report by Yash Thapliyal: does Netflix's score, don't generate idea work for agent tool selection?">
+
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "https://yashdthapliyal.github.io/blog/actionrank.html#article",
+  "headline": "ActionRank: does Netflix's \"score, don't generate\" idea work for agent tool selection?",
+  "description": "ActionRank: does Netflix's score-don't-generate idea work for agent tool selection? With GenRec's full training objective, scoring the tool list lands within about 3 points of generating the name, never invents a tool, ranks the alternatives far better, and decides in less than half the time.",
+  "url": "https://yashdthapliyal.github.io/blog/actionrank.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yashdthapliyal.github.io/blog/actionrank.html"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://yashdthapliyal.github.io/assets/og-actionrank.png",
+    "width": 1200,
+    "height": 630
+  },
+  "datePublished": "2026-09-18",
+  "inLanguage": "en",
+  "keywords": [
+    "Tool Selection",
+    "ToolBench",
+    "Qwen",
+    "GenRec",
+    "Agents"
+  ],
+  "author": {
+    "@type": "Person",
+    "@id": "https://yashdthapliyal.github.io/#person",
+    "name": "Yash Thapliyal",
+    "url": "https://yashdthapliyal.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://yashdthapliyal.github.io/#person",
+    "name": "Yash Thapliyal",
+    "url": "https://yashdthapliyal.github.io/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://yashdthapliyal.github.io/#website",
+    "name": "Yash Thapliyal",
+    "url": "https://yashdthapliyal.github.io/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root {
     --serif: 'Times New Roman', Times, Georgia, serif;
@@ -238,10 +305,10 @@
     background: var(--surface);
     padding: 16px 18px;
   }
-  .how .col h4 { font-size: 15px; font-weight: 700; color: var(--text-strong); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-  .how .col h4 i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
-  .how .col h4 i.gen { background: var(--s-gen); }
-  .how .col h4 i.ar { background: var(--s-ar); }
+  .how .col h3 { font-size: 15px; font-weight: 700; color: var(--text-strong); margin: 0 0 10px; display: flex; align-items: center; gap: 8px; }
+  .how .col h3 i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; }
+  .how .col h3 i.gen { background: var(--s-gen); }
+  .how .col h3 i.ar { background: var(--s-ar); }
   .how .step { font-size: 14.5px; line-height: 1.5; color: var(--text-mid); padding: 8px 0; border-top: 1px solid var(--border); }
   .how .step:first-of-type { border-top: 0; padding-top: 0; }
   .how .step code { font-size: 0.85em; }
@@ -423,14 +490,14 @@
 
     <div class="how">
       <div class="col">
-        <h4><i class="gen"></i>Generation (today's default)</h4>
+        <h3><i class="gen"></i>Generation (today's default)</h3>
         <div class="step">1. Run the model over the prompt.</div>
         <div class="step">2. Decode the tool name, one token per forward pass.</div>
         <div class="step">3. Parse the text and hope it names a real tool.</div>
         <div class="out">output: one name, no scores</div>
       </div>
       <div class="col">
-        <h4><i class="ar"></i>ActionRank (scoring)</h4>
+        <h3><i class="ar"></i>ActionRank (scoring)</h3>
         <div class="step">1. Run the model over the prompt, once.</div>
         <div class="step">2. Pool a vector for each candidate tool from its own description line in the prompt.</div>
         <div class="step">3. Score every candidate against the prompt summary. Softmax. Done.</div>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found | Yash Thapliyal</title>
+<meta name="description" content="This page doesn't exist on Yash Thapliyal's website. Head back to the homepage or the blog.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script>
+  try {
+    if ((localStorage.getItem('theme') || 'light') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+</script>
+<style>
+  :root {
+    --serif: 'Times New Roman', Times, Georgia, serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+    --blue: #3B7DD8;
+  }
+  [data-theme="light"] {
+    --bg: #FAFAFA; --bg-nav: rgba(250, 250, 250, 0.92); --border: #DCDCDC; --border-hover: #B0B0B0;
+    --text: #1A1A1A; --text-strong: #000000; --text-mid: #3A3A3A; --text-dim: #777777; --surface: #FFFFFF;
+  }
+  [data-theme="dark"] {
+    --bg: #0A0A0A; --bg-nav: rgba(10, 10, 10, 0.92); --border: #222222; --border-hover: #444444;
+    --text: #E0E0E0; --text-strong: #FFFFFF; --text-mid: #B0B0B0; --text-dim: #707070; --surface: #111111;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-family: var(--serif); background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  body { background: var(--bg); }
+  header {
+    position: fixed; top: 0; left: 0; right: 0; height: 54px;
+    display: flex; align-items: center; padding: 0 40px;
+    background: var(--bg-nav); border-bottom: 1px solid var(--border);
+  }
+  .nav-name { font-size: 15px; font-weight: 500; color: var(--text-strong); text-decoration: none; }
+  main { max-width: 620px; margin: 0 auto; padding: 150px 24px 80px; }
+  .code { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 18px; }
+  h1 { font-size: clamp(36px, 5vw, 48px); font-weight: 400; color: var(--text-strong); line-height: 1.1; margin-bottom: 16px; }
+  p { font-size: 18px; line-height: 1.7; color: var(--text-mid); margin-bottom: 28px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a {
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; text-decoration: none;
+    color: var(--text-mid); padding: 7px 13px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface);
+  }
+  .links a:hover { color: var(--text-strong); border-color: var(--border-hover); }
+  @media (max-width: 768px) { header { padding: 0 20px; } }
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Site">
+    <a class="nav-name" href="/">Yash Thapliyal</a>
+  </nav>
+</header>
+<main>
+  <div class="code">404</div>
+  <h1>Page not found</h1>
+  <p>The page you're looking for doesn't exist or has moved.</p>
+  <div class="links">
+    <a href="/">Go to the homepage</a>
+    <a href="/#projects">See projects</a>
+    <a href="/#blog">Read the blog</a>
+  </div>
+</main>
+</body>
+</html>

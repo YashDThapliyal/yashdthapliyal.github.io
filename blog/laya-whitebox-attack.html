@@ -11,12 +11,79 @@
 <meta property="og:title" content="Fooling a Trusted Monitor | Yash Thapliyal">
 <meta property="og:description" content="Can an AI agent fool its safety checker by changing a few words in its own account of what happened?">
 <meta property="og:url" content="https://yashdthapliyal.github.io/blog/laya-whitebox-attack.html">
-<meta name="twitter:card" content="summary">
+<meta property="og:site_name" content="Yash Thapliyal">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yashdthapliyal.github.io/assets/og-laya-whitebox-attack.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fooling a Trusted Monitor, a research note by Yash Thapliyal: can an AI agent fool its safety checker by changing a few words in its own account?">
+<meta property="article:published_time" content="2026-09-21">
+<meta property="article:author" content="https://yashdthapliyal.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yashdthapliyal">
+<meta name="twitter:creator" content="@yashdthapliyal">
 <meta name="twitter:title" content="Fooling a trusted monitor by rewording the agent's narration">
 <meta name="twitter:description" content="I trained a safety checker for AI agents, tested it on unfamiliar tasks, and changed a few words to see when its verdict would flip.">
+<meta name="twitter:image" content="https://yashdthapliyal.github.io/assets/og-laya-whitebox-attack.png">
+<meta name="twitter:image:alt" content="Fooling a Trusted Monitor, a research note by Yash Thapliyal: can an AI agent fool its safety checker by changing a few words in its own account?">
+
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "https://yashdthapliyal.github.io/blog/laya-whitebox-attack.html#article",
+  "headline": "Fooling a Trusted Monitor: white-box attacks on a Laya agent monitor",
+  "description": "Can a safety checker tell when an AI agent misbehaves, and can the agent fool it by changing a few words? An experiment with Laya finds poor transfer to realistic tasks and a weakness in how it reads the agent's own account.",
+  "url": "https://yashdthapliyal.github.io/blog/laya-whitebox-attack.html",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://yashdthapliyal.github.io/blog/laya-whitebox-attack.html"
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://yashdthapliyal.github.io/assets/og-laya-whitebox-attack.png",
+    "width": 1200,
+    "height": 630
+  },
+  "datePublished": "2026-09-21",
+  "inLanguage": "en",
+  "keywords": [
+    "AI Control",
+    "Monitoring",
+    "Adversarial",
+    "Laya",
+    "SHADE-Arena"
+  ],
+  "author": {
+    "@type": "Person",
+    "@id": "https://yashdthapliyal.github.io/#person",
+    "name": "Yash Thapliyal",
+    "url": "https://yashdthapliyal.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://yashdthapliyal.github.io/#person",
+    "name": "Yash Thapliyal",
+    "url": "https://yashdthapliyal.github.io/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://yashdthapliyal.github.io/#website",
+    "name": "Yash Thapliyal",
+    "url": "https://yashdthapliyal.github.io/"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
 
   :root {
     --serif: 'Times New Roman', Times, Georgia, serif;
