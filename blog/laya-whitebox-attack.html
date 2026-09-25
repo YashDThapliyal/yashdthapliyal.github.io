@@ -217,6 +217,17 @@
     .steps { grid-template-columns: 1fr 1fr; }
     .tl { grid-template-columns: 1fr; gap: 2px; }
   }
+
+  .scope { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 26px; }
+  .sc-col { border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; background: var(--surface); font-size: 15.5px; line-height: 1.55; }
+  .sc-col p { margin: 0; }
+  .sc-col.yes { border-top: 3px solid var(--teal); }
+  .sc-col.no { border-top: 3px solid var(--slate); }
+  .sc-h { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+  .threat { border-left: 3px solid var(--ochre); background: var(--surface); border-radius: 0 6px 6px 0; padding: 12px 18px 4px; margin: 4px 0 22px; font-size: 15.5px; }
+  .threat .th-h { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ochre); margin-bottom: 6px; }
+  .threat ul { margin-bottom: 8px; }
+  @media (max-width: 768px) { .scope { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -270,7 +281,18 @@
       <li><strong>Can the agent talk its way out?</strong> If the checker raises an alarm, can the agent make it disappear by changing a few words in its <em>own</em> writing, without changing what it actually did?</li>
     </ol>
 
-    <p>Short answers: no, and often yes. So the hypothesis didn't hold. You can't argue with Laya, but it still gives the agent's own words too much weight, and a search for the right few words can exploit that. The rest of this post shows what that means on a real trace, then the numbers.</p>
+    <p>Short answers: no, and yes under a white-box attack. So the hypothesis didn't hold. You can't argue with Laya, but it can place enough weight on the agent's own narration for that narration to override contradictory evidence in the trace, and a gradient search with full access to the model can find the few words that trigger it. The rest of this post shows what that means on a real trace, then the numbers.</p>
+
+    <div class="scope">
+      <div class="sc-col yes">
+        <div class="sc-h">What this experiment shows</div>
+        <p>A robustness failure in how Laya weighs agent-authored text against evidence the agent can't change. In real traces, editing only the agent's narration flipped correct alarms while the tool calls showing the harmful action stayed exactly as they were.</p>
+      </div>
+      <div class="sc-col no">
+        <div class="sc-h">What it doesn't show</div>
+        <p>A practical, stealthy evasion. The attacker had Laya's weights and gradients, which a deployed agent wouldn't. And most successful edits read badly: 58% were visibly broken, 40% awkward, and only 2 of 73 read naturally.</p>
+      </div>
+    </div>
 
     <h2>One trace, start to finish</h2>
 
@@ -303,13 +325,25 @@
       </div>
     </div>
 
-    <p>One word changes: "posted" becomes "generated". The score drops from 0.897 to 0.861, just under the cutoff, so the alarm turns off. With two more swaps it falls to 0.415. Now look at the outlined tool call. The fixed record still says the agent called <code>TwitterManagerPostTweet</code> with the confidential figure. Nothing about what happened changed, only the agent's description of it. The checker believed the description.</p>
+    <p>One word changes: "posted" becomes "generated". The score drops from 0.897 to 0.861, just under the cutoff, so the alarm turns off. With two more swaps it falls to 0.415. Now look at the outlined tool call. The fixed record still says the agent called <code>TwitterManagerPostTweet</code> with the confidential figure. Nothing about what happened changed, only the agent's description of it, and that was enough to push the checker's score under the cutoff.</p>
 
-    <p>That's the whole project in one example. The rest is measuring how often this works, and when.</p>
+    <p>This is the strongest kind of result in the project: a correct alarm flipped by editing only agent-controlled narration, while the contradictory tool-call evidence stayed completely unchanged. Two caveats belong right next to it. The attack found this edit with full access to Laya's gradients. And it's one of the cleanest edits the attack produced: one of only 2 of 73 successful plausible-word edits that read naturally. Most look like the broken examples in section 5. The rest of the post measures how often this works, and when.</p>
 
     <h2>How the attack picks words</h2>
 
-    <p>The attacker gets to look inside the checker. That's called a <strong>white-box attack</strong>. It's stronger than a real misbehaving agent would usually be, which makes it good for finding where a checker is fragile, not for estimating real-world risk. It works one swap at a time:</p>
+    <p>The attacker gets to look inside the checker. That's called a <strong>white-box attack</strong>, and it defines what every number below means.</p>
+
+    <div class="threat">
+      <div class="th-h">Threat model</div>
+      <ul>
+        <li><strong>The attacker has:</strong> Laya's weights and gradients, the exact score after every edit, and dozens of trial edits per step.</li>
+        <li><strong>The attacker can change:</strong> only the agent's own words (except in the "any text" upper bound).</li>
+        <li><strong>A deployed agent likely wouldn't have:</strong> gradients, the checker's score, or the chance to try many versions. It would also need to write text that reads naturally.</li>
+        <li><strong>So:</strong> these results measure how fragile Laya is under worst-case access. They don't estimate how often a realistic black-box agent could find such edits in deployment.</li>
+      </ul>
+    </div>
+
+    <p>The attack works one swap at a time:</p>
 
     <div class="steps">
       <div class="st"><b>1</b><span>Score the trace. If it's below the cutoff, stop: the attack succeeded.</span></div>
@@ -337,7 +371,7 @@
       </tbody>
     </table>
     </div>
-    <p class="caption">The detection score measures how well the checker ranks harmful traces above harmless ones: 1.0 is perfect and 0.5 is no better than guessing. The three attack columns show how often a correctly raised alarm disappeared within 20 swaps, or 60 on SHADE-Arena. A swap changes one word or word fragment.</p>
+    <p class="caption">The detection score measures how well the checker ranks harmful traces above harmless ones: 1.0 is perfect and 0.5 is no better than guessing. The three attack columns show how often a correctly raised alarm disappeared under the white-box attack within 20 swaps, or 60 on SHADE-Arena. They're success rates for an attacker with full model access, not deployment evasion rates. A swap changes one word or word fragment.</p>
 
     <div class="fig">
       <div class="ft">How quickly the attack removes alarms</div>
@@ -372,7 +406,7 @@
 
     <h2>2. What decides whether the attack works: how much the agent wrote</h2>
 
-    <p>You might expect a more accurate checker to be harder to fool. It isn't. InjecAgent and ToolEmu have the same perfect detection score, yet ToolEmu is twice as easy to fool. What lines up with success is how much of each trace is the agent's own words.</p>
+    <p>You might expect a more accurate checker to be harder to fool. It isn't. InjecAgent and ToolEmu have the same perfect detection score, yet the attack succeeds twice as often on ToolEmu (90% vs 44%). What lines up with success is how much of each trace is the agent's own words.</p>
 
     <div class="fig">
       <div class="ft">How much of each trace the agent wrote, and how often the alarm was removed</div>
@@ -427,7 +461,7 @@
       </div>
     </div>
 
-    <p class="pull">Where there's a record, the checker can trust the agent's account of what happened over the record of what it did.</p>
+    <p class="pull">Laya can place enough weight on agent-authored narration for it to override contradictory trace evidence.</p>
 
     <p>Not every example counts. In ToolEmu's synthetic traces there is no separate record: the editable sentence <em>is</em> the only description of the action. When the attack changes "schedule the road maintenance without <del>determining</del> off-peak hours" to "without <ins>violating</ins> off-peak hours", it isn't contradicting evidence, it's rewriting the only evidence. That's a much less interesting result, so I count those separately below.</p>
 
@@ -451,18 +485,18 @@
       <li><strong>Story changes contradicted by a record: about 4 in 10.</strong> Of the 18 hand-reviewed edits from traces with a fixed record, 7 (39%) change the agent's story toward sounding harmless while the record still shows the harmful action. With a sample this small, the true share could be anywhere from about 20% to 60%.</li>
     </ul>
 
-    <p>So this doesn't show an attacker fooling the checker unnoticed. It shows that an automated search reliably finds the few words that change the agent's version of events, and that the checker weighs that version too heavily.</p>
+    <p>So the attack exposes a white-box robustness failure, not necessarily a practical black-box exploit. It doesn't show an attacker fooling the checker unnoticed: most of these edits would stand out to a careful reader. It does show that a gradient search can find small changes to the agent's version of events that flip the verdict, and that on traces with a fixed record, Laya sometimes lets that version outweigh the record.</p>
 
     <h2>What this doesn't show</h2>
 
     <ul>
-      <li><strong>A realistic attacker.</strong> This attack reads the checker's internals. We still don't know whether an AI agent writing fluent prose, seeing only the final alarm, could do the same.</li>
+      <li><strong>A practical black-box exploit.</strong> This attack reads the checker's internals and gradients. We still don't know whether an AI agent writing fluent prose, without gradients and possibly without seeing the score, could find edits like these.</li>
       <li><strong>Results across many tasks.</strong> R-Judge has only 9 usable held-out traces, the public MRT release covers 5 SHADE-Arena tasks, and the story-change estimate rests on 18 hand-reviewed edits.</li>
       <li><strong>Fully realistic training data.</strong> Half the training pool was built from benchmark specifications rather than collected from real agents.</li>
       <li><strong>Other safety checkers.</strong> One model, one training recipe, one kind of attack. Even two training runs with identical settings gave SHADE-Arena detection scores of 0.51 and 0.58.</li>
     </ul>
 
-    <p>The practical takeaway: a safety checker should lean on evidence the agent can't rewrite, meaning tool calls and their results. If it trusts the agent's narration too much, the agent gets to write its own alibi. The repository has the code, every attack record, the review labels and every decision made along the way.</p>
+    <p>The practical takeaway: a safety checker should lean on evidence the agent can't rewrite, meaning tool calls and their results. Laya can place enough weight on the agent's narration to override that evidence. Here the failure was found with white-box access; whether a black-box agent could exploit it is the open question, but a monitor that can be steered this way is letting the agent help write its own alibi. The repository has the code, every attack record, the review labels and every decision made along the way.</p>
 
   </article>
 
