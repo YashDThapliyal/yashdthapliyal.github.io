@@ -1421,6 +1421,12 @@ const questions={eval:'When can we trust an agent?', memory:'What should an agen
 const FULLNAME={orch:'Agentic Research Orchestrator',router:'Intelligent LLM Router',world:'Autonomous Driving World Model',infoembed:'Info Embedding in Neural Networks'};
 const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard','laya','normverif']);
 N.forEach(n=>{ if(FULLNAME[n.id]) n.label=FULLNAME[n.id]; n.feat=FEAT.has(n.id); });
+// Display order within each section: strongest research first (clear question, measured result, write-up).
+const ORDER=['normverif','laya','tipguard','corro','shadow','evalforge','infoembed',
+  'chronos','skillrunes','memochain',
+  'actionrank','mettle','orch','router',
+  'world','llama','gita'];
+const rank=n=>{ const i=ORDER.indexOf(n.id); return i<0 ? ORDER.length : i; };
 // Short scan copy; full project write-ups remain available in the dialog.
 const summaries={
   corro:'Can agents tell independent evidence from duplicated sources?',
@@ -1447,13 +1453,24 @@ const outcomes={
   shadow:'Caught 5/5 tested attack categories; token scanning caught 2/5.',
   chronos:'93% accuracy on a temporal-reasoning benchmark with LLM judging.',
   normverif:'8B verifier false acceptance: 7% → 47–65% under persuasive reports.',
-  actionrank:'247 ms vs. 632 ms per decision; top-1 accuracy 2.6 points lower.'
+  actionrank:'247 ms vs. 632 ms per decision; top-1 accuracy 2.6 points lower.',
+  tipguard:'Raw-prompt classifier + output check blocked 751 of 752 attacks; decoding added nothing.',
+  laya:'HotFlip edits removed 44\u201390% of correct alarms within 20 word swaps.',
+  infoembed:'Hidden data embedded in weights while keeping 90%+ accuracy.',
+  memochain:'Published on PyPI; zero external infrastructure dependencies.',
+  skillrunes:'Open-source PyPI CLI with failure, compaction, and token tracking.',
+  mettle:'Single-shot repair generalized better; repair search won on regressions.',
+  orch:'Coordinates 4 specialized agents across 20+ ML models.',
+  router:'Balances latency, cost, and accuracy across 20+ LLMs.',
+  world:'46.2% less temporal jitter; 52 driving intents across 9 scenarios.',
+  llama:'Beat-synced edits, object removal, and multi-turn visual Q&A with LLaMA-4.',
+  gita:'700+ verses indexed in ChromaDB for semantic retrieval.'
 };
 const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
 const listEl=document.getElementById('pa-list'), topics=document.getElementById('pa-topics');
 document.getElementById('pa-total').textContent=`${N.length} projects / ${order.length} areas`;
 order.forEach((k,i)=>{
-  const c=CL[k], items=N.filter(n=>n.cl===k).sort((a,b)=>Number(b.feat)-Number(a.feat));
+  const c=CL[k], items=N.filter(n=>n.cl===k).sort((a,b)=>rank(a)-rank(b));
   const topic=document.createElement('button');
   topic.className='pa-topic'; topic.style.setProperty('--cc',c.hex); topic.dataset.topic=k;
   topic.setAttribute('aria-controls','pa-list');
