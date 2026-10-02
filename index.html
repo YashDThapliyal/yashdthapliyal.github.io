@@ -1402,6 +1402,12 @@ const N = [
       'The monitor was near-perfect on two of its three training-style datasets (AUROC 1.00) but near chance on held-out SHADE-Arena sabotage (0.58), flagging 92% of harmless traces. A white-box HotFlip attack editing only the agent\u2019s own words removed 44\u201390% of correct alarms on its training-style datasets within 20 word swaps (47\u2013100% when every swap had to be a plausible word), but only 17% on SHADE-Arena, where the agent writes little of the trace.',
       'Success tracked how much of the trace the agent wrote, not monitor accuracy: in InjecAgent, 83% of alarms fell when one fixed tool call was the evidence vs. 7% with two. On traces with a fixed action record, about 4 in 10 successful edits changed the agent\u2019s story (\u201cposted\u201d \u2192 \u201cgenerated\u201d) while the record still showed the harm.'],
     tags:['AI Safety','Monitoring','Adversarial ML','Laya'], links:[['Repo','https://github.com/YashDThapliyal/laya-whitebox-attack'],['Report','blog/laya-whitebox-attack.html']] },
+  { id:'normverif', label:'Verifier Attacks on Norm Enforcement', cl:'eval',
+    desc:'Can agents talk the verifier into banning honest competitors? Attacking reputation-based norm enforcement.',
+    full:['Reimplemented Ye & Steinhardt’s norm-enforcement setup (2026), where LLM agents share a fishery, report each other for breaking community norms, and a small LM verifier decides which reports get the target removed. Tested the threat the paper leaves out of scope: bad actors writing reports designed to persuade the verifier.',
+      'On 60 clean logs with known ground truth, reports written to persuade the verifier raised a Qwen3-8B verifier’s false-acceptance rate from 7% to 47–65%. In this reimplementation, the 0.6B verifier model the paper uses accepted 87% of plain false reports. Hiding the reporter’s justification eliminated false acceptances but cut the 8B verifier’s recall from 85% to 40%.',
+      'Across 49 simulation runs with Qwen3-8B agents, a fooled verifier inverted the reputation mechanisms: EscRepVote’s bad reporters ended at mean reputation 0.88, versus 0.40 under the paper’s explicit-abuse setting, and none fell below the verification threshold, because reputation updates trust the verifier’s verdicts. The paper’s mechanism comparison only partly replicated at this scale (8 agents, 2–3 seeds).'],
+    tags:['AI Safety','Multi-Agent','Adversarial','Replication'], links:[['Repo','https://github.com/YashDThapliyal/norm-enforcement-verifier-attack']] },
   { id:'actionrank', label:'ActionRank', cl:'orch',
     desc:'Score the whole toolbox in one forward pass instead of generating a tool call.',
     full:['Tested Netflix\u2019s GenRec \u201cscore, don\u2019t generate\u201d idea on agent tool selection: run the LLM once over the context and score every candidate tool from that single pass, instead of decoding a function call token by token.',
@@ -1413,7 +1419,7 @@ const nodeById=Object.fromEntries(N.map(n=>[n.id,n]));
 const order=['eval','memory','orch','applied'];
 const questions={eval:'When can we trust an agent?', memory:'What should an agent remember?', orch:'How do agents choose and coordinate?', applied:'What can AI do with real-world inputs?'};
 const FULLNAME={orch:'Agentic Research Orchestrator',router:'Intelligent LLM Router',world:'Autonomous Driving World Model',infoembed:'Info Embedding in Neural Networks'};
-const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard','laya']);
+const FEAT=new Set(['corro','evalforge','chronos','shadow','actionrank','tipguard','laya','normverif']);
 N.forEach(n=>{ if(FULLNAME[n.id]) n.label=FULLNAME[n.id]; n.feat=FEAT.has(n.id); });
 // Short scan copy; full project write-ups remain available in the dialog.
 const summaries={
@@ -1422,6 +1428,7 @@ const summaries={
   shadow:'Detecting agent attacks through sandboxed execution evidence.',
   tipguard:'Testing whether decoding hidden requests improves guardrails.',
   laya:'White-box attacks on a fine-tuned, non-LLM safety monitor.',
+  normverif:'Persuasive false reports fool the verifier behind reputation-based enforcement.',
   infoembed:'How much information can neural-network weights hide?',
   chronos:'Persistent agent memory with graph-based temporal reasoning.',
   memochain:'Persistent conversation memory in under five lines of Python.',
@@ -1439,6 +1446,7 @@ const outcomes={
   evalforge:'6 models tested across 216 live episodes.',
   shadow:'Caught 5/5 tested attack categories; token scanning caught 2/5.',
   chronos:'93% accuracy on a temporal-reasoning benchmark with LLM judging.',
+  normverif:'8B verifier false acceptance: 7% → 47–65% under persuasive reports.',
   actionrank:'247 ms vs. 632 ms per decision; top-1 accuracy 2.6 points lower.'
 };
 const modal=document.getElementById('pa-modal'), modalBox=document.getElementById('pa-modalBox');
