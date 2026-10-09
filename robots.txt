@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yashdthapliyal.github.io/sitemap.xml
+Sitemap: https://yashdthapliyal.com/sitemap.xml
