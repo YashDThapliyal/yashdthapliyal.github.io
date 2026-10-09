@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>projects · yash thapliyal</title>
+<meta name="description" content="Research projects by Yash Thapliyal: agent evaluation, monitoring, and AI safety. Each one starts with a question and reports the result.">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
+</head>
+<body>
+<header>
+  <a class="name" href="index.html">yash thapliyal</a>
+  <nav>
+    <a href="projects.html" aria-current="page">projects</a>
+    <a href="writing.html">writing</a>
+    <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
+  </nav>
+</header>
+
+<main class="wide">
+  <h1 class="page-title">projects</h1>
+
+  <h2 class="section-title">can safety checks be fooled?</h2>
+
+  <details class="proj">
+    <summary><span class="p-why">an ai referee decides which reports to believe and who gets banned. can a persuasive agent talk it into believing false reports about honest competitors?</span><span class="p-name">verifier attacks on norm enforcement</span></summary>
+    <div class="p-body">
+      <p class="p-kind">study &middot; replication</p>
+      <p class="p-what">7% &rarr; 65% false reports a qwen3-8b verifier accepted once they were written to persuade</p>
+      <p class="r">across 49 simulations, a fooled verifier inverted the reputation system: bad reporters ended at 0.88 reputation and none fell below the cutoff.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/norm-enforcement-verifier-attack">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">a safety monitor that doesn't reason in words can't be argued with. but can an agent fool it just by rewording its own account of what it did?</span><span class="p-name">fooling a trusted monitor</span></summary>
+    <div class="p-body">
+      <p class="p-kind">study &middot; write-up</p>
+      <p class="p-what">44&ndash;90% of correct alarms removed within 20 word swaps, editing only the agent's words</p>
+      <p class="r">success tracked how much of the trace the agent wrote, not how accurate the monitor was.</p>
+      <p class="links"><a href="blog/laya-whitebox-attack.html">read report</a><a href="https://github.com/YashDThapliyal/laya-whitebox-attack">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">attacks hidden inside encoding puzzles seem to call for a guard that decodes them before judging. do they?</span><span class="p-name">tip-guard</span></summary>
+    <div class="p-body">
+      <p class="p-kind">study &middot; benchmark</p>
+      <p class="p-what">no a plain classifier plus output check already blocked 751 of 752 attacks</p>
+      <p class="r">20 arms, 27,709 model calls. what mattered instead: how the secret was framed moved leak rates from 0.03 to 0.75.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/TIP-Guard">code</a></p>
+    </div>
+  </details>
+
+  <h2 class="section-title">how do we catch an agent misbehaving?</h2>
+
+  <details class="proj">
+    <summary><span class="p-why">a harmless-looking command can do something harmful. does watching what actually runs catch more attacks than reading what the agent types?</span><span class="p-name">shadowcommit</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system</p>
+      <p class="p-what">5/5 vs 2/5 attack categories caught by shadow execution vs token monitoring, 0 false positives</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/ShadowCommit">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">agents can claim they finished a task when they didn't. how big is the gap between what they claim and what a hidden check confirms?</span><span class="p-name">evalforge</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system &middot; demo</p>
+      <p class="p-what">216 episodes across 6 models, checked against hidden ground truth with no llm judge</p>
+      <p class="r">showed measurable gaps between apparent and verified success. now being extended into an rl environment.</p>
+      <div class="links"><a href="https://github.com/YashDThapliyal/EvalForge">code</a><details class="demo"><summary>watch demo</summary><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/YAVRJJiykAE" title="EvalForge demo" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></details></div>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">hearing one source repeat a claim three times isn't the same as hearing it from three sources. do agents know the difference?</span><span class="p-name">corroborationbench</span></summary>
+    <div class="p-body">
+      <p class="p-kind">benchmark</p>
+      <p class="p-what">49% &rarr; 78% correct authorization once given an explicit evidence policy</p>
+      <p class="r">1,200 evaluations on 4 frontier models. they still counted independent sources correctly only 69% of the time.</p>
+    </div>
+  </details>
+
+  <h2 class="section-title">what do models favor, and what can they hide?</h2>
+
+  <details class="proj">
+    <summary><span class="p-why">a paper found gemma models favor "love" and llama models lean toward "freedom". is that a family trait, or something every small model does?</span><span class="p-name">asking ai for the greatest thing ever</span></summary>
+    <div class="p-body">
+      <p class="p-kind">replication &middot; write-up</p>
+      <p class="p-what">540 / 540 of gemma 3 4b's answers were "love"; no model's freedom-type share reached 4%</p>
+      <p class="r">the paper's measurement reproduced on a laptop, but nearly every small model says love. gemma differs in how certain it is, not which value it picks. both pre-registered predictions failed.</p>
+      <p class="links"><a href="blog/model-value-survey.html">read report</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">how much hidden information can a neural network carry in its weights before its accuracy gives it away?</span><span class="p-name">info in weights</span></summary>
+    <div class="p-body">
+      <p class="p-kind">research &middot; sjsu</p>
+      <p class="r">analyzed capacity&ndash;accuracy tradeoffs by embedding hidden information in neural-network weights while keeping 90%+ accuracy, probing how much a model can conceal without visible degradation.</p>
+      <p class="r">research at san jose state university, at the intersection of steganography, interpretability and deep learning.</p>
+      <p class="links"><a href="https://colab.research.google.com/drive/1Axc93VmZi4ech7Nw6iGqgkjloETYTxeG?usp=sharing">demo</a></p>
+    </div>
+  </details>
+
+  <h2 class="section-title">how should agents make decisions?</h2>
+
+  <details class="proj">
+    <summary><span class="p-why">instead of writing out a tool name word by word, could an agent score its whole toolbox in one pass and pick just as well?</span><span class="p-name">actionrank</span></summary>
+    <div class="p-body">
+      <p class="p-kind">study &middot; write-up</p>
+      <p class="p-what">97.5% vs 90.7% right tool in the top five, scoring vs generating</p>
+      <p class="r">2.6 points behind on top-1, level on mrr@5, and it never picked a tool that doesn't exist.</p>
+      <p class="links"><a href="blog/actionrank.html">read report</a><a href="https://github.com/YashDThapliyal/ActionRank">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">when an agent fails, is it better to make one strong fix, or to try many fixes and keep the best?</span><span class="p-name">mettle</span></summary>
+    <div class="p-body">
+      <p class="p-kind">study &middot; demo</p>
+      <p class="p-what">split one-shot repair generalized better on held-out tasks; search won on regressions</p>
+      <div class="links"><a href="https://github.com/YashDThapliyal/mettle-agent-repair-search">code</a><details class="demo"><summary>watch demo</summary><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/tyMPjxk07K0" title="Mettle demo" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></details></div>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">no single ai model is best at everything. this sends each prompt to the model that is fast, cheap and good enough for it.</span><span class="p-name">llm router</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system</p>
+      <p class="r">dynamically dispatches prompts across 20+ llms based on real-time latency, cost and task-specific performance, with custom scoring to balance speed, price and accuracy.</p>
+      <p class="r">extended with gpu-accelerated hosting for onboarding hugging face models on demand.</p>
+      <p class="links"><a href="https://github.com/yashthapliyal/Apanto">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">running machine-learning experiments end to end is slow, manual work. this hands it to a team of specialist ai agents that plan, run, check and debug them.</span><span class="p-name">research orchestrator</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system</p>
+      <p class="r">a multi-agent ml platform that schedules, manages and monitors research experiments end to end, coordinating 4 specialized agents with 20+ ml models to produce reproducible code, logs, metrics and reports.</p>
+      <p class="r">a closed loop executes, verifies, debugs and retries generated code to reduce hallucinations.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/ResearchAgents">code</a></p>
+    </div>
+  </details>
+
+  <h2 class="section-title">what should an agent remember?</h2>
+
+  <details class="proj">
+    <summary><span class="p-why">facts change over time. does a memory that records <em>when</em> each fact was true help an agent reason about change?</span><span class="p-name">chronosgraph</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system</p>
+      <p class="p-what">93% on an adversarial temporal-reasoning benchmark, ahead of blind and context-stuffed baselines</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/ChronosGraph">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">what a coding agent learns in one session is usually lost by the next. this turns past sessions into notes that carry forward.</span><span class="p-name">skillrunes</span></summary>
+    <div class="p-body">
+      <p class="p-kind">open source &middot; pypi</p>
+      <p class="r">an open-source cli that reads past coding-agent sessions, extracts what worked and what failed, and turns it into versioned skill.md updates for the project.</p>
+      <p class="r">comes with a fastapi dashboard tracking failure patterns, context compactions, token usage, skill history and eval results.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/SkillRunes">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">every llm app needs to remember past conversations. this adds that in a few lines of python, with no database.</span><span class="p-name">memochain</span></summary>
+    <div class="p-body">
+      <p class="p-kind">open source &middot; pypi</p>
+      <p class="r">a lightweight python library that adds persistent conversation memory to any llm app in under five lines of code.</p>
+      <p class="r">configurable context windows, native openai integration, custom session management, and no external infrastructure.</p>
+      <p class="links"><a href="https://pypi.org/project/memochain/">pypi</a></p>
+    </div>
+  </details>
+
+  <h2 class="section-title">what can ai do with real-world input?</h2>
+
+  <details class="proj">
+    <summary><span class="p-why">video editing takes skill and time. this lets you edit just by describing what you want.</span><span class="p-name">llamaframe</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system &middot; demo</p>
+      <p class="r">beat-synced cuts from spectrogram analysis, object removal, and multi-turn visual q&amp;a with llama-4.</p>
+      <div class="links"><details class="demo"><summary>watch demo</summary><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/34ZKPqfge2M" title="LlamaFrame demo" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></details></div>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">a driving system is easier to trust if you can see what it thinks is happening. this turns dashcam video into a readable picture of the road and a suggested next move.</span><span class="p-name">driving world model</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system</p>
+      <p class="r">an interpretable video-based autopilot: a 7-stage pipeline spanning perception, temporal smoothing, behavioral segmentation and planning turns raw dashcam footage into symbolic world states and next actions.</p>
+      <p class="r">cut temporal jitter by 46.2%, and segmented 200+ frames into 43 behavioral phases and 52 driving intents across 9 scenarios.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/Autonomous-Driving-World-Model">code</a></p>
+    </div>
+  </details>
+
+  <details class="proj">
+    <summary><span class="p-why">a chatbot answering questions about an ancient text can misquote it. this grounds every answer in the actual verses.</span><span class="p-name">gita-gpt</span></summary>
+    <div class="p-body">
+      <p class="p-kind">system</p>
+      <p class="r">retrieval-augmented question answering on bhagavad gita teachings, using llama via groq for real-time answers.</p>
+      <p class="r">parses, chunks and embeds 700+ verses into a chromadb vector store for fast semantic search, so every answer is grounded in retrieved passages.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/GITA-GPT">code</a></p>
+    </div>
+  </details>
+
+</main>
+
+<footer>
+  <a href="https://github.com/YashDThapliyal">github</a><span class="sep">&middot;</span><a href="https://linkedin.com/in/yashdthapliyal">linkedin</a><span class="sep">&middot;</span><a href="mailto:yash.thapliyal@berkeley.edu">email</a>
+</footer>
+</body>
+</html>
