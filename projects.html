@@ -57,6 +57,16 @@
     </div>
   </details>
 
+  <details class="proj">
+    <summary><span class="p-why">to ship a big ai model cheaply, people shrink it into a smaller one and assume any hidden backdoor is left behind. is it?</span><span class="p-name">distilled poison</span></summary>
+    <div class="p-body">
+      <p class="p-kind">study &middot; defensive research</p>
+      <p class="p-what">0 / 200 backdoor transfer through clean distillation &mdash; but near-full once the trigger taints 25% of the training data</p>
+      <p class="r">shrinking the model doesn't wash out the backdoor on its own. what decides it is whether the secret trigger phrase stays out of the distillation data. single-seed pilot on a qwen 1.5b&rarr;0.5b pair, with a benign canary and an inert stub tool throughout.</p>
+      <p class="links"><a href="https://github.com/YashDThapliyal/distilled-poison">code</a></p>
+    </div>
+  </details>
+
   <h2 class="section-title">how do we catch an agent misbehaving?</h2>
 
   <details class="proj">
