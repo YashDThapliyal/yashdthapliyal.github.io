@@ -126,8 +126,27 @@ main.wide { max-width: 720px; }
 .page-title + .section-title { margin-top: 0; }
 main.wide .section-title { margin: 48px 0 6px; font: 600 20px/1.35 var(--serif); color: var(--text); }
 main.wide .section-title:first-of-type { margin-top: 0; }
+/* topics: collapsed by default so the page reads as an index of questions */
+.topic { border-top: 1px solid var(--rule); }
+.topic:last-of-type, .topic:has(+ .tier) { border-bottom: 1px solid var(--rule); }
+.tier { font: var(--fs-meta)/1.6 var(--mono); color: var(--dim); letter-spacing: .08em; margin: 0 0 8px; }
+.topic + .tier { margin-top: 44px; }
+.topic > summary {
+  list-style: none; cursor: pointer;
+  display: grid; grid-template-columns: 16px 1fr; gap: 2px 14px; align-items: baseline;
+  padding: 18px 0;
+}
+.topic > summary::-webkit-details-marker { display: none; }
+.topic > summary::before { content: "\25B8"; font: var(--fs-meta)/1 var(--mono); color: var(--dim); grid-row: 1; }
+.topic[open] > summary::before { content: "\25BE"; color: var(--link); }
+main.wide .topic .section-title { margin: 0; }
+.topic > summary:hover .section-title { color: var(--link); }
+.t-list { grid-column: 2; font: var(--fs-meta)/1.6 var(--mono); color: var(--dim); }
+.topic[open] .t-list { display: none; }
+.t-body { margin: 0 0 12px 30px; }
+
 .proj { border-top: 1px solid var(--rule); }
-.section-title + .proj { border-top: 0; }
+.section-title + .proj, .t-body > .proj:first-child { border-top: 0; }
 .proj summary {
   list-style: none; cursor: pointer;
   display: grid; grid-template-columns: 16px 1fr; gap: 4px 14px; align-items: baseline;
@@ -144,9 +163,15 @@ main.wide .section-title:first-of-type { margin-top: 0; }
 .p-body .p-what { margin-top: 6px; }
 .p-body .r { color: var(--mid); margin-top: 8px; }
 .p-body .links { margin-top: 10px; font: var(--fs-meta)/1.6 var(--mono); display: flex; flex-wrap: wrap; gap: 16px; align-items: baseline; }
+.p-media { margin-top: 12px; }
+.p-media video { display: block; width: 100%; height: auto; background: var(--rule); border-radius: 4px; }
+.p-media.square video { max-width: 360px; aspect-ratio: 1; }
+.p-media figcaption { margin-top: 6px; font: var(--fs-meta)/1.6 var(--mono); color: var(--dim); }
+.topic, .proj { scroll-margin-top: 16px; }
 
 @media (max-width: 620px) {
   .p-body { margin-left: 16px; }
+  .t-body { margin-left: 0; }
 }
 
 @media print { body::after { display: none; } .proj > summary::before { display: none; } .fig, .scope, .tbl-wrap { break-inside: avoid; } }
