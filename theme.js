@@ -8,8 +8,9 @@
     if (set) return set;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
+  // dark is the default; light only when the visitor has picked it with the toggle
   var saved = read();
-  if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+  root.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.getElementById('theme');
     if (!btn) return;
