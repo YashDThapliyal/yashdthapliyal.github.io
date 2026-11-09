@@ -201,6 +201,23 @@
 
   <p class="tier">engineering</p>
 
+  <details class="topic" id="systems">
+    <summary><h2 class="section-title">systems</h2><span class="t-list">gameboygpt</span></summary>
+    <div class="t-body">
+    <details class="proj" id="gameboygpt">
+      <summary><span class="p-why">the 1989 game boy has an 8-bit cpu with no multiply instruction. can it still run a neural network that writes every word of its own replies?</span><span class="p-name">gameboygpt</span></summary>
+      <div class="p-body">
+        <p class="p-kind">system &middot; sm83 assembly &middot; demo</p>
+        <p class="p-what">a 44,288-parameter transformer in hand-written assembly: first word in 2.4 s, 9.76&times; faster than the unoptimized build with the same tokens</p>
+        <figure class="p-media"><video src="assets/gameboygpt-demo.mp4" poster="assets/gameboygpt-demo.jpg" muted loop playsinline preload="none" aria-label="Talking to the robot in the browser: typing to it, then trying to turn the console off while it replies"></video><figcaption>real emulator footage, waits sped up. every word on the console's screen comes from the model.</figcaption></figure>
+        <p class="r">a one-block transformer in 8-bit fixed point that plays a robot who insults you. multiplying uses quarter-square tables, weights stream through the stack pointer, and a k/v cache avoids redoing past tokens. the output layer over its 720-token vocabulary is factored through 16 values, each with a table of its products rebuilt in cartridge ram for every token: 1.29&times; faster, bit-identical results.</p>
+        <p class="r">every token is checked against an independent integer reference, including in the browser's webassembly emulator. timings are counted cycles in emulation; it hasn't run on a physical console. people wrote its sentences: the model picks, conditions and recombines them, and its memory of you lives in the prompt and the cartridge save.</p>
+        <p class="links"><a href="https://gameboygpt.vercel.app">try it</a><a href="https://github.com/YashDThapliyal/GameBoyGPT">code</a></p>
+      </div>
+    </details>
+    </div>
+  </details>
+
   <details class="topic" id="agent-tools">
     <summary><h2 class="section-title">tools for agents and llm apps</h2><span class="t-list">llm router &middot; research orchestrator &middot; memochain</span></summary>
     <div class="t-body">
